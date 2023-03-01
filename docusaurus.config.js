@@ -7,7 +7,7 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: "Paradicms",
-  tagline: "The do-it-yourself Collections Management System",
+  tagline: "The free, do-it-yourself Collections Management System",
   favicon: "img/favicon.ico",
 
   // Set the production url of your site here
@@ -77,6 +77,11 @@ const config = {
             label: "Tutorial",
           },
           // {to: '/blog', label: 'Blog', position: 'left'},
+          {
+            position: "left",
+            label: "GitHub",
+            to: "https://github.com/paradicms",
+          },
         ],
       },
       footer: {
@@ -105,7 +110,7 @@ const config = {
         //     ],
         //   },
         // ],
-        // copyright: `Copyright © ${new Date().getFullYear()} Minor Gordon`,
+        copyright: `Copyright © ${new Date().getFullYear()} Minor Gordon`,
       },
       prism: {
         theme: lightCodeTheme,

@@ -24,7 +24,7 @@ const benefits: FeatureItem[] = [
     ),
   },
   {
-    title: "No local installation necessary",
+    title: "No local installation, no self-hosting",
     description: (
       <>
         You don't need to install any software on your machine in order to use
@@ -37,8 +37,12 @@ const benefits: FeatureItem[] = [
     title: "Rendering data",
     description: (
       <>
-        Paradicms provides multiple ways of rendering collection data, from
+        Paradicms provides multiple ways of rendering collection data as{" "}
+        <Link to="https://lib-static.github.io/">static web sites</Link>, from
         single- and multi-page digital exhibitions to faceted search interfaces.
+        The generated sites -- a set of HTML, CSS, and JavaScript files -- can
+        be hosted on your institution's web pages or by using a variety of free
+        services, such as GitHub Pages.
       </>
     ),
   },
@@ -117,11 +121,11 @@ export default function Home(): JSX.Element {
         </div>
       </header>
       <main>
-        <section className={styles.features}>
+        <section className={clsx("padding-vert--lg", styles.benefits)}>
           <div className="container">
             <div className="row">
               <div className="col text--center">
-                <h1>Why Paradicms?</h1>
+                <h1 className={styles.sectionHeader}>Why Paradicms?</h1>
               </div>
             </div>
             <div className="row">
@@ -131,11 +135,33 @@ export default function Home(): JSX.Element {
             </div>
           </div>
         </section>
-        <section className={styles.features}>
+        <section
+          className={clsx("padding-bottom--lg", styles.screenshotSection)}
+        >
+          <div className="container">
+            <div className="row">
+              <div className="col">
+                <figure>
+                  <figcaption className="padding-bottom--sm text--center">
+                    A faceted search interface generated from the{" "}
+                    <Link to="https://airtable.com/shryU3j5IXFxjrdEy/tblUeStXG6w5MMGlF/viwlbQDtd6H80rzVw">
+                      Costume Core Airtable Template
+                    </Link>
+                  </figcaption>
+                  <img
+                    className={styles.screenshotImg}
+                    src="/img/index-screenshot.png"
+                  />
+                </figure>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section className={styles.featuresSection}>
           <div className="container">
             <div className="row">
               <div className="col text--center">
-                <h1>Features</h1>
+                <h1 className={styles.sectionHeader}>Features</h1>
               </div>
             </div>
             <div className="row">

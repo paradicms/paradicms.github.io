@@ -3,7 +3,20 @@
  * and scoped locally.
  */
 
-.features {
+.benefitsSection {
+  display: flex;
+  align-items: center;
+  padding: 2rem 0;
+  width: 100%;
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.featuresSection {
   display: flex;
   align-items: center;
   padding: 2rem 0;
@@ -28,8 +41,14 @@
   }
 }
 
-.buttons {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.screenshotImg {
+  padding: 8px;
+}
+
+.screenshotSection {
+  background-color: var(--ifm-color-secondary-lighter);
+}
+
+.sectionHeader {
+  padding-bottom: 1rem;
 }
