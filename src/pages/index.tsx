@@ -12,34 +12,73 @@ type FeatureItem = {
   description: JSX.Element;
 };
 
-const FeatureList: FeatureItem[] = [
+const benefits: FeatureItem[] = [
   {
-    title: "Easy to Use",
+    title: "Flexible data entry",
+    description: (
+      <>
+        Paradicms doesn't force you to use a built-in editor. It extracts and
+        transforms data from a variety of formats -- including Airtable, Excel,
+        Google Sheets, Markdown, and Omeka -- into a Linked Data representation.
+      </>
+    ),
+  },
+  {
+    title: "No local installation necessary",
+    description: (
+      <>
+        You don't need to install any software on your machine in order to use
+        Paradicms, but can use it in conjunction with free cloud services such
+        as Google Sheets and GitHub.
+      </>
+    ),
+  },
+  {
+    title: "Rendering data",
+    description: (
+      <>
+        Paradicms provides multiple ways of rendering collection data, from
+        single- and multi-page digital exhibitions to faceted search interfaces.
+      </>
+    ),
+  },
+];
+
+const features: FeatureItem[] = [
+  {
+    title: "Linked Data native",
     // Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
     description: (
       <>
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
+        Paradicms represents collection data using{" "}
+        <Link to="https://www.w3.org/RDF/">RDF</Link> graphs and standard
+        vocabularies such as{" "}
+        <Link to="https://en.wikipedia.org/wiki/Dublin_Core">Dublin Core</Link>,{" "}
+        <Link to="https://www.loc.gov/standards/vracore/">VRA Core</Link>, and{" "}
+        <Link to="https://www.w3.org/TR/owl-time/"> OWL Time</Link>.
       </>
     ),
   },
   {
-    title: "Focus on What Matters",
+    title: "Open source",
     // Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
     description: (
       <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-        ahead and move your docs into the <code>docs</code> directory.
+        Paradicms is free to use and extend. Its source code is available on{" "}
+        <Link to="https://github.com/paradicms">GitHub</Link> under the{" "}
+        <Link to="https://www.gnu.org/licenses/gpl-3.0.en.html">
+          GPLv3 license
+        </Link>
       </>
     ),
   },
   {
-    title: "Powered by React",
+    title: "Modern",
     // Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
     description: (
       <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
+        Paradicms is built using modern technologies, including Docker,
+        React.js, Next.js, TypeScript, and typed Python.
       </>
     ),
   },
@@ -53,7 +92,7 @@ function Feature({title, description}: FeatureItem) {
       {/*</div>*/}
       <div className="text--center padding-horiz--md">
         <h3>{title}</h3>
-        <p>{description}</p>
+        <p className="text--justify">{description}</p>
       </div>
     </div>
   );
@@ -62,10 +101,7 @@ function Feature({title, description}: FeatureItem) {
 export default function Home(): JSX.Element {
   const {siteConfig} = useDocusaurusContext();
   return (
-    <Layout
-      title={`Hello from ${siteConfig.title}`}
-      description="Description will go into a meta tag in <head />"
-    >
+    <Layout>
       <header className={clsx("hero hero--primary", styles.heroBanner)}>
         <div className="container">
           <h1 className="hero__title">{siteConfig.title}</h1>
@@ -75,7 +111,7 @@ export default function Home(): JSX.Element {
               className="button button--secondary button--lg"
               to="/docs/intro"
             >
-              Get started ⏱️
+              Get started
             </Link>
           </div>
         </div>
@@ -84,7 +120,26 @@ export default function Home(): JSX.Element {
         <section className={styles.features}>
           <div className="container">
             <div className="row">
-              {FeatureList.map((props, idx) => (
+              <div className="col text--center">
+                <h1>Why Paradicms?</h1>
+              </div>
+            </div>
+            <div className="row">
+              {benefits.map((props, idx) => (
+                <Feature key={idx} {...props} />
+              ))}
+            </div>
+          </div>
+        </section>
+        <section className={styles.features}>
+          <div className="container">
+            <div className="row">
+              <div className="col text--center">
+                <h1>Features</h1>
+              </div>
+            </div>
+            <div className="row">
+              {features.map((props, idx) => (
                 <Feature key={idx} {...props} />
               ))}
             </div>
