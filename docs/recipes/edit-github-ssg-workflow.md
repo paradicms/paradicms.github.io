@@ -1,9 +1,8 @@
 # Recipe: edit the configuration of a Paradicms GitHub Action static site generation workflow
 
-### Navigate to the "Code" tab on your GitHub repository
+### Navigate to the *Code* tab on your GitHub repository
 
 ![Screenshot of GitHub code tab](img/github-code-tab.png)
-
 
 ### Select the `.github/workflows` folder
 
@@ -23,6 +22,6 @@
 
 ### Commit changes
 
-When you are done editing, click the "Start commit" button on the right, then the "Commit changes" button.
+When you are done editing, click the *Start commit* button on the right, then the *Commit changes* button.
 
 ![Screenshot of commit changes to the GitHub Actions workflow](img/edit-github-ssg-workflow/commit.png)

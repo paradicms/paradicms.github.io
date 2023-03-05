@@ -57,14 +57,14 @@ In the editor, change the `spreadsheet` value to the URL of your spreadsheet.
 
 When you're done, commit changes by following the editing recipe.
 
-## Generate the site
+### Generate the site
 
 Follow the [recipe on manually running a GitHub Actions workflow](../recipes/run-github-ssg-workflow).
 
-## Navigate to your site
+### Navigate to your site
 
 Follow the [recipe on visiting your GitHub Pages site](../recipe/visit-github-pages).
 
-## Next steps
+### Next steps
 
 Your new Google Sheet contains example collection data copied from teh template. When you are ready, clear this data (rows 2+) in each sheet, and proceed to the tutorial on [editing collection data in a spreadsheet](./edit-spreadsheet).

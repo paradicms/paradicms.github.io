@@ -1,6 +1,6 @@
 # Recipe: edit the Paradicms app configuration on GitHub
 
-### Navigate to the "Code" tab of your GitHub repository
+### Navigate to the *Code* tab of your GitHub repository
 
 ![Screenshot of GitHub code tab](img/github-code-tab.png)
 
@@ -18,6 +18,6 @@
 
 ### Commit changes
 
-When you're done editing, scroll to the bottom of the screen and click the "Commit changes" button.
+When you're done editing, scroll to the bottom of the screen and click the *Commit changes* button.
 
 ![Screenshot of commit changes to the app configuration in GitHub](img/edit-paradicms-app-configuration-on-github/commit.png)

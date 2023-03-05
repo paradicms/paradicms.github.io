@@ -8,12 +8,12 @@ The following steps assume:
 
 ### Use this template
 
-Click the "Use this template" button on the template repository page.
+Click the *Use this template* button on the template repository page.
 
 
 ### Create a new repository
 
-Click the "Create a new repository" button.
+Click the *Create a new repository* button.
 
 ![Screenshot of using this template in GitHub](img/create-github-repository/use-this-template.png)
 
@@ -21,7 +21,7 @@ Click the "Create a new repository" button.
 
 ### Enter a name for your new repository
 
-You can name the repository as you wish. We'll call it "my-collection" here.
+You can name the repository as you wish. We'll call it *my-collection* here.
 
 ![Screenshot of creating a new repository in GitHub](img/create-github-repository/create-new-repository.png)
 
@@ -29,4 +29,4 @@ You can name the repository as you wish. We'll call it "my-collection" here.
 
 ### Create the repository
 
-When you're done typing in the name of your repository, click the "Create repository from template" button.
+When you're done typing in the name of your repository, click the *Create repository from template* button.

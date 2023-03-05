@@ -6,6 +6,6 @@ The address of your site is a combination of your GitHub username/organization a
 
 [https://minorg.github.io/my-collection/](https://minorg.github.io/my-collection/)
 
-Alternatively, you can find the site address on the GitHub Pages configuration on your GitHub repository. Navigate to the "Settings" tab, then to "Pages" in the left sidebar, as before. From there you can click the "Visit site" button.
+Alternatively, you can find the site address on the GitHub Pages configuration on your GitHub repository. Navigate to the Settings tab, then to Pages in the left sidebar, as before. From there you can click the "Visit site" button.
 
 ![Screenshot of a successfully-configured, live GitHub Pages](img/visit-github-pages/visit-github-pages.png)

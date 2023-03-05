@@ -13,7 +13,7 @@ Create a new Google Sheet by copying [this template](https://docs.google.com/spr
 
 ### Name the copy
 
-We'll call the copy "My collection" and save it in your Google Drive. Leave the "Share it with the same people" and "Copy comments" boxes unchecked. When you're done typing the name of the copy, click "Make a Copy".
+We'll call the copy "My collection" and save it in your Google Drive. Leave the *Share it with the same people* and *Copy comments* boxes unchecked. When you're done typing the name of the copy, click *Make a Copy*.
 
 ![Screenshot of naming a copy in Google Sheets](img/create-google-sheet/name-copy.png)
 
@@ -23,8 +23,8 @@ We'll call the copy "My collection" and save it in your Google Drive. Leave the 
 
 You will need to make your new Google Sheet publicly available to anyone with the link:
 
-1. Click the "Share" button in the upper right-hand corner
-2. Change the "General access" dropdown to "Anyone with the link" and leave it as "Viewer".
-3. Click the "Done" button.
+1. Click the *Share* button in the upper right-hand corner
+2. Change the *General access* dropdown to *Anyone with the link* and leave it as *Viewer*.
+3. Click the *Done* button.
 
 ![Screenshot of sharing in Google Sheets](img/create-google-sheet/share.png)
