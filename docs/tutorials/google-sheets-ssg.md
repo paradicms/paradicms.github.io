@@ -41,7 +41,7 @@ Follow the [recipe on configuring GitHub Pages](../recipes/configure-github-page
 
 Edit the Paradicms app configuration on GitHub, [following the recipe](../recipes/edit-paradicms-app-configuration-on-github).
 
-On the `app-configuration.ttl` editing screen, change the basePath to "/" and the name of your GitHub repository e.g., "/my-collection".
+On the `app-configuration.ttl` editing screen, change the basePath to `/` and the name of your GitHub repository. For example, if your repository is named `my-collection`, your `basePath` should be `"/my-collection"`.
 
 #### Configure GitHub Actions
 
@@ -51,7 +51,7 @@ Find the URL of your Google Sheet in the address bar of your browser tab. It wil
 
 [Follow the recipe](../recipes/edit-github-ssg-workflow) to edit the GitHub Actions workflow configuration.
 
-In the editor, change the "spreadsheet" value to the URL of your spreadsheet.
+In the editor, change the `spreadsheet` value to the URL of your spreadsheet.
 
 ![Screenshot of setting the spreadsheet URL in the GitHub Actions workflow](img/google-sheets-ssg/github-workflow-set-spreadsheet.png)
 
