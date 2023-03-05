@@ -148,6 +148,6 @@ Alternatively, you can find the site address on the GitHub Pages configuration o
 ![Screenshot of a successfully-configured, live GitHub Pages](img/google-sheets-ssg/github-visit-site.png)
 
 
-## Next steps: enter your collection data in Google Sheets
+## Next steps
 
 Your new Google Sheet contains example collection data copied from teh template. When you are ready, clear this data (rows 2+) in each sheet, and proceed to the tutorial on [editing collection data in a spreadsheet](./edit-spreadsheet).
