@@ -7,7 +7,7 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: "Paradicms",
-  tagline: "The free, do-it-yourself Collections Management System",
+  tagline: "The open source, Linked Data-native Collections Management System",
   favicon: "img/favicon.ico",
 
   // Set the production url of your site here
