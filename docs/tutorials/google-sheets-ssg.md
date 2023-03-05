@@ -63,7 +63,7 @@ Follow the [recipe on manually running a GitHub Actions workflow](../recipes/run
 
 ### Navigate to your site
 
-Follow the [recipe on visiting your GitHub Pages site](../recipe/visit-github-pages).
+Follow the [recipe on visiting your GitHub Pages site](../recipes/visit-github-pages).
 
 ### Next steps
 
