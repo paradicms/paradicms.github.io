@@ -68,8 +68,8 @@ const features: FeatureItem[] = [
     // Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
     description: (
       <>
-        Paradicms is free to use and extend. Its source code is available on{" "}
-        <Link to="https://github.com/paradicms">GitHub</Link> under the{" "}
+        Paradicms is <b>free</b> to use and extend. Its source code is available
+        on <Link to="https://github.com/paradicms">GitHub</Link> under the{" "}
         <Link to="https://www.gnu.org/licenses/gpl-3.0.en.html">
           GPLv3 license
         </Link>
@@ -108,6 +108,7 @@ export default function Home(): JSX.Element {
     <Layout>
       <header className={clsx("hero hero--primary", styles.heroBanner)}>
         <div className="container">
+          <img className={styles.heroLogo} src="/img/logo.svg" />
           <h1 className="hero__title">{siteConfig.title}</h1>
           <p className="hero__subtitle">{siteConfig.tagline}</p>
           <div className={styles.buttons}>
@@ -128,8 +129,13 @@ export default function Home(): JSX.Element {
                 <h1 className={styles.sectionHeader}>Why Paradicms?</h1>
               </div>
             </div>
-            <div className="row">
+            <div className="row padding-bottom--md">
               {benefits.map((props, idx) => (
+                <Feature key={idx} {...props} />
+              ))}
+            </div>
+            <div className="row">
+              {features.map((props, idx) => (
                 <Feature key={idx} {...props} />
               ))}
             </div>
@@ -154,20 +160,6 @@ export default function Home(): JSX.Element {
                   />
                 </figure>
               </div>
-            </div>
-          </div>
-        </section>
-        <section className={styles.featuresSection}>
-          <div className="container">
-            <div className="row">
-              <div className="col text--center">
-                <h1 className={styles.sectionHeader}>Features</h1>
-              </div>
-            </div>
-            <div className="row">
-              {features.map((props, idx) => (
-                <Feature key={idx} {...props} />
-              ))}
             </div>
           </div>
         </section>

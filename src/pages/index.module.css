@@ -3,13 +3,6 @@
  * and scoped locally.
  */
 
-.benefitsSection {
-  display: flex;
-  align-items: center;
-  padding: 2rem 0;
-  width: 100%;
-}
-
 .buttons {
   display: flex;
   align-items: center;
@@ -33,6 +26,10 @@
   text-align: center;
   position: relative;
   overflow: hidden;
+}
+
+.heroLogo {
+  max-height: 4rem;
 }
 
 @media screen and (max-width: 996px) {
