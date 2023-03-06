@@ -1,6 +1,4 @@
-# Ontology
-
-Overview of why Paradicms has an ontology
+# Reference: data model
 
 
 ## Vocabularies
