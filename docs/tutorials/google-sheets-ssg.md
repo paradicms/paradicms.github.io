@@ -1,9 +1,13 @@
+---
+sidebar_position: 1
+---
+
 # Tutorial: generate a faceted search interface for data in Google Sheets
 
 The tutorial will guide you in creating a web-based faceted search interface for your collection data.
 
 You will:
-* Enter collection metadata/data in [Google Sheets](https://www.google.com/sheets/about/)
+* Create a [Google Sheet](https://www.google.com/sheets/about/) for storing collection data
 * Generate a website from the collection data using [GitHub Actions](https://github.com/features/actions)
 * Deploy the site using [GitHub Pages](https://pages.github.com/)
 
