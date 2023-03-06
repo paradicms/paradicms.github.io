@@ -15,11 +15,12 @@ You may not need to enter new data for every step. If your system already contai
 These are classes that do not depend on any other classes. They can be entered in any order.
 
 * `License`. `License`s are often pre-populated in templates, but you can enter new ones if needed.
-* `Institution`
 * `Location`
-* `Organization`
-* `Person`
 * `RightsStatement`. Similar to `License`, `RightsStatement`s are often pre-populated.
+
+### Enter `Institution`, `Organization`, and/or `Person`
+
+All of these can link to a `Location`.
 
 ### Enter `Collection`
 
