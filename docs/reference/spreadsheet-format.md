@@ -16,7 +16,7 @@ A Paradicms-formatted spreadsheet such as the [Google Sheets template](https://d
 
 The first row of each sheet is a header row corresponding to the properties of the class. Each property occupies its own column in the sheet. The columns can be in any order.
 
-For example, `Person` has the properties `familyName`, `givenName`, and `name`, among others. The full set of properties for each class is listed in the [data model reference](../data-model).
+For example, `Person` has the properties `familyName`, `givenName`, and `name`, among others. The full set of properties for each class is listed in the [data model reference](./data-model).
 
 ![Screenshot of a header row](img/spreadsheet-structure/header-row.png)
 
