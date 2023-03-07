@@ -9,7 +9,7 @@ On your GitHub repository, click the *Settings* button in the list of tabs under
 
 On the *Settings* page, click *Pages* in the sidebar navigation to configure GitHub Pages.
 
-![Screenshot of configuring GitHub Pages](img/configure-github-pages/configure-github-pages.png)
+![Screenshot of configuring GitHub Pages](configure-github-pages.png)
 
 
 ### Configure the build
