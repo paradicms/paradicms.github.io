@@ -8,7 +8,7 @@ The Paradicms data model is designed to capture the core elements of a digital c
 
 ![Overview of the Paradicms data model](data-model-classes.png)
 
-The [data model reference](../../reference/data-model) provides a full list of classes and their properties.
+The [data model reference](/docs/reference/data-model) provides a full list of classes and their properties.
 
 Structure from VRA Core, which can be mapped to schema.org
 Properties from Dublin Core, Costume Core, VRA, ...
