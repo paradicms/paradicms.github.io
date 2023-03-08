@@ -8,18 +8,18 @@ The following sections document classes in the data model such as `Collection`, 
 
 A class section contains:
 
-* a brief description of the class and how it's used
+* a brief description of the class
 * a table of the class's properties
 
 A class's properties table has columns for:
 
-##### Term
+#### Term
 
 Per [the JSON-LD definition](https://www.w3.org/TR/json-ld11/#dfn-term), a **term** is short word defined in a [JSON-LD] context that may be expanded to an [IRI](https://en.wikipedia.org/wiki/Internationalized_Resource_Identifier). Paradicms uses JSON-LD contexts to map terms such as `abstract` to IRIs (`http://purl.org/dc/terms/abstract`). For example, each [column header in a spreadsheet](spreadsheet-format) or top-level YAML object key in Markdown Directory YAML is a term corresponding to a predicate IRI in an RDF statement.
 
 The per-class property tables in this document are essentially human-readable versions of the JSON-LD contexts for the classes.
 
-##### IRI
+#### IRI
 
 A property's term expands to this predicate IRI. For space reasons the IRIs are abbreviated with commonly-used namespaces:
 
@@ -33,6 +33,7 @@ A property's term expands to this predicate IRI. For space reasons the IRIs are 
 | `exif:`          | `http://www.w3.org/2003/12/exif/ns#`          | [Exif vocabulary](https://www.w3.org/2003/12/exif/)                                      |
 | `foaf:`          | `http://xmlns.com/foaf/0.1/`                  | [FOAF vocabulary](http://xmlns.com/foaf/0.1/)                                            |
 | `rdf:`           | `http://www.w3.org/1999/02/22-rdf-syntax-ns#` | [RDF Model and Syntax](http://www.w3.org/1999/02/22-rdf-syntax-ns#)                      |
+| `rdfs:`          | `http://www.w3.org/2000/01/rdf-schema#`       | [RDF Schema](https://www.w3.org/TR/rdf-schema/)                                          |
 | `skos:`          | `http://www.w3.org/2004/02/skos/core#`        | [SKOS Simple Knowledge Organization System](https://www.w3.org/2004/02/skos/)            |
 | `time:`          | `http://www.w3.org/2006/time#>`               | [Time Ontology in OWL](https://www.w3.org/TR/owl-time/)                                  |
 | `vra:`           | `http://purl.org/vra/>`                       | [VRA Core RDF Ontology](http://vraweb.org/vra-core-rdf-ontology-available-for-review/)   |
@@ -42,7 +43,7 @@ A property's term expands to this predicate IRI. For space reasons the IRIs are 
 
 #### Description
 
-Most of the properties used by Paradicms have well-described semantics, and are backed up by formal specifications in [RDF Schema](https://www.w3.org/TR/rdf-schema/), [Shapes Constraint Language (SHACL)](https://www.w3.org/TR/shacl/), and [the Web Ontology Language (OWL)](https://www.w3.org/OWL/). This column briefly summarizes the expected semantics of a property and how it's used. For extended descriptions, refer to the original vocabulary for a property, such as [DCMI Metadata Terms](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/) for `dcterms:`-prefixed properties like `dcterms:creator`.
+Most of the properties used by Paradicms have well-described semantics, and are backed up by formal specifications in [RDF Schema](https://www.w3.org/TR/rdf-schema/), [Shapes Constraint Language (SHACL)](https://www.w3.org/TR/shacl/), and [the Web Ontology Language (OWL)](https://www.w3.org/OWL/). This column briefly summarizes the expected semantics of a property. For extended descriptions, refer to the original vocabulary for a property, such as [DCMI Metadata Terms](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/) for `dcterms:`-prefixed properties like `dcterms:creator`.
 
 #### Cardinality
 
@@ -97,11 +98,10 @@ A `Collection` is an aggregate of `Work`s belonging to a single `Institution`.
 | Term        | IRI              | Description                                                                       | Cardinality | Value type              | Example values                 |
 |-------------|------------------|-----------------------------------------------------------------------------------|-------------|-------------------------|--------------------------------|
 | abstract    | dcterms:abstract | Human-readable summary of the collection                                          | 0..1        | string                  | A collection of my works       |                
-| institution | cms:institution  | Child->parent reference to the `Institution` this `Collection` is associated with | 1           | IRI of an `Institution` | http://example.com/Institution |
 | title       | dcterms:title    | Human-readable name of the collection                                             | 1           | string                  | My collection                  |                
 
 
-### Image
+### `Image`
 
 An `Image` is a visual surrogate for a `Work`, `Collection`, `Person`, or other instance of a Paradicms class.
 
@@ -122,23 +122,82 @@ An `Image` is a visual surrogate for a `Work`, `Collection`, `Person`, or other 
 | width       | exif:width         | Exact height of the image, in pixels                                                             | 0..1        | integer                           | 200                           |             
 
 
-### Institution
+### `License`
 
-### License
+A `License` describes copyright licenses.
 
-### Location
+| Term       | IRI                | Description                           | Cardinality | Value type | Example values                |
+|------------|--------------------|---------------------------------------|-------------|------------|-------------------------------|
+| identifier | dc:identifier      | Short identifier                      | 1           | string     | BY                            |             
+| title      | dc:title           | Human-readable name of the license    | 1           | string     | Attribution 4.0 International |             
+| version    | dcterms:hasVersion | Human-readable version of the license | 0..1        | string     | 2.0                           |             
 
-### NamedValue
 
-### Organization
+### `Location`
 
-### Person
+A `Location` is an entity with a fixed (latitude/longitude) spatial presence. 
 
-### RightsStatement
+| Term  | IRI        | Description          | Cardinality | Value type | Example values |
+|-------|------------|----------------------|-------------|------------|----------------|
+| label | rdfs:label | Human-readable label | 0..1        | string     | My house       |             
+| lat   | wgs:lat    | WGS84 latitude       | 0..1        | decimal    | 42.7281        |             
+| long  | wgs:long   | WGS84 longitude      | 0..1        | decimal    | -73.68758      |             
 
-### Work
 
-* `Work`, which is a built or created object
+### `Organization`
+
+An `Organization` is a company, institution, or other organization that can act as an agent.
+
+| Term     | IRI              | Description                              | Cardinality | Value type | Example values                        |
+|----------|------------------|------------------------------------------|-------------|------------|---------------------------------------|
+| name     | foaf:name        | Human-readable name                      | 1           | string     | My company                            |             
+| page     | foaf:page        | Website of the organization              | 0..n        | string     | https://mycompany.com                 |             
+| relation | dcterms:relation | Related IRI e.g., a Wikidata concept IRI | 0..n        | IRI        | http://www.wikidata.org/entity/Q49211 |             
+
+
+### `Person`
+
+An `Person` is a human such as Alan Turing.
+
+| Term       | IRI              | Description                                                                      | Cardinality | Value type | Example values                       |
+|------------|------------------|----------------------------------------------------------------------------------|-------------|------------|--------------------------------------|
+| familyName | foaf:family      | Family name of the person                                                        | 0..1        | string     | Turing                               |             
+| givenName  | foaf:givenName   | Given  name of the person                                                        | 0..1        | string     | Alan                                 |             
+| name       | foaf:name        | Human-readable name                                                              | 1           | string     | Alan Turing                          |             
+| page       | foaf:page        | Website of the person                                                            | 0..n        | string     | https://mysite.com                   |             
+| relation   | dcterms:relation | Related IRI e.g., a Wikidata concept IRI                                         | 0..n        | IRI        | http://www.wikidata.org/entity/Q7251 |             
+| sortName   | contact:sortName | Name to use in sorting the person in a list of names; if not specified, use name | 0..1        | string     | Alan Turing                          |             
+
+
+### `RightsStatement`
+
+A `RightsStatement` describes interoperable rights statements, usually from RightsStatement.org.
+
+| Term        | IRI                 | Description                                                               | Cardinality | Value type | Example values                                                                                                                                           |
+|-------------|---------------------|---------------------------------------------------------------------------|-------------|------------|----------------------------------------------------------------------------------------------------------------------------------------------------------|
+| definition  | skos:definition     | Long-form, human-readable rights statement                                | 0..1        | string     | The copyright and related rights status of this Item has not been evaluated. ...                                                                         |             
+| description | dcterms:description | Short-form, human-readable description of the rights statement            | 0..1        | string     | This Rights Statement indicates that the organization that has published the Item has not evaluated the copyright and related rights status of the Item. |             
+| identifier  | dcterms:identifier  | Short identifier of the rights statement                                  | 1           | string     | CNE                                                                                                                                                      |             
+| note        | skos:note           | Human-readable note about how to interpret the rights statement           | 0..n        | string     | Unless expressly stated otherwise, the organization that has made this Item available ...                                                                |             
+| prefLabel   | skos:prefLabel      | Short, human-readable label for the rights statement                      | 1           | string     | Copyright Not Evaluated                                                                                                                                  |             
+| scopeNote   | skos:scopeNote      | Human-readable note about the applicability/scope of the rights statement | 0..n        | string     | This Rights Statement should be used ...                                                                                                                 |             
+
+
+### `Work`
+
+A `Work` is a built or created object such as a manuscript or garment.
+
+
+| Term       | IRI              | Description                                                                                                                                     | Cardinality | Value type | Example values                       |
+|------------|------------------|-------------------------------------------------------------------------------------------------------------------------------------------------|-------------|------------|--------------------------------------|
+| abstract   | dcterms:abstract | Human-readable summary of the work                                                                                                              | 0..1        | string     | My work was created ...              |             
+| collection | cms:collection   | Child->parent reference to a collection the work belongs to                                                                                     | 0..n        | IRI        | http://example.com/Collection        |             
+| spatial    | dcterms:spatial  | Reference to a `Location` this work is spatially located in/at                                                                                  | 0..n        | IRI        | http://example.com/Location          |
+| page       | foaf:page        | Website of the work                                                                                                                             | 0..n        | string     | https://mysite.com                   |             
+| relation   | dcterms:relation | Related IRI e.g., a Wikidata concept IRI                                                                                                        | 0..n        | IRI        | http://www.wikidata.org/entity/Q7251 |             
+| title      | dcterms:title    | Human-readable name of the work                                                                                                                 | 1           | IRI        | My work                              |             
+| type       | dcterms:type     | Type of the work, usually a [Dublin Core Metadata Initiative Type](https://www.dublincore.org/specifications/dublin-core/dcmi-type-vocabulary/) | 0..1        | IRI        | http://purl.org/dc/dcmitype/Text     |             
+
 
 ### Work events
 
