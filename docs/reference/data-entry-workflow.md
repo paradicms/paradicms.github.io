@@ -2,7 +2,7 @@
 
 The interdependencies between [classes in the Paradicms data model](./data-model.mdx) suggest that there is an optimal workflow for entering completely new data into a spreadsheet, Markdown directory, or other source that maps directly to the data model.
 
-For example, a `Work` has a one-way link to one or more `Collection`s, and a `Collection` has a one-way link to an `Institution`, so it makes sense to enter the `Institution` first, then the `Collection`(s) that link to that `Institution`, then the `Work`(s) that link to the `Collection`(s).
+For example, a `Work` has a one-way link to one or more `Collection`s, then the `Work`s that link to the `Collection`s.
 
 ## Workflow
 
@@ -18,24 +18,21 @@ These are classes that do not depend on any other classes. They can be entered i
 * `Location`
 * `RightsStatement`. Similar to `License`, `RightsStatement`s are often pre-populated.
 
-### Enter `Institution`, `Organization`, and/or `Person`
+### Enter `Organization` and/or `Person`
 
 All of these can link to a `Location`.
 
 ### Enter `Collection`
 
-`Collection` links to/depends on `Institution`.
-
 ### Enter `Work`
 
-`Work` links to one or more `Collection`(s), a single `Institution`, and zero or more `Person`(s).
+`Work` links to one or more `Collection`s, zero or more `Organization`s, and zero or more `Person`s.
 
 ### Enter `Image`
 
 An `Image` can `depict` (and thus link to) instances of several other classes, including:
 
 * `Collection`
-* `Institution`
 * `Organization`
 * `Person`
 * `Work`

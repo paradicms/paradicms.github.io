@@ -36,13 +36,6 @@ Enter one of the standard [Creative Commons](https://creativecommons.org/) licen
 Since Creative Commons licenses have their own unique identifiers (IRIs, e.g., `http://creativecommons.org/licenses/by/4.0/`), we put the established IRI in the `@id` column instead of minting our own `ss-license:`-prefixed IRI.
 
 
-### Enter an `Institution`
-
-Enter information about The Metropolitan Museum of Art in the `Institution` sheet.
-
-![Screenshot of entering an Institution](enter-institution.png)
-
-
 ### Enter a `Person`
 
 Enter information about Andrew Bolton into a row in the `Person` sheet.
@@ -64,9 +57,9 @@ We are minting a new `@id` for the `Work`. The `@id` can have any structure, pro
 
 In the above example the `@id` for "Camp: Notes on Fashion" incorporates the type of the `Work` (exhibition) and the name of the hosting institution (the Met) as well as the name of the `Work`. The parts are separated by a `:` and prefixed by `ss-work:` to produce `ss-work:exhibition/the-metropolitan-museum-of-art/costume-institute/camp-notes-on-fashion`.
 
-#### Link the new `Work` to the `Collection`, `Institution`, and `Person` created above
+#### Link the new `Work` to the `Collection` and `Person` created above
 
-The new `Work`'s `collection` column references the `@id` of the `Collection` we created. The `creator` column has the `@id` of the new `Person`. The `institution` column has the `@id` of the new `Institution`.
+The new `Work`'s `collection` column references the `@id` of the `Collection` we created. The `creator` column has the `@id` of the new `Person`.
 
 If you started from the Google Sheets template, the appropriate values should be presented in a dropdown, and you won't have to type them in.
 
@@ -92,5 +85,4 @@ And reference a URL for retrieving the image:
 
 ### Next steps
 
-You now have a spreadsheet with data about a `License`, `Institution`, `Collection`, `Work`, and `Image`. From here you can enter more data, following the [data model reference](/docs/reference/data-model), or use the data you've entered to generate a website by following the appropriate [tutorial](/docs/tutorials/google-sheets-ssg).
-
+You now have a spreadsheet with data about a `Collection`, `Image`, `License`, `Person`, and `Work`. From here you can enter more data, following the [data model reference](/docs/reference/data-model), or use the data you've entered to generate a website by following the appropriate [tutorial](/docs/tutorials/google-sheets-ssg).
