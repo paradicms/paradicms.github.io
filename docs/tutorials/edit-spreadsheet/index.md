@@ -85,4 +85,4 @@ And reference a URL for retrieving the image:
 
 ### Next steps
 
-You now have a spreadsheet with data about a `Collection`, `Image`, `License`, `Person`, and `Work`. From here you can enter more data, following the [data model reference](/docs/reference/data-model), or use the data you've entered to generate a website by following the appropriate [tutorial](/docs/tutorials/google-sheets-ssg).
+You now have a spreadsheet with data about a `Collection`, `Image`, `License`, `Person`, and `Work`. From here you can enter more data, following the [data model reference](/docs/reference/data-model), or use the data you've entered to generate a website by following the appropriate [tutorial](/docs/tutorials/spreadsheet-ssg).

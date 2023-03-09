@@ -24,7 +24,7 @@ The `spreadsheet-ssg-action` generates a [Paradicms app](./apps) from a spreadsh
 
 #### Example
 
-The example is adapted from the [GitHub Actions workflow in the template repository](https://raw.githubusercontent.com/dressdiscover/exhibitions/main/.github/workflows/build.yml). The [tutorial on using Google Sheets to generate a faceted search interface](/docs/tutorials/google-sheets-ssg) explains the role of this action in context.
+The example is adapted from the [GitHub Actions workflow in the template repository](https://raw.githubusercontent.com/dressdiscover/exhibitions/main/.github/workflows/build.yml). The [tutorial on using Google Sheets to generate a faceted search interface](/docs/tutorials/spreadsheet-ssg) explains the role of this action in context.
 
 ```yaml
 uses: paradicms/spreadsheet-ssg-action@v1-beta
