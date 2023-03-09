@@ -10,7 +10,7 @@ This page documents the means of configuring [Paradicms apps](./apps).
 
 Like the data consumed by apps, app configuration is specified in RDF:
 
-```
+```turtle
 @prefix : <http://www.paradicms.org/ns/configuration#> .
 
 [] a :AppConfiguration;
