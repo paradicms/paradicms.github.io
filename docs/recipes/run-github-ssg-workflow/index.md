@@ -1,3 +1,7 @@
+---
+sidebar_position: 6
+---
+
 # Recipe: manually run a Paradicms GitHub Action static site generation workflow
 
 ### Navigate to the *Actions* tab on your GitHub repository

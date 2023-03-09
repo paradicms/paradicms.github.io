@@ -1,3 +1,7 @@
+---
+sidebar_position: 5
+---
+
 # Recipe: edit the Paradicms app configuration on GitHub
 
 ### Navigate to the *Code* tab of your GitHub repository

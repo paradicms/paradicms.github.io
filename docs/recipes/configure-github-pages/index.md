@@ -1,3 +1,7 @@
+---
+sidebar_position: 3
+---
+
 # Recipe: configure GitHub Pages
 
 ### Navigate to the *Settings* tab

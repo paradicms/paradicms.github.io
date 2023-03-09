@@ -1,3 +1,7 @@
+---
+sidebar_position: 1
+---
+
 # Recipe: create a Google Sheet for your collection data
 
 The following steps assume you have created a Google account and are logged in to it.

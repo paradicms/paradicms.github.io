@@ -1,3 +1,7 @@
+---
+sidebar_position: 4
+---
+
 # Recipe: edit the configuration of a Paradicms GitHub Action static site generation workflow
 
 ### Navigate to the *Code* tab on your GitHub repository

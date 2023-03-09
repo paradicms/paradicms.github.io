@@ -1,3 +1,7 @@
+---
+sidebar_position: 7
+---
+
 # Recipe: visit your generated site on GitHub Pages
 
 Once you have successfully generate your site with a GitHub Actions workflow, it will be available on GitHub Pages.

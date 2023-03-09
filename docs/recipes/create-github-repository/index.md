@@ -1,3 +1,7 @@
+---
+sidebar_position: 2
+---
+
 # Recipe: create a GitHub repository from a template
 
 The following steps assume:
