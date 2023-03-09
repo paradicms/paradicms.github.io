@@ -55,9 +55,15 @@ Find the URL of your Google Sheet in the address bar of your browser tab. It wil
 
 [Follow the recipe](/docs/recipes/edit-github-ssg-workflow) to edit the GitHub Actions workflow configuration.
 
-In the editor, change the `spreadsheet` value to the URL of your spreadsheet.
+In the editor, change the `spreadsheet` input to the `spreadsheet-ssg-action` to the URL of your spreadsheet:
 
-![Screenshot of setting the spreadsheet URL in the GitHub Actions workflow](github-workflow-set-spreadsheet.png)
+```yaml
+uses: paradicms/spreadsheet-ssg-action@v1-beta
+with:
+  app: work-search
+  app_configuration: ./app-configuration.ttl
+  spreadsheet: 1j2oaMvMxY4pnXO-sEH_fky2R2gm6TQeIev_Q8rVOD4M
+```
 
 When you're done, commit changes by following the editing recipe.
 
