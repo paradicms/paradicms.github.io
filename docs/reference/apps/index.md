@@ -4,10 +4,6 @@ sidebar_position: 1
 
 # Reference: apps
 
-Paradicms apps are statically-generated, web-based user interfaces for browsing and searching data encoded in the [Paradicms data model](/docs/introduction/data-model).
-
-Apps are usually generated via [GitHub Actions](github-actions), which extract data from a source like Google Sheets, transform it to the Paradicms data model, and feed the data to an app-specific static site generator. The result is a set of HTML, CSS, and JavaScript files which can be deployed to a static file hosting service such as GitHub Pages.
-
 This page documents the apps currently available in Paradicms, with one section per app.
 
 

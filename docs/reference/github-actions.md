@@ -4,7 +4,7 @@ sidebar_position: 5
 
 # Reference: GitHub Actions
 
-GitHub Actions are the glue that ties together disparate components of the Paradicms system. A GitHub Action like `spreadsheet-ssg-action` extracts data from a source like Google Sheets, transforms it to the Paradicms data model, and feed the data to an app-specific static site generator. The result is a set of HTML, CSS, and JavaScript files which can be deployed to a static file hosting service such as GitHub Pages.
+[GitHub Actions](https://github.com/features/actions) are the glue that ties together disparate components of the Paradicms system. A GitHub Action like `spreadsheet-ssg-action` extracts data from a source like Google Sheets, transforms it to the Paradicms data model, and feed the data to an app-specific static site generator. The result is a set of HTML, CSS, and JavaScript files which can be deployed to a static file hosting service such as GitHub Pages.
 
 This page documents the GitHub Actions provided by Paradicms, with one section per action.
 

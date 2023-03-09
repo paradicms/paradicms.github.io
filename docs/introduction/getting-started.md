@@ -1,3 +1,7 @@
+---
+sidebar_position: 3
+---
+
 # Getting started
 
 The following questions will help you decide how to get started with Paradicms.
