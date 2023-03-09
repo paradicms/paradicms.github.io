@@ -1,3 +1,7 @@
+---
+sidebar_position: 2
+---
+
 # Reference: app configuration
 
 This page documents the means of configuring [Paradicms apps](./apps).

@@ -1,3 +1,7 @@
+---
+sidebar_position: 6
+---
+
 # Reference: spreadsheet format
 
 This page documents the format of spreadsheets (in Google Sheets, Excel, et al.) for storing Paradicms collection data.
