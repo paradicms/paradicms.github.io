@@ -109,7 +109,7 @@ Each data model class -- and thus each sheet in the spreadsheet -- has an associ
 
 The result of this interpretation is a small RDF graph per data row:
 
-```
+```turtle
 <urn:spreadsheet:exhibitions:person:andrew-bolton> a cms:Agent,
         cms:Person ;
     dcterms:relation <http://www.wikidata.org/entity/Q20829853>,
@@ -127,7 +127,7 @@ Converting each data row with this process (row -> JSON, JSON -> RDF) produces a
 
 Cross-references to `@id` columns between sheets creates links between graphs. The `Work` `collection` reference shown above produces RDF like the following (abridged for clarity):
 
-```
+```turtle
 <urn:spreadsheet:exhibitions:work:exhibition/the-metropolitan-museum-of-art/costume-institute/camp-notes-on-fashion> a cms:Work ;
     cms:collection <urn:spreadsheet:exhibitions:collection:the-metropolitan-museum-of-art/costume-institute> .
 ```

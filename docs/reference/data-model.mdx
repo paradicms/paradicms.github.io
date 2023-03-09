@@ -66,8 +66,8 @@ A property IRI becomes the predicate of a `(subject, predicate, object)` RDF sta
 
 This column of the properties table specifies the expected type of the `object` in the statement. For example, values of `title` (i.e., `dcterms:title`) are expected to be strings, as in the following `(subject, predicate, object)` RDF triple:
 
-```
-<http://example.com/work> <http://purl.org/dc/terms/title> "Example title"
+```turtle
+<http://example.com/work> <http://purl.org/dc/terms/title> "Example title" .
 ```
 
 Booleans, strings, and other literals in Paradicms have [XML Schema](https://www.w3.org/XML/Schema) types: a boolean is an `xsd:boolean`, a string is an `xsd:string`, and so on.
@@ -76,8 +76,8 @@ Literal syntax is handled in a per-data source fashion. In spreadsheet cells you
 
 Other properties expect IRI values. For example, values of `dcterms:license` are expected to be IRIs referencing a valid `License` class instance:
 
-```
-<http://example.com/work> <http://purl.org/dc/terms/license> <http://creativecommons.org/licenses/nc/1.0/>
+```turtle
+<http://example.com/work> <http://purl.org/dc/terms/license> <http://creativecommons.org/licenses/nc/1.0/> .
 ```
 
 The syntax for specifying IRIs varies between data sources. In the [spreadsheet format](spreadsheet-format), an IRI can be shortened with a namespace prefix, as in the following hypothetical sheet:
@@ -88,8 +88,8 @@ The syntax for specifying IRIs varies between data sources. In the [spreadsheet 
 
 After expanding the namespaces, the sheet translates to the following `(subject, predicate, object)` RDF triple:
 
-```
-<urn:spreadsheet:example:work:ExampleWork> <http://purl.org/dc/terms/creator> <urn:spreadsheet:example:work:person:ExamplePerson>
+```turtle
+<urn:spreadsheet:example:work:ExampleWork> <http://purl.org/dc/terms/creator> <urn:spreadsheet:example:work:person:ExamplePerson> .
 ```
 
 #### Example values
