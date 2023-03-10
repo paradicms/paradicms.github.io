@@ -70,17 +70,21 @@ If you started from the Google Sheets template, the appropriate values should be
 
 Enter an `Image` that depicts the `Work` we just created, as shown:
 
-![Screenshot of entering an Image](enter-image-1.png)
+![Screenshot of entering an Image](enter-image-depicts.png)
 
 Note that the `Image` sheet has no `@id` column. No other sheets refer to data in `Image`, so it is safe to elide the `@id` column.
 
 Link the new `Image` row to an appropriate `License`:
 
-![Screenshot of entering an Image](enter-image-2.png)
+![Screenshot of entering an Image license](enter-image-license.png)
 
 And reference a URL for retrieving the image:
 
-![Screenshot of entering an Image](enter-image-3.png)
+![Screenshot of entering an Image src URL](enter-image-src-url.png)
+
+Alternatively, you can insert an image directly into the `src` cell:
+
+![Screenshot of entering an Image src data](enter-image-src-data.png)
 
 
 ### Next steps
