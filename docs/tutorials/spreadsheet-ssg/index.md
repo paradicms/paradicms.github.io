@@ -37,6 +37,13 @@ Follow the [recipe on creating a Google Sheet for collection data](/docs/recipes
 
 Follow the [recipe on creating a GitHub repository from a template](/docs/recipes/create-github-repository), using [this template repository](https://github.com/dressdiscover/exhibitions).
 
+You'll be using GitHub to:
+
+* host the app configuration
+* automate the process of building the app from the Google Sheet, using GitHub Actions
+* serve the statically-generated files (CSS, HTML, JavaScript) of the faceted search app, using GitHub Pages
+
+
 #### Configure GitHub Pages
 
 Follow the [recipe on configuring GitHub Pages](/docs/recipes/configure-github-pages).
@@ -46,6 +53,8 @@ Follow the [recipe on configuring GitHub Pages](/docs/recipes/configure-github-p
 Edit the Paradicms app configuration on GitHub, [following the recipe](/docs/recipes/edit-paradicms-app-configuration-on-github).
 
 On the `app-configuration.ttl` editing screen, change the basePath to `/` and the name of your GitHub repository. For example, if your repository is named `my-collection`, your `basePath` should be `"/my-collection"`.
+
+This is necessary for the app to have correct internal links to its own pages, images, et al.
 
 #### Configure GitHub Actions
 
@@ -71,10 +80,14 @@ When you're done, commit changes by following the editing recipe.
 
 Follow the [recipe on manually running a GitHub Actions workflow](/docs/recipes/run-github-ssg-workflow).
 
+The GitHub Actions workflow is downloading the contents of the Google Sheet, transforming it to the Paradicms data model, generating the faceted search interface, and deploying it to GitHub Pages.
+
 ### Navigate to your site
 
 Follow the [recipe on visiting your GitHub Pages site](/docs/recipes/visit-github-pages).
 
+Your site is now available on the public Internet, and you can share it with people.
+
 ### Next steps
 
-Your new Google Sheet contains example collection data copied from teh template. When you are ready, clear this data (rows 2+) in each sheet, and proceed to the tutorial on [editing collection data in a spreadsheet](/docs/tutorials/edit-spreadsheet).
+Your new Google Sheet contains example collection data copied from the template. When you are ready, clear this data (rows 2+) in each sheet, and proceed to the tutorial on [editing collection data in a spreadsheet](/docs/tutorials/edit-spreadsheet).
