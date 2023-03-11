@@ -48,13 +48,6 @@ You'll be using GitHub to:
 
 Follow the [recipe on configuring GitHub Pages](/docs/recipes/configure-github-pages).
 
-#### Configure the Paradicms app
-
-Edit the Paradicms app configuration on GitHub, [following the recipe](/docs/recipes/edit-paradicms-app-configuration-on-github).
-
-On the `app-configuration.ttl` editing screen, change the basePath to `/` and the name of your GitHub repository. For example, if your repository is named `my-collection`, your `basePath` should be `"/my-collection"`.
-
-This is necessary for the app to have correct internal links to its own pages, images, et al.
 
 #### Configure GitHub Actions
 
