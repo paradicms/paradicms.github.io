@@ -39,7 +39,6 @@ Follow the [recipe on creating a GitHub repository from a template](/docs/recipe
 
 You'll be using GitHub to:
 
-* host the app configuration
 * automate the process of building the app from the Google Sheet, using GitHub Actions
 * serve the statically-generated files (CSS, HTML, JavaScript) of the faceted search app, using GitHub Pages
 
@@ -62,9 +61,7 @@ In the editor, change the `spreadsheet` input to the `spreadsheet-ssg-action` to
 ```yaml
 uses: paradicms/spreadsheet-ssg-action@v1-beta
 with:
-  app: work-search
-  app_configuration: ./app-configuration.ttl
-  spreadsheet: 1j2oaMvMxY4pnXO-sEH_fky2R2gm6TQeIev_Q8rVOD4M
+  spreadsheet: "https://docs.google.com/spreadsheets/d/1j2oaMvMxY4pnXO-sEH_fky2R2gm6TQeIev_Q8rVOD4M/edit#gid=0"
 ```
 
 When you're done, commit changes by following the editing recipe.
@@ -83,4 +80,4 @@ Your site is now available on the public Internet, and you can share it with peo
 
 ### Next steps
 
-Your new Google Sheet contains example collection data copied from the template. When you are ready, clear this data (rows 2+) in each sheet, and proceed to the tutorial on [editing collection data in a spreadsheet](/docs/tutorials/edit-spreadsheet).
+Your new Google Sheet contains example collection data copied from the template. When you are ready, proceed to the tutorial on [editing collection data in a spreadsheet](/docs/tutorials/edit-spreadsheet).

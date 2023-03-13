@@ -34,19 +34,6 @@ In JSON-LD syntax you can use a simple `@context` to indicate that terms are in 
 ```
 
 
-### App configuration file
-
-App configuration RDF is passed to an app via a file in any RDF serialization:
-
-* Turtle: `app-configuration.ttl`
-* JSON-LD: `app-configuration.json`
-* N-Triples: `app-configuration.nt`
-
-or any of the other serializations supported by the [`rdf-parse`](https://www.npmjs.com/package/rdf-parse) library. See the latter page for a list of file extensions associated with each serialization.
-
-The path to a configuration file is specified via the `app_configuration` input parameter to GitHub Actions or the `CONFIGURATION_FILE_PATH` environment variable when building an app manually.
-
-
 ### `AppConfiguration`
 
 The app configuration RDF graph must include a top-level resource with the type `AppConfiguration`. It can be a blank node, as in the examples above. In the Turtle the top-level resource is declared with  `[] a AppConfiguration`. In JSON-LD it is the `"@type": "AppConfiguration"` property.
@@ -57,6 +44,7 @@ Most of the app configuration consists of statements about this top-level resour
 
 | Property     | Description                                                                     | Cardinality | Value type        | Example values                       |
 |--------------|---------------------------------------------------------------------------------|-------------|-------------------|--------------------------------------|
+| app          | Identifier of one of the [Paradicms apps](/docs/reference/apps)                 | 0..1        | String            | work-search                          |
 | stylesheet   | Absolute or relative URL of a [Bootstrap 5](https://getbootstrap.com/) CSS file | 0..1        | String or IRI     | http://example.com/bootstrap.min.css |
 | title        | Site title, used in the HTML `<title>` tag and other parts of the app           | 0..1        | String            | My collection                        |
 | workProperty | Reference to a `PropertyConfiguration`s for the `work-search` app               | 0..n        | IRI or blank node | See `PropertyConfiguration`          |
@@ -93,10 +81,37 @@ An `AppConfiguration` with a list of `work-search` `PropertyConfiguration`s in J
 
 The following table documents the available properties of a `PropertyConfiguration`:
 
-| Property   | Description                                                 | Cardinality | Value type | Example values                   |
-|------------|-------------------------------------------------------------|-------------|------------|----------------------------------|
-| filterable | The property is filterable and facetizable (default: false) | 0..1        | boolean    | true                             |
-| label      | Human-readable label for the property                       | 1           | string     | Subject                          |
-| predicate  | IRI of the property                                         | 1           | IRI        | http://purl.org/dc/terms/subject |
-| searchable | The property is full-text searchable (default: false)       | 0..1        | boolean    | false                            |
+| Property/Term | Description                                                 | Cardinality | Value type | Example values                   |
+|---------------|-------------------------------------------------------------|-------------|------------|----------------------------------|
+| filterable    | The property is filterable and facetizable (default: false) | 0..1        | boolean    | true                             |
+| label         | Human-readable label for the property                       | 1           | string     | Subject                          |
+| predicate     | IRI of the property                                         | 1           | IRI        | http://purl.org/dc/terms/subject |
+| searchable    | The property is full-text searchable (default: false)       | 0..1        | boolean    | false                            |
+
+
+
+### Passing app configuration to an app
+
+App configuration can be passed to an app by:
+
+* putting the app configuration RDF in a separate file
+* adding an AppConfiguration class instance to the data in your preferred source
+
+#### Separate app configuration RDF file
+
+App configuration RDF can be passed to an app via a file in any RDF serialization:
+
+* Turtle: `app-configuration.ttl`
+* JSON-LD: `app-configuration.json`
+* N-Triples: `app-configuration.nt`
+
+or any of the other serializations supported by the [`rdf-parse` library](https://www.npmjs.com/package/rdf-parse). See the latter page for a list of file extensions associated with each serialization.
+
+The path to an app configuration file is specified via the `app_configuration_file_path` input parameter to GitHub Actions or the `CONFIGURATION_FILE_PATH` environment variable when building an app manually.
+
+#### App configuration in the data
+
+An `AppConfiguration` class instance can be included in the data instead of passing it in a separate file.
+
+For example, you can add an `AppConfiguration` sheet to a spreadsheet (as in the [Google Sheets template](https://docs.google.com/spreadsheets/d/1j2oaMvMxY4pnXO-sEH_fky2R2gm6TQeIev_Q8rVOD4M/edit#gid=0)) or an `AppConfiguration` Markdown directory (as in the [Markdown directory template](https://github.com/minorg/ComputerScienceInventions)). The `AppConfiguration` follows the usual rules of the format, just like other Paradicms models (`Collection`, `Image`, `Work`, et al.).
 

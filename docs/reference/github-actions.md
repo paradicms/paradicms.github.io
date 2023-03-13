@@ -15,12 +15,16 @@ The `spreadsheet-ssg-action` generates a [Paradicms app](./apps) from a spreadsh
 
 #### Inputs
 
-* `app`: identifier of one of the [Paradicms apps](./apps), such as `work-search`
-* `app_configuration`: path to an [app configuration file](./app-configuration)
+##### Required
+
 * `spreadsheet`: one of:
     * a Google Sheets spreadsheet id, such as `1j2oaMvMxY4pnXO-sEH_fky2R2gm6TQeIev_Q8rVOD4M` ;
     * the full URL of a Google Sheet, such as `https://docs.google.com/spreadsheets/d/1j2oaMvMxY4pnXO-sEH_fky2R2gm6TQeIev_Q8rVOD4M/edit?usp=sharing` ; or
     * the path to an Excel 2010 file (`.xlsx`) within the repository, such as `data/data.xlsx`
+
+##### Optional
+
+* `app_configuration_file_path`: path to an [app configuration file](./app-configuration)
 
 #### Example
 
@@ -29,7 +33,5 @@ The example is adapted from the [GitHub Actions workflow in the template reposit
 ```yaml
 uses: paradicms/spreadsheet-ssg-action@v1-beta
 with:
-  app: work-search
-  app_configuration: ./app-configuration.ttl
   spreadsheet: 1j2oaMvMxY4pnXO-sEH_fky2R2gm6TQeIev_Q8rVOD4M
 ```
