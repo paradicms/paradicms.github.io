@@ -25,6 +25,7 @@ The `spreadsheet-ssg-action` generates a [Paradicms app](./apps) from a spreadsh
 ##### Optional
 
 * `app_configuration_file_path`: path to an [app configuration file](./app-configuration)
+* `build_directory_path`: path to the directory where the generated static assets (CSS, HTML, JavaScript) should be placed, defaults to `_site`
 
 #### Example
 
