@@ -4,7 +4,7 @@ sidebar_position: 4
 
 # Reference: a repeatable data entry workflow
 
-The interdependencies between [classes in the Paradicms data model](./data-model.mdx) suggest that there is an optimal workflow for entering completely new data into a spreadsheet, Markdown directory, or other source that maps directly to the data model.
+The interdependencies between [classes in the Paradicms data model](./data-model) suggest that there is an optimal workflow for entering completely new data into a spreadsheet, Markdown directory, or other source that maps directly to the data model.
 
 For example, a `Work` has a one-way link to one or more `Collection`s, then the `Work`s that link to the `Collection`s.
 

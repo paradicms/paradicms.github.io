@@ -15,7 +15,7 @@ The tutorial will guide you in editing collection data in the Paradicms Markdown
 
 #### Creating a Markdown directory
 
-For this tutorial you will need a place to store Markdown files. It can be any directory. As you enter data the directory will conform to the [expected structure](/docs/references/markdown-format).
+For this tutorial you will need a place to store Markdown files. It can be any directory. As you enter data the directory will conform to the [expected structure](/docs/reference/markdown-format).
 
 You can create directories and [edit YAML files](https://docs.github.com/en/repositories/working-with-files/managing-files/editing-files) directly on GitHub or clone the GitHub repository to your machine and perform these operations locally.
 
