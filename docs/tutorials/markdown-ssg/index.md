@@ -55,4 +55,4 @@ Your site is now available on the public Internet, and you can share it with peo
 
 ### Next steps
 
-Your new GitHub repository contains example data copied from the template. When you are ready, proceed to the tutorial on [editing a Markdown directory](/docs/tutorials/edit-markdown-directory).
+Your new GitHub repository contains example data copied from the template. When you are ready, proceed to the tutorial on [editing a Markdown directory](/docs/tutorials/edit-markdown).

@@ -23,7 +23,7 @@ None.
 
 * `app_configuration_file_path`: path to an [app configuration file](./app-configuration)
 * `build_directory_path`: path to a directory where the generated static assets (CSS, HTML, JavaScript) should be placed, defaults to `_site`
-* `markdown_directory_path`: path to a directory in the [Markdown directory format](./markdown-directory-format), defaults to the root of the repository (`.`) 
+* `markdown_directory_path`: path to a directory in the [Markdown directory format](./markdown-format), defaults to the root of the repository (`.`) 
 
 #### Example
 

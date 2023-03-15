@@ -2,7 +2,7 @@
 sidebar_position: 6
 ---
 
-# Reference: Markdown directory format
+# Reference: Markdown format
 
 This page documents the use of Markdown files for storing Paradicms collection data on the file system.
 
