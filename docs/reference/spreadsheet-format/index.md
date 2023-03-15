@@ -13,6 +13,11 @@ A Paradicms-formatted spreadsheet such as the [Google Sheets template](https://d
 
 ![Screenshot of spreadsheet sheet tabs](sheets.png)
 
+Sheets can be named with variants of the class names:
+* `WorkCreation`: the exact class name (camel case) documented in the [data model reference](/docs/reference/data-model)
+* `work_creation`: snake case variant of the class name
+* `work-creation`: spinal case variant of the class name
+
 
 ### Sheet structure
 
@@ -131,3 +136,7 @@ Cross-references to `@id` columns between sheets creates links between graphs. T
 <urn:spreadsheet:exhibitions:work:exhibition/the-metropolitan-museum-of-art/costume-institute/camp-notes-on-fashion> a cms:Work ;
     cms:collection <urn:spreadsheet:exhibitions:collection:the-metropolitan-museum-of-art/costume-institute> .
 ```
+
+There are two special cross-referencing cases:
+* If a `license` property on `Image`, `Work`, et al. references a Creative Commons license IRI such as `http://creativecommons.org/licenses/by/4.0/`, the associated Creative Commons `License` instance is automatically included in the collection data, even if it's not explicitly defined in the `License` sheet.
+* If a `rights` property on `Image`, `Work`, et al. references a RightsStatements.org IRI such as `http://rightsstatements.org/vocab/InC/1.0/`, the associated RightsStatements.org `RightsStatement` instance is automatically included in the collection data, even if it's not explicitly defined in the `RightsStatement` sheet.
