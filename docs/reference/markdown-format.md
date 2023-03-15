@@ -87,7 +87,7 @@ Image data (`.jpg`, `.png`) should sit directly alongside the associated `Image`
 
 The following code block shows an abridged version of the Markdown file `work-creation/Linux.md`:
 
-```markdown
+```markdown title="work-creation/Linux.md"
 ---
 creator: md-person:Linus%20Torvalds
 date: 1991-09-17
@@ -104,7 +104,7 @@ A Markdown file consists of:
 
 A file with only YAML front matter can be stored as `.yaml` instead of `.md`, eliding the leading and trailing`---`, as in `person/Linus Torvalds.yaml`:
 
-```yaml
+```yaml title="person/Linus Torvalds.yaml"
 relation:
   - http://en.wikipedia.org/wiki/Linus_Torvalds
   - http://www.wikidata.org/entity/Q34253
@@ -177,6 +177,8 @@ Paradicms has a number of rules for inferring parts of the graph associated with
 * The default collection is either the first `Collection` defined in the `collection/` directory, or it is synthesized.
 * If an `Image` Markdown file does not specify a `depicts` property, Paradicms looks for a `Collection` (i.e., `collection/somefile.md`), `Person`, `Work`, or other non-`Image` Markdown file with the same file stem (`Linux`) and infers that the `Image` `depicts` that `Collection`, `Person`, or `Work`.
 * An image file (`.jpg`, `.png`, et al.) placed alongside a file with the same stem (`work/Linux.png` and `work/Linux.md`) is assumed to `depict` the sibling Markdown file. Paradicms synthesizes a new `Image` instance with only this `depicts` statement. This is not used in the template, since third party `Image`s should have rights metadata in addition to a `depicts` property.
+* If a `license` property on `Image`, `Work`, et al. references a Creative Commons license IRI such as `http://creativecommons.org/licenses/by/4.0/`, the associated Creative Commons `License` instance is automatically included in the collection data, even if it's not explicitly defined in the `license/` directory.
+* If a `rights` property on `Image`, `Work`, et al. references a RightsStatements.org IRI such as `http://rightsstatements.org/vocab/InC/1.0/`, the associated RightsStatements.org `RightsStatement` instance is automatically included in the collection data, even if it's not explicitly defined in the `rights-statement/` directory.
 
 Most of these rules can be overridden by explicitly specifying a property: adding a `depicts` to `Image`, for example, or including a `dcterms:title` in a `Work` Markdown file instead of allowing the `dcterms:title` to be inferred from the file stem. The rules are provided for convenience.
 
