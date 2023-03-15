@@ -24,16 +24,7 @@ The example screenshots will start from a blank spreadsheet. If you are starting
 
 ### Data entry workflow
 
-The remaining sections of this document will follow a subset of the [repeatable data entry workflow](/docs/reference/data-entry-workflow) described in the reference section. We will not attempt to enter data in every sheet, but only enough to demonstrate the editing process.
-
-
-### Enter a `License`
-
-Enter one of the standard [Creative Commons](https://creativecommons.org/) licenses in the `License` sheet. Here we've entered data about the "Attribution 4.0 International" license (BY 4.0):
-
-![Screenshot of entering a License](enter-license.png)
-
-Since Creative Commons licenses have their own unique identifiers (IRIs, e.g., `http://creativecommons.org/licenses/by/4.0/`), we put the established IRI in the `@id` column instead of minting our own `ss-license:`-prefixed IRI.
+The remaining sections of this document follow a subset of the [repeatable data entry workflow](/docs/reference/data-entry-workflow). We will not attempt to enter data in every sheet, but only enough to demonstrate the editing process.
 
 
 ### Enter a `Collection`
