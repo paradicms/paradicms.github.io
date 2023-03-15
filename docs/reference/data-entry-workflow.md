@@ -28,6 +28,8 @@ All of these can link to a `Location`.
 
 ### Enter `Collection`
 
+`Collection` can also link to a `Location`.
+
 ### Enter `Work`
 
 `Work` links to one or more `Collection`s, zero or more `Organization`s, and zero or more `Person`s.
