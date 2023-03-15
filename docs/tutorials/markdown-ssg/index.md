@@ -7,7 +7,7 @@ sidebar_position: 1
 The tutorial will guide you in creating a web-based digital exhibition from Markdown files.
 
 You will:
-* Define the contents of your exhibition using [Markdown](https://www.markdownguide.org/)
+* Define the contents of your exhibition using [Markdown](https://www.markdownguide.org/) files arranged in a prescribed directory structure
 * Generate a website for the exhibition using [GitHub Actions](https://github.com/features/actions)
 * Deploy the site using [GitHub Pages](https://pages.github.com/)
 
