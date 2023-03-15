@@ -9,6 +9,31 @@ sidebar_position: 5
 This page documents the GitHub Actions provided by Paradicms, with one section per action.
 
 
+### `markdown-ssg-action`
+
+The `markdown-ssg-action` generates a [Paradicms app](./apps) from a directory tree of Markdown (`.md`) files. The files must reside in the GitHub repository.
+
+#### Inputs
+
+##### Required
+
+None.
+
+##### Optional
+
+* `app_configuration_file_path`: path to an [app configuration file](./app-configuration)
+* `build_directory_path`: path to a directory where the generated static assets (CSS, HTML, JavaScript) should be placed, defaults to `_site`
+* `markdown_directory_path`: path to a directory in the [Markdown directory format](./markdown-directory-format), defaults to the root of the repository (`.`) 
+
+#### Example
+
+The example is adapted from the [https://raw.githubusercontent.com/minorg/ComputerScienceInventions/main/.github/workflows/build.yml). The [tutorial on using Markdown to generate a digital exhibition](/docs/tutorials/markdown-ssg) explains the role of this action in context.
+
+```yaml
+- uses: paradicms/markdown-ssg-action@v1-beta
+```
+
+
 ### `spreadsheet-ssg-action`
 
 The `spreadsheet-ssg-action` generates a [Paradicms app](./apps) from a spreadsheet. The spreadsheet can reside on Google Sheets or in an Excel 2010 file (`.xlsx`) in the GitHub repository.
@@ -25,7 +50,7 @@ The `spreadsheet-ssg-action` generates a [Paradicms app](./apps) from a spreadsh
 ##### Optional
 
 * `app_configuration_file_path`: path to an [app configuration file](./app-configuration)
-* `build_directory_path`: path to the directory where the generated static assets (CSS, HTML, JavaScript) should be placed, defaults to `_site`
+* `build_directory_path`: path to a directory where the generated static assets (CSS, HTML, JavaScript) should be placed, defaults to `_site`
 
 #### Example
 
