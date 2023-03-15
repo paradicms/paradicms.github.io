@@ -24,7 +24,7 @@ The example screenshots will start from a blank spreadsheet. If you are starting
 
 ### Data entry workflow
 
-The remaining sections of this section will follow a subset of the [repeatable data entry workflow](/docs/reference/data-entry-workflow) described in the reference section. We will not attempt to enter data in every sheet, but only enough to demonstrate the editing process.
+The remaining sections of this document will follow a subset of the [repeatable data entry workflow](/docs/reference/data-entry-workflow) described in the reference section. We will not attempt to enter data in every sheet, but only enough to demonstrate the editing process.
 
 
 ### Enter a `License`
@@ -34,6 +34,13 @@ Enter one of the standard [Creative Commons](https://creativecommons.org/) licen
 ![Screenshot of entering a License](enter-license.png)
 
 Since Creative Commons licenses have their own unique identifiers (IRIs, e.g., `http://creativecommons.org/licenses/by/4.0/`), we put the established IRI in the `@id` column instead of minting our own `ss-license:`-prefixed IRI.
+
+
+### Enter a `Collection`
+
+Enter information about the Costume Institute into a row in the `Collection` sheet.
+
+![Screenshot of entering a Collection](enter-collection.png)
 
 
 ### Enter a `Person`
