@@ -1,5 +1,5 @@
 ---
-sidebar_position: 1
+sidebar_position: 3
 ---
 
 # Tutorial: generate a faceted search interface for data in Google Sheets
