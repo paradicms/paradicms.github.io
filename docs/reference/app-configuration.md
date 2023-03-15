@@ -44,9 +44,9 @@ Most of the app configuration consists of statements about this top-level resour
 
 | Property     | Description                                                                     | Cardinality | Value type        | Example values                       |
 |--------------|---------------------------------------------------------------------------------|-------------|-------------------|--------------------------------------|
-| app          | Identifier of one of the [Paradicms apps](/docs/reference/apps)                 | 0..1        | String            | work-search                          |
-| stylesheet   | Absolute or relative URL of a [Bootstrap 5](https://getbootstrap.com/) CSS file | 0..1        | String or IRI     | http://example.com/bootstrap.min.css |
-| title        | Site title, used in the HTML `<title>` tag and other parts of the app           | 0..1        | String            | My collection                        |
+| app          | Identifier of one of the [Paradicms apps](/docs/reference/apps)                 | 0..1        | string            | work-search                          |
+| stylesheet   | Absolute or relative URL of a [Bootstrap 5](https://getbootstrap.com/) CSS file | 0..1        | string or IRI     | http://example.com/bootstrap.min.css |
+| title        | Site title, used in the HTML `<title>` tag and other parts of the app           | 0..1        | string            | My collection                        |
 | workProperty | Reference to a `PropertyConfiguration`s for the `work-search` app               | 0..n        | IRI or blank node | See `PropertyConfiguration`          |
 
 Note that all the properties are optional. Paradicms apps don't require configuration, but will run with sensible defaults.
