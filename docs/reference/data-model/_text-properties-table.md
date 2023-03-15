@@ -1,0 +1,11 @@
+| Term                 | IRI                  | Description                                                                                    | Cardinality | Value type | Example values                     |
+|----------------------|----------------------|------------------------------------------------------------------------------------------------|-------------|------------|------------------------------------|
+| contributor          | dcterms:contributor  | Reference to the contributor (usually an `Organization` or `Person`) of this text              | 0..1        | IRI        | http://example.com/Person          |
+| contributorLiteral   | dcterms:contributor  | String identifying a contributor to this text, used as a fallback when no IRI is available     | 0..1        | string     | "Wikipedia user Bob"               |
+| creator              | dcterms:creator      | Reference to the creator (usually an `Organization` or `Person`) of this text                  | 0..1        | IRI        | http://example.com/Person          |
+| creatorLiteral       | dcterms:creator      | String identifying the creator of this text, used as a fallback when no IRI is available       | 0..1        | string     | "Wikipedia user Bob"               |
+| license              | dcterms:license      | Reference to the `License` of this text                                                        | 0..1        | IRI        | http://example.com/License         |
+| rightsHolder         | dcterms:rightsHolder | Reference to the rights holder (usually an `Organization` or `Person`) of this text            | 0..1        | IRI        | http://example.com/Person          |
+| rightsHolderLiteral  | dcterms:rightsHolder | String identifying the rights holder of this text, used as a fallback when no IRI is available | 0..1        | string     | "Wikipedia user Bob"               |
+| rights               | dcterms:rights       | Reference to the `RightsStatement` of this text                                                | 0..1        | IRI        | http://example.com/RightsStatement |
+| value                | rdf:value            | Text value                                                                                     | 1           | string     | "Text with metadata"               |
