@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "paradicms-www"
+version = "0.1.0"
+description = ""
+authors = ["Minor Gordon <minorg@server.fake>"]
+readme = "README.md"
+packages = [{include = "paradicms_www"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+pytablewriter = "^0.64.2"
+
+[tool.poetry.dev-dependencies]
+paradicms-etl = { path = "../paradicms/lib/py/etl", develop = true }
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
