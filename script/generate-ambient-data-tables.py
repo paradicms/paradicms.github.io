@@ -12,7 +12,7 @@ from pytablewriter.style import Style
 ROOT_DIR_PATH = Path(__file__).parent.parent.absolute()
 
 
-HEADERS = ("IRI", "Label")
+HEADERS = ("IRI", "Source", "Label")
 
 
 def write_markdown_table(*, file_stem: str, value_matrix: List[List[Any]]):
@@ -32,7 +32,7 @@ def write_markdown_table(*, file_stem: str, value_matrix: List[List[Any]]):
 write_markdown_table(
     file_stem="_ambient-license-table",
     value_matrix=[
-        [str(license.uri), license.title]
+        [str(license.uri), "Creative Commons", license.title]
         for license in CreativeCommonsLicenses.as_tuple()
     ],
 )
@@ -40,7 +40,7 @@ write_markdown_table(
 write_markdown_table(
     file_stem="_ambient-rights-statement-table",
     value_matrix=[
-        [str(rights_statement.uri), rights_statement.pref_label]
+        [str(rights_statement.uri), "RightsStatements.org", rights_statement.pref_label]
         for rights_statement in RightsStatementsDotOrgRightsStatements.as_tuple()
     ],
 )
