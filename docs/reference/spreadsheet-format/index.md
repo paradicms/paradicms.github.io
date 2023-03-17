@@ -128,7 +128,7 @@ Note that the class (`Person`) is also incorporated into the RDF as an `rdf:type
 
 #### Putting it all together
 
-Converting each data row with this process (row -> JSON, JSON -> RDF) produces a set of RDF graphs, which are merged to form a single large graph representing all of the data in the spreadsheet.
+Converting each data row with this process (row -> JSON, JSON -> RDF) and resolving [ambient data](/docs/reference/ambient-data) produces a set of RDF graphs, which are merged to form a single large graph representing all of the data in the spreadsheet.
 
 Cross-references to `@id` columns between sheets creates links between graphs. The `Work` `collection` reference shown above produces RDF like the following (abridged for clarity):
 
@@ -136,7 +136,3 @@ Cross-references to `@id` columns between sheets creates links between graphs. T
 <urn:spreadsheet:exhibitions:work:exhibition/the-metropolitan-museum-of-art/costume-institute/camp-notes-on-fashion> a cms:Work ;
     cms:collection <urn:spreadsheet:exhibitions:collection:the-metropolitan-museum-of-art/costume-institute> .
 ```
-
-There are two special cross-referencing cases:
-* If a `license` property on `Image`, `Work`, et al. references a Creative Commons license IRI such as `http://creativecommons.org/licenses/by/4.0/`, the associated Creative Commons `License` instance is automatically included in the collection data, even if it's not explicitly defined in the `License` sheet.
-* If a `rights` property on `Image`, `Work`, et al. references a RightsStatements.org IRI such as `http://rightsstatements.org/vocab/InC/1.0/`, the associated RightsStatements.org `RightsStatement` instance is automatically included in the collection data, even if it's not explicitly defined in the `RightsStatement` sheet.
