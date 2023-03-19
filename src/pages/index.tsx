@@ -4,6 +4,7 @@ import Link from "@docusaurus/Link";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import Layout from "@theme/Layout";
 
+import FlexibleDataEntryFeature from "../components/features/flexible-data-entry.md";
 import styles from "./index.module.css";
 
 type FeatureItem = {
@@ -12,7 +13,7 @@ type FeatureItem = {
   description: JSX.Element;
 };
 
-const benefits: FeatureItem[] = [
+const featureItems: FeatureItem[] = [
   {
     title: "Flexible data entry",
     description: (
@@ -27,14 +28,16 @@ const benefits: FeatureItem[] = [
     title: "No local installation, no self-hosting",
     description: (
       <>
-        You don't need to install any software on your machine in order to use
+        Paradicms adheres to the principles of{" "}
+        <Link to="http://go-dh.github.io/mincomp/">minimal computing</Link>. You
+        don't need to install any software on your machine in order to use
         Paradicms, but can use it in conjunction with free cloud services such
         as Google Sheets and GitHub.
       </>
     ),
   },
   {
-    title: "Rendering data",
+    title: "Multiple user interfaces",
     description: (
       <>
         Paradicms provides multiple ways of rendering collection data as{" "}
@@ -46,9 +49,6 @@ const benefits: FeatureItem[] = [
       </>
     ),
   },
-];
-
-const features: FeatureItem[] = [
   {
     title: "Linked Data native",
     // Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
@@ -73,16 +73,20 @@ const features: FeatureItem[] = [
         <Link to="https://www.gnu.org/licenses/gpl-3.0.en.html">
           GPLv3 license
         </Link>
+        . Paradicms is built using modern open source technologies, including
+        Docker, React.js, Next.js, TypeScript, and typed Python.
       </>
     ),
   },
   {
-    title: "Modern",
+    title: "Your data, your way",
     // Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
     description: (
       <>
-        Paradicms is built using modern technologies, including Docker,
-        React.js, Next.js, TypeScript, and typed Python.
+        With Paradicms, you control your own collection data. You are free to
+        share your collection on the public web, or host a website on internal
+        servers. There is no central server, advertising, or behind-the-scenes
+        data sharing.
       </>
     ),
   },
@@ -121,7 +125,7 @@ export default function Home(): JSX.Element {
         </div>
       </header>
       <main>
-        <section className={clsx("padding-vert--lg", styles.benefits)}>
+        <section className={clsx("padding-vert--lg", styles.featuresSection)}>
           <div className="container">
             <div className="row">
               <div className="col text--center">
@@ -129,12 +133,12 @@ export default function Home(): JSX.Element {
               </div>
             </div>
             <div className="row padding-bottom--md">
-              {benefits.map((props, idx) => (
+              {featureItems.slice(0, 3).map((props, idx) => (
                 <Feature key={idx} {...props} />
               ))}
             </div>
             <div className="row">
-              {features.map((props, idx) => (
+              {featureItems.slice(3).map((props, idx) => (
                 <Feature key={idx} {...props} />
               ))}
             </div>
