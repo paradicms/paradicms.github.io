@@ -23,16 +23,16 @@ None.
 
 * `app_configuration_file_path`: path to an [app configuration file](./app-configuration)
 * `build_directory_path`: path to a directory where the generated static assets (CSS, HTML, JavaScript) should be placed, defaults to `_site`
-* `markdown_directory_path`: path to a directory in the [Markdown directory format](./markdown-format), defaults to the root of the repository (`.`) 
+* `markdown_directory_path`: path to a directory in the [Markdown directory format](./markdown-format), defaults to the root of the repository (`.`)
 
 #### Example
 
-The example is adapted from the [https://raw.githubusercontent.com/minorg/ComputerScienceInventions/main/.github/workflows/build.yml). The [tutorial on using Markdown to generate a digital exhibition](/docs/tutorials/markdown-ssg) explains the role of this action in context.
+The example is adapted from the [Computer Science Inventions repository](https://raw.githubusercontent.com/minorg/ComputerScienceInventions/main/.github/workflows/build.yml).
+The [tutorial on using Markdown to generate a digital exhibition](/docs/tutorials/markdown-ssg) explains the role of this action in context.
 
 ```yaml
 - uses: paradicms/markdown-ssg-action@v1-beta
 ```
-
 
 ### `spreadsheet-ssg-action`
 
