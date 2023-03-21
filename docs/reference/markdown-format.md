@@ -126,17 +126,17 @@ The Markdown file to JSON conversion process works as follows:
   * A paragraph under a Markdown heading with the format `# [Your heading](#anykey)` is converted to an HTML string, and either 
     * Assigned to `anykey` in the root JSON object if `anykey` does not exist in that object
     * Concatenated to the existing string value of `anykey` if it does
-  * A paragraph under no heading, like the `Frustrated ...` paragraph in the example above, has the implicit key `abstract`, and otherwise follows the rules of paragraphs with explicit keys.
+  * A paragraph under no heading, like the `Frustrated ...` paragraph in the example above, has the implicit key `description`, and otherwise follows the rules of paragraphs with explicit keys.
   * When a paragraph's key (explicit or implicit) was already present in the YAML front matter, the combined metadata and paragraph text(s) are treated as an instance of a `Text` class, with the paragraph text(s) forming the `value`.
 
 Converting `work-creation/Linux.md` would result in the following JSON:
 
 ```json
 {
-  "abstract": "Frustrated by the limitations of existing operating systems and curious about kernel development, Linus Torvalds begins work on what eventually becomes the Linux kernel.",
   "creator": "md-person:Linus%20Torvalds",
   "date": "1991-09-17",
-  "title": "Linus Torvalds begins work on the Linux kernel",
+  "description": "Frustrated by the limitations of existing operating systems and curious about kernel development, Linus Torvalds begins work on what eventually becomes the Linux kernel.",
+  "title": "Linus Torvalds begins work on the Linux kernel"
 }
 ```
 
@@ -152,9 +152,9 @@ The result of this interpretation is a small RDF graph per Markdown file:
 <urn:markdown:ComputerScienceInventions:work-creation:Linux> a cms:Event,
         cms:WorkCreation,
         cms:WorkEvent ;
-    dcterms:abstract "<p>Frustrated by the limitations of existing operating systems and curious about kernel development, Linus Torvalds begins work on what eventually becomes the Linux kernel.</p>" ;
     dcterms:creator <urn:markdown:ComputerScienceInventions:person:Linus%20Torvalds> ;
     dcterms:date "1991-09-17"^^xsd:date ;
+    dcterms:description "<p>Frustrated by the limitations of existing operating systems and curious about kernel development, Linus Torvalds begins work on what eventually becomes the Linux kernel.</p>" ;
     dcterms:title "Linus Torvalds begins work on the Linux kernel" ;
     cms:work <urn:markdown:ComputerScienceInventions:work:Linux> .
 }
