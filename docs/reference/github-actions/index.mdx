@@ -2,6 +2,9 @@
 sidebar_position: 5
 ---
 
+import MarkdownSsgActionInputsTable from "./inputs-tables/_markdown-ssg-action-inputs-table.md";
+import SpreadsheetSsgActionInputsTable from "./inputs-tables/_spreadsheet-ssg-action-inputs-table.md";
+
 # Reference: GitHub Actions
 
 [GitHub Actions](https://github.com/features/actions) are the glue that ties together disparate components of the Paradicms system. A GitHub Action like `spreadsheet-ssg-action` extracts data from a source like Google Sheets, transforms it to the Paradicms data model, and feed the data to an app-specific static site generator. The result is a set of HTML, CSS, and JavaScript files which can be deployed to a static file hosting service such as GitHub Pages.
@@ -15,15 +18,7 @@ The `markdown-ssg-action` generates a [Paradicms app](./apps) from a directory t
 
 #### Inputs
 
-##### Required
-
-None.
-
-##### Optional
-
-* `app_configuration_file_path`: path to an [app configuration file](./app-configuration)
-* `build_directory_path`: path to a directory where the generated static assets (CSS, HTML, JavaScript) should be placed, defaults to `_site`
-* `markdown_directory_path`: path to a directory in the [Markdown directory format](./markdown-format), defaults to the root of the repository (`.`)
+<MarkdownSsgActionInputsTable/>
 
 #### Example
 
@@ -40,17 +35,13 @@ The `spreadsheet-ssg-action` generates a [Paradicms app](./apps) from a spreadsh
 
 #### Inputs
 
-##### Required
+<SpreadsheetSsgActionInputsTable/>
 
-* `spreadsheet`: one of:
-    * a Google Sheets spreadsheet id, such as `1j2oaMvMxY4pnXO-sEH_fky2R2gm6TQeIev_Q8rVOD4M` ;
-    * the full URL of a Google Sheet, such as `https://docs.google.com/spreadsheets/d/1j2oaMvMxY4pnXO-sEH_fky2R2gm6TQeIev_Q8rVOD4M/edit?usp=sharing` ; or
-    * the path to an Excel 2010 file (`.xlsx`) within the repository, such as `data/data.xlsx`
+`spreadsheet` must be one of:
+  * a Google Sheets spreadsheet id, such as `1j2oaMvMxY4pnXO-sEH_fky2R2gm6TQeIev_Q8rVOD4M` ;
+  * the full URL of a Google Sheet, such as `https://docs.google.com/spreadsheets/d/1j2oaMvMxY4pnXO-sEH_fky2R2gm6TQeIev_Q8rVOD4M/edit?usp=sharing` ; or
+  * the path to an Excel 2010 file (`.xlsx`) within the repository, such as `data/data.xlsx`
 
-##### Optional
-
-* `app_configuration_file_path`: path to an [app configuration file](./app-configuration)
-* `build_directory_path`: path to a directory where the generated static assets (CSS, HTML, JavaScript) should be placed, defaults to `_site`
 
 #### Example
 
