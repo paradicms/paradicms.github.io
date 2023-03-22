@@ -1,4 +1,5 @@
 from pathlib import Path
+from shutil import rmtree
 from typing import List, Iterable, Dict, Any
 
 from dataproperty import Align
@@ -10,14 +11,17 @@ from pytablewriter import MarkdownTableWriter
 from pytablewriter.style import Style
 
 ROOT_DIR_PATH = Path(__file__).parent.parent.absolute()
+TABLES_DIR_PATH = ROOT_DIR_PATH / "docs" / "reference" / "ambient-data" / "tables"
+rmtree(TABLES_DIR_PATH, ignore_errors=True)
+TABLES_DIR_PATH.mkdir()
 
 
 HEADERS = ("IRI", "Source", "Label")
 
 
-def write_markdown_table(*, file_stem: str, value_matrix: List[List[Any]]):
+def write_markdown_table(*, model_type: str, value_matrix: List[List[Any]]):
     with open(
-        ROOT_DIR_PATH / "docs" / "reference" / "ambient-data" / (file_stem + ".md"),
+        TABLES_DIR_PATH / f"_ambient-{model_type}-table.md",
         "w+",
     ) as md_file:
         writer = MarkdownTableWriter(
@@ -30,7 +34,7 @@ def write_markdown_table(*, file_stem: str, value_matrix: List[List[Any]]):
 
 
 write_markdown_table(
-    file_stem="_ambient-license-table",
+    model_type="license",
     value_matrix=[
         [str(license.uri), "Creative Commons", license.title]
         for license in CreativeCommonsLicenses.as_tuple()
@@ -38,7 +42,7 @@ write_markdown_table(
 )
 
 write_markdown_table(
-    file_stem="_ambient-rights-statement-table",
+    model_type="rights-statement",
     value_matrix=[
         [str(rights_statement.uri), "RightsStatements.org", rights_statement.pref_label]
         for rights_statement in RightsStatementsDotOrgRightsStatements.as_tuple()
