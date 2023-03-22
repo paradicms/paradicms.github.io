@@ -1,16 +1,10 @@
 from pathlib import Path
 from shutil import rmtree
-from typing import List, Iterable, Dict, Any
 
 import yaml
 from dataproperty import Align
-from paradicms_etl.models.creative_commons_licenses import CreativeCommonsLicenses
-from paradicms_etl.models.rights_statements_dot_org_rights_statements import (
-    RightsStatementsDotOrgRightsStatements,
-)
 from pytablewriter import MarkdownTableWriter
 from pytablewriter.style import Style
-
 
 ROOT_DIR_PATH = Path(__file__).parent.parent.absolute()
 TABLES_DIR_PATH = (
@@ -53,5 +47,6 @@ def generate_github_action_table(repository_name: str):
         writer.write_table()
 
 
+generate_github_action_table("airtable-ssg-action")
 generate_github_action_table("markdown-ssg-action")
 generate_github_action_table("spreadsheet-ssg-action")
