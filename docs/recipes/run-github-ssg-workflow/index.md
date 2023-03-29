@@ -1,5 +1,5 @@
 ---
-sidebar_position: 5
+sidebar_position: 2
 ---
 
 # Recipe: manually run a Paradicms GitHub Action static site generation workflow
