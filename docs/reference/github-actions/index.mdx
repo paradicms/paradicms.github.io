@@ -3,6 +3,18 @@ sidebar_position: 5
 ---
 
 
+
+
+
+
+
+
+
+
+
+
+
+import AirtableSsgActionInputsTable from "./inputs-tables/_airtable-ssg-action-inputs-table.md";
 import MarkdownSsgActionInputsTable from "./inputs-tables/_markdown-ssg-action-inputs-table.md";
 import SpreadsheetSsgActionInputsTable from "./inputs-tables/_spreadsheet-ssg-action-inputs-table.md";
 
@@ -11,6 +23,27 @@ import SpreadsheetSsgActionInputsTable from "./inputs-tables/_spreadsheet-ssg-ac
 [GitHub Actions](https://github.com/features/actions) are the glue that ties together disparate components of the Paradicms system. A GitHub Action like `spreadsheet-ssg-action` extracts data from a source like Google Sheets, transforms it to the Paradicms data model, and feed the data to an app-specific static site generator. The result is a set of HTML, CSS, and JavaScript files which can be deployed to a static file hosting service such as GitHub Pages.
 
 This page documents the GitHub Actions provided by Paradicms, with one section per action.
+
+
+### `airtable-ssg-action`
+
+The `airtable-ssg-action` generates a [Paradicms app](/docs/reference/apps) from an Airtable base.
+
+#### Inputs
+
+<AirtableSsgActionInputsTable/>
+
+#### Example
+
+The example is adapted from the [Airtable template repository](https://raw.githubusercontent.com/dressdiscover/costume-core-template/main/.github/workflows/build.yml).
+The [tutorial on generating a faceted search interface using data in Airtable](/docs/tutorials/airtable-ssg) explains the role of this action in context.
+
+```yaml
+uses: paradicms/airtable-ssg-action@v1-beta
+with:
+  airtable_access_token: ${{ secrets.AIRTABLE_ACCESS_TOKEN }}
+  airtable_base_id: ${{ secrets.AIRTABLE_BASE_ID }}
+```
 
 
 ### `markdown-ssg-action`
@@ -27,7 +60,7 @@ The example is adapted from the [Markdown template repository](https://raw.githu
 The [tutorial on using Markdown to generate a digital exhibition](/docs/tutorials/markdown-ssg) explains the role of this action in context.
 
 ```yaml
-- uses: paradicms/markdown-ssg-action@v1-beta
+uses: paradicms/markdown-ssg-action@v1-beta
 ```
 
 ### `spreadsheet-ssg-action`
