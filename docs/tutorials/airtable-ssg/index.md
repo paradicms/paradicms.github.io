@@ -34,7 +34,7 @@ Your Airtable API base ID should resemble `appgU92SdGTwPIVNg` (which is the ID o
 
 ### Obtain an Airtable personal access token
 
-Follow [these instructions](https://support.airtable.com/docs/creating-and-using-api-keys-and-access-tokens#personal-access-tokens-basic-actions).
+Follow [these instructions](https://support.airtable.com/docs/creating-and-using-api-keys-and-access-tokens#personal-access-tokens-basic-actions) to obtain a personal access token.
 
 The personal access token should have at least the following scopes:
 
