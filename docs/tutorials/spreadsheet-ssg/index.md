@@ -35,7 +35,7 @@ Follow the [recipe on creating a Google Sheet for collection data](/docs/recipes
 
 #### Copy the template GitHub repository
 
-Follow the [recipe on creating a GitHub repository from a template](/docs/recipes/create-github-repository), using [this template repository](https://github.com/dressdiscover/exhibitions).
+Follow [these instructions](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template) on creating a GitHub repository from a template, using [this template repository](https://github.com/dressdiscover/exhibitions).
 
 #### Configure GitHub Pages
 

@@ -48,7 +48,7 @@ You should limit the token's access to your specific Airtable base.
 
 #### Copy the template GitHub repository
 
-Follow the [recipe on creating a GitHub repository from a template](/docs/recipes/create-github-repository), using [this template repository](https://github.com/dressdiscover/costume-core-template).
+Follow [these instructions](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template) on creating a GitHub repository from a template, using [this template repository](https://github.com/dressdiscover/costume-core-template).
 
 #### Configure GitHub Pages
 

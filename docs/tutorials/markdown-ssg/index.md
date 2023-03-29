@@ -29,7 +29,7 @@ You do not need to install git or any other software on your computer.
 
 #### Copy the template GitHub repository
 
-Follow the [recipe on creating a GitHub repository from a template](/docs/recipes/create-github-repository), using [this template repository](https://github.com/minorg/ComputerScienceInventions).
+Follow [these instructions](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template) on creating a GitHub repository from a template, using [this template repository](https://github.com/minorg/ComputerScienceInventions).
 
 #### Configure GitHub Pages
 
