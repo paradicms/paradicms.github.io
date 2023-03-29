@@ -31,12 +31,6 @@ You do not need to install git or any other software on your computer.
 
 Follow the [recipe on creating a GitHub repository from a template](/docs/recipes/create-github-repository), using [this template repository](https://github.com/minorg/ComputerScienceInventions).
 
-You'll be using GitHub to:
-
-* automate the process of building the app from Markdown files in the GitHub repository, using GitHub Actions
-* serve the statically-generated files (CSS, HTML, JavaScript) of the app, using GitHub Pages
-
-
 #### Configure GitHub Pages
 
 Follow the [recipe on configuring GitHub Pages](/docs/recipes/configure-github-pages).

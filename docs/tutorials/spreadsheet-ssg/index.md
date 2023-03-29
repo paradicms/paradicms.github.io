@@ -37,16 +37,9 @@ Follow the [recipe on creating a Google Sheet for collection data](/docs/recipes
 
 Follow the [recipe on creating a GitHub repository from a template](/docs/recipes/create-github-repository), using [this template repository](https://github.com/dressdiscover/exhibitions).
 
-You'll be using GitHub to:
-
-* automate the process of building the app from the Google Sheet, using GitHub Actions
-* serve the statically-generated files (CSS, HTML, JavaScript) of the app, using GitHub Pages
-
-
 #### Configure GitHub Pages
 
 Follow the [recipe on configuring GitHub Pages](/docs/recipes/configure-github-pages).
-
 
 #### Configure GitHub Actions
 
@@ -54,17 +47,7 @@ Find the URL of your Google Sheet in the address bar of your browser tab. It wil
 
 ![Screenshot of the Google Sheets address bar](google-sheets-address-bar.png)
 
-[Follow the recipe](/docs/recipes/edit-github-ssg-workflow) to edit the GitHub Actions workflow configuration.
-
-In the editor, change the `spreadsheet` input to the `spreadsheet-ssg-action` to the URL of your spreadsheet:
-
-```yaml
-uses: paradicms/spreadsheet-ssg-action@v1-beta
-with:
-  spreadsheet: "https://docs.google.com/spreadsheets/d/1j2oaMvMxY4pnXO-sEH_fky2R2gm6TQeIev_Q8rVOD4M/edit#gid=0"
-```
-
-When you're done, commit changes by following the editing recipe.
+Following [these instructions](https://docs.github.com/en/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository), create a new repository secret with the name `SPREADSHEET`. The value should be the URL of your spreadsheet.
 
 ### Generate the site
 
