@@ -52,7 +52,7 @@ Follow [these instructions](https://docs.github.com/en/repositories/creating-and
 
 #### Configure GitHub Pages
 
-Follow the [recipe on configuring GitHub Pages](/docs/recipes/configure-github-pages).
+Follow [these instructions](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site#publishing-with-a-custom-github-actions-workflow) on publishing GitHub Pages with a custom GitHub Actions workflow.
 
 #### Configure GitHub Actions
 
