@@ -25,7 +25,7 @@ In JSON-LD syntax you can use a simple `@context` to indicate that terms are in 
 ```json
 {
     "@context": {
-        "@vocab": "http://www.paradicms.org/ns/configuration"
+        "@vocab": "http://www.paradicms.org/ns/configuration#"
     },
     "@type": "AppConfiguration",
     "stylesheet": "http://example.com/example.css",
