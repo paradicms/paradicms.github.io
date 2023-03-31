@@ -1,0 +1,43 @@
+{
+    "@context": {
+        "@version": 1.1,
+        "dc": "http://purl.org/dc/elements/1.1/",
+        "dcam": "http://purl.org/dc/dcam/",
+        "dcat": "http://www.w3.org/ns/dcat#",
+        "dcmitype": "http://purl.org/dc/dcmitype/",
+        "dcterms": "http://purl.org/dc/terms/",
+        "doap": "http://usefulinc.com/ns/doap#",
+        "foaf": "http://xmlns.com/foaf/0.1/",
+        "geo": "http://www.opengis.net/ont/geosparql#",
+        "org": "http://www.w3.org/ns/org#",
+        "owl": "http://www.w3.org/2002/07/owl#",
+        "prov": "http://www.w3.org/ns/prov#",
+        "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+        "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+        "sdo": "https://schema.org/",
+        "sh": "http://www.w3.org/ns/shacl#",
+        "skos": "http://www.w3.org/2004/02/skos/core#",
+        "time": "http://www.w3.org/2006/time#",
+        "wgs": "http://www.w3.org/2003/01/geo/wgs84_pos#",
+        "xsd": "http://www.w3.org/2001/XMLSchema#",
+        "cc": "http://creativecommons.org/ns#",
+        "cms": "http://www.paradicms.org/ns/cms#",
+        "coco": "https://w3id.org/costumeCore/ontology/",
+        "contact": "http://www.w3.org/2000/10/swap/pim/contact#",
+        "exif": "http://www.w3.org/2003/12/exif/ns#",
+        "vra": "http://purl.org/vra/",
+        "name": {
+            "@id": "http://xmlns.com/foaf/0.1/name"
+        },
+        "page": {
+            "@id": "http://xmlns.com/foaf/0.1/page"
+        },
+        "relation": {
+            "@id": "http://purl.org/dc/terms/relation",
+            "@type": "@id"
+        },
+        "sortName": {
+            "@id": "http://www.w3.org/2000/10/swap/pim/contact#sortName"
+        }
+    }
+}
