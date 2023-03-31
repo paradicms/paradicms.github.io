@@ -51,12 +51,12 @@
             "@id": "http://purl.org/dc/terms/type",
             "@type": "@id"
         },
-        "contributor": {
-            "@id": "http://purl.org/dc/terms/contributor",
+        "rights": {
+            "@id": "http://purl.org/dc/terms/rights",
             "@type": "@id"
         },
-        "contributorLiteral": {
-            "@id": "http://purl.org/dc/terms/contributor"
+        "rightsLiteral": {
+            "@id": "http://purl.org/dc/terms/rights"
         },
         "creator": {
             "@id": "http://purl.org/dc/terms/creator",
@@ -65,12 +65,12 @@
         "creatorLiteral": {
             "@id": "http://purl.org/dc/terms/creator"
         },
-        "rightsHolder": {
-            "@id": "http://purl.org/dc/terms/rightsHolder",
+        "contributor": {
+            "@id": "http://purl.org/dc/terms/contributor",
             "@type": "@id"
         },
-        "rightsHolderLiteral": {
-            "@id": "http://purl.org/dc/terms/rightsHolder"
+        "contributorLiteral": {
+            "@id": "http://purl.org/dc/terms/contributor"
         },
         "license": {
             "@id": "http://purl.org/dc/terms/license",
@@ -79,12 +79,12 @@
         "licenseLiteral": {
             "@id": "http://purl.org/dc/terms/license"
         },
-        "rights": {
-            "@id": "http://purl.org/dc/terms/rights",
+        "rightsHolder": {
+            "@id": "http://purl.org/dc/terms/rightsHolder",
             "@type": "@id"
         },
-        "rightsLiteral": {
-            "@id": "http://purl.org/dc/terms/rights"
+        "rightsHolderLiteral": {
+            "@id": "http://purl.org/dc/terms/rightsHolder"
         }
     }
 }
