@@ -46,17 +46,51 @@ Even the best museum interfaces are not quite up to the standard of big companie
 ![Airbnb home page screenshot](2023-04-05-airbnb-home.png)
 
 
-### Design choices
+### The status quo
 
-Surveying the screenshots above, some design choices become apparent
+![Paradicms work search 'before' screenshot](2023-04-05-paradicms-work-search-before.png)
 
-#### Inline or pop-up filters
+Describe the interface:
+Search in the navbar
+Inline filters in a sidebar
+Default gallery view
+
+### Areas of improvement
+
+Would like to bring this into line with a modern faceted search interface.
+
+##### Minimize information on the cards
+
+"After" screenshot of Paradicms
+
+##### Standardize card layout and dimensions
+
+Why is it bad?
+What does it do?
+
+"After" screenshot of Paradicms
+
+#### Pop-up filters
 
 Filters on work type, associated time and place, and sub-collection are the essence of the faceted search interface. These can be shown inline, as on the Texas Fashion Collection site, or as a pop-up, as on the Met's collection interface. Pop-up filters like Airbnb's (shown below) seem to have become the more popular choice in recent years.
 
 ![Airbnb pop-up filters screenshot](2023-04-05-airbnb-filters.png)
 
+Maximize real estate for results
 
-### The status quo
+"After" screenshot of Paradicms
 
-![Paradicms work search 'before' screenshot](2023-04-05-paradicms-work-search-before.png)
+#### Remove gratuitous whitespace
+
+Too much whitespace
+
+"After screenshot of Paradicms"
+
+#### Specialize filters
+
+??
+
+
+### Conclusion
+
+The new Paradicms 
