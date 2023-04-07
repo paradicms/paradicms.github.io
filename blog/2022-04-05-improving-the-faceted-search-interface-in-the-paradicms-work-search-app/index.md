@@ -11,7 +11,12 @@ This post looks at faceted search interfaces to several major collections, inclu
 
 Faceted search can be used to refine the results of a full-text search, or to filter the entire contents of a database. The screenshot below (click the image to zoom) shows the faceted search interface to the collection at the Getty Museum:
 
+<figure>
+
 ![Getty collection interface screenshot](2023-04-06-getty.png)
+
+<figcaption style={{textAlign: "center"}}>Getty collection interface</figcaption>
+</figure>
 
 Most collection interfaces are work-centric, and allow users to filter on faceted metadata about a work. The set of available filters often includes date ranges for a work's creation, a hierarchy of geographical regions, and/or enumerated lists of people associated with works in the collection. More specialized collections may provide correspondingly specialized filters on metadata. For example, a digital costume collection may have metadata about the materials and techniques used in the construction of a work.
 
@@ -21,7 +26,13 @@ There is a wealth of other examples available online. The sections below show th
 
 ##### [The Metropolitan Museum of Art](https://www.metmuseum.org/art/collection/search)
 
+<figure>
+
 ![Met Costume Institute collection interface screenshot](2023-04-05-met-search-the-collection.png)
+
+<figcaption style={{textAlign: "center"}}>Metropolitan Museum of Art collection interface</figcaption>
+</figure>
+
 
 The Met provides a uniform interface to its entire collection. The Met's interface is representative of the state of the art for museums, and includes:
 
@@ -37,39 +48,77 @@ The screenshot shows the works in the Met's collections filtered by type (Access
 
 ##### [The Museum at FIT](https://fashionmuseum.fitnyc.edu/collections)
 
-![Museum @ FIT collection interface objects screenshot](2023-04-06-mfit-collections.png)
+<figure>
+
+![Museum @ FIT collection interface collections screenshot](2023-04-06-mfit-collections.png)
+
+<figcaption style={{textAlign: "center"}}>Museum @ FIT collection interface: collections</figcaption>
+</figure>
+
 
 The Museum @ FIT's collection interface invites the user to select a subset of works ("collections") before seeing any of them. Alternatively, the user can view all works in the museum's collection.
 
 Choosing a subset such as works from the 1920s takes the user to the primary faceted search screen:
 
+<figure>
+
 ![Museum @ FIT collection interface objects screenshot](2023-04-06-mfit-objects.png)
+
+<figcaption style={{textAlign: "center"}}>Museum @ FIT collection interface: objects</figcaption>
+</figure>
+
 
 The interface is similar to the Met's faceted search, except for the way filters are displayed. In order to filter the current search results, the user must click a Filter button
 which pops out a sidebar (shown). The filters for such as Designer comprise lists of field values found in works that matched the search, with each list ordered from most to least frequent value.
 
 ##### [Texas Fashion Collection](https://digital.library.unt.edu/explore/collections/TXFC/browse/)
 
+<figure>
+
 ![Texas Fashion Collection interface list view screenshot](2023-04-06-txfc-list.png)
+
+<figcaption style={{textAlign: "center"}}>Texas Fashion Collection interface: list view</figcaption>
+</figure>
 
 The Texas Fashion Collection interface is visually distinct from those of the Met and the Museum at FIT. The default list view of the search results includes a relatively large image, the work's title, a long description, an approximate date, and provenance information. Users can select an alternative grid view, shown below, which displays large images. In the grid view the user must hover over an image to see its metadata:
 
+<figure>
+
 ![Texas Fashion Collection interface grid view screenshot](2023-04-06-txfc-grid.png)
+
+<figcaption style={{textAlign: "center"}}>Texas Fashion Collection interface: grid view</figcaption>
+</figure>
+
 
 Facet filters in the Texas Fashion Collection interface are listed in a sidebar panel, but selecting a filter pops up a modal dialog that lists facet values by descending frequency:
 
+<figure>
+
 ![Texas Fashion Collection interface filter screenshot](2023-04-06-txfc-filter.png)
+
+<figcaption style={{textAlign: "center"}}>Texas Fashion Collection interface: filter</figcaption>
+</figure>
 
 
 ### Commercial interfaces
 
 Companies such as [Airbnb](https://www.airbnb.com/) that rely on the user experience of their websites to drive revenue set the standard for faceted search interfaces. The screenshot below shows Airbnb's interface:
 
+<figure>
+
 ![Airbnb home page screenshot](2023-04-05-airbnb-home.png)
+
+<figcaption style={{textAlign: "center"}}>Airbnb home page</figcaption>
+</figure>
 
 The most important filters -- time range, number of guests, and listing category -- are given space at the top of the page. The filter for listing categories such as Beachfront and Mansions is an attractive ribbon of icons. Others filters can be accessed by clicking on the Filters button, which pops up a modal dialog:
 
+<figure>
+
 ![Airbnb pop-up filters screenshot](2023-04-05-airbnb-filters.png)
+
+<figcaption style={{textAlign: "center"}}>Airbnb pop-up filters</figcaption>
+</figure>
 
 Unlike the digital collection interfaces, Airbnb customizes the filters on a per-field basis. There are range filters (price), value filters (bedrooms), checkboxes (Type of place), and so on.
 
@@ -81,7 +130,12 @@ The flexibility of this approach presents some challenges. In contrast to interf
 
 The screenshot below shows the initial state of the interface, before making any improvements:
 
+<figure>
+
 ![Paradicms work search 'before' screenshot](2023-04-05-paradicms-work-search-before.png)
+
+<figcaption style={{textAlign: "center"}}>Paradicms work search app before improvements</figcaption>
+</figure>
 
 * The navbar contains a search box for fulltext search. If the user doesn't enter a query, the faceted search interface starts from all works in the collection.
 * Filters for various user-defined properties are shown in an inline sidebar, with an accordion that ensures that only one filter is visible at a time.
@@ -100,9 +154,28 @@ We can do better. Our goal is to close the gap between the current interface and
 
 Move inessential information like Wikipedia links out of the card headers and on to the pages for each work. Add an approximate date to each card.
 
-Before:
 
-After:
+<div className="container">
+<div className="row">
+<div className="col coll--6" style={{display: "flex", justifyContent: "center"}}>
+<figure>
+<figcaption style={{textAlign: "center"}}>Before</figcaption>
+
+![Paradicms work gallery card 'before' screenshot](2023-04-07-paradicms-work-gallery-card-before.png)
+
+</figure>
+</div>
+<div className="col coll--6" style={{display: "flex", justifyContent: "center"}}>
+<figure>
+<figcaption style={{textAlign: "center"}}>After</figcaption>
+
+![Paradicms work gallery card 'after' screenshot](2023-04-07-paradicms-work-gallery-card-after.png)
+
+</figure>
+</div>
+</div>
+</div>
+
 
 ##### Standardize gallery card layout and dimensions
 
