@@ -161,7 +161,7 @@ Move inessential information like Wikipedia links out of the card headers and on
 <figure>
 <figcaption style={{textAlign: "center"}}>Before</figcaption>
 
-![Paradicms work gallery card 'before' screenshot](2023-04-07-paradicms-work-gallery-card-before.png)
+![Paradicms work gallery card 'before' screenshot](2023-04-07-paradicms-work-gallery-card-information-before.png)
 
 </figure>
 </div>
@@ -169,7 +169,7 @@ Move inessential information like Wikipedia links out of the card headers and on
 <figure>
 <figcaption style={{textAlign: "center"}}>After</figcaption>
 
-![Paradicms work gallery card 'after' screenshot](2023-04-07-paradicms-work-gallery-card-after.png)
+![Paradicms work gallery card 'after' screenshot](2023-04-07-paradicms-work-gallery-card-information-after.png)
 
 </figure>
 </div>
