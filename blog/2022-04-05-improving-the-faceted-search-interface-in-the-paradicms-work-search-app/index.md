@@ -150,13 +150,16 @@ Compared to the faceted search interfaces of the Met, the Museum at FIT, and the
 
 We can do better. Our goal is to close the gap between the current interface and other digital collection interfaces, like the Met's. In the sections below we'll walk through improvements to the app. We won't alter the basic functionality of the faceted search interface, only how it is presented. We'll start with high-impact, low-effort changes and go from there.
 
-##### Limit gallery card information to the essentials
+##### Gallery card information
 
-Move inessential information like Wikipedia links out of the card headers and on to the pages for each work. Add an approximate date to each card.
+Limit gallery card information to the essentials:
 
+* Move Wikipedia and other links out of the card headers and on to the pages for each work.
+* Add an approximate date to each card.
 
 <div className="container">
 <div className="row">
+
 <div className="col coll--6" style={{display: "flex", justifyContent: "center"}}>
 <figure>
 <figcaption style={{textAlign: "center"}}>Before</figcaption>
@@ -173,16 +176,23 @@ Move inessential information like Wikipedia links out of the card headers and on
 
 </figure>
 </div>
+
 </div>
 </div>
 
 
-##### Standardize gallery card layout and dimensions
+##### Gallery card layout
 
 Why is it bad?
 What does it do?
 
 "After" screenshot of Paradicms
+
+
+##### Compact filters
+
+Select boxes
+
 
 ##### Pop-up filters
 
