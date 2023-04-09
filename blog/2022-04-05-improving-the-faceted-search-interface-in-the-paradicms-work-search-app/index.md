@@ -144,7 +144,7 @@ The screenshot below shows the initial state of the interface, before making any
 * The gallery has standard pagination and a sort dropdown with common options.
 
 
-### Areas of improvement
+### Improvements
 
 Compared to the faceted search interfaces of the Met, the Museum at FIT, and the Texas Fashion Collection -- which have similar functionality -- the Paradicms work search app lacks polish and finesse. It looks like it was designed and built by a software engineer as an 80% solution -- because it was. Unfortunately, the remaining 20% is the difference between a clunky user interface and a good one.
 
@@ -155,7 +155,7 @@ We can do better. Our goal is to close the gap between the current interface and
 Limit gallery card information to the essentials:
 
 * Move Wikipedia and other links out of the card headers and on to the pages for each work.
-* Add an approximate date to each card.
+* Add an approximate date to each card as a subtitle.
 
 <div className="container">
 <div className="row">
@@ -183,11 +183,11 @@ Limit gallery card information to the essentials:
 
 ##### Gallery card layout
 
-Why is it bad?
-What does it do?
+Rework the gallery card so that the most important information is the most prominent:
 
-"After" screenshot of Paradicms
-
+* From top to bottom, display the thumbnail, title, then subtitle.
+* Use larger thumbnails, 400x400 max instead of 200x200 max.
+* Make the card max-width only as wide as the image max-width.
 
 ##### Compact filters
 
