@@ -3,20 +3,35 @@ title: Improving the faceted search interface in the Paradicms work search app
 authors: [minorg]
 ---
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+import Figure from "./_Figure";
+import BeforeAfterFiguresContainer from "./_BeforeAfterFiguresContainer";
+
 Faceted search augments traditional search techniques with a faceted navigation system, allowing users to narrow down search results by applying multiple filters based on faceted classification of items ([Wikipedia](https://en.wikipedia.org/wiki/Faceted_search)). In the last two decades faceted search has become a staple of web-based user interfaces to digital cultural heritage collections.
 
 This post looks at faceted search interfaces to several major collections, including the Metropolitan Museum of Art and the Museum at FIT, and documents the process of bringing the Paradicms work-search app up to par with other digital collection interfaces.
 
 <!--truncate-->
 
-Faceted search can be used to refine the results of a full-text search, or to filter the entire contents of a database. The screenshot below (click the image to zoom) shows the faceted search interface to the collection at the Getty Museum:
+Faceted search can be used to refine the results of a full-text search, or to filter the entire contents of a database.
 
-<figure>
-
-![Getty collection interface screenshot](2023-04-06-getty.png)
-
-<figcaption style={{textAlign: "center"}}>Getty collection interface</figcaption>
-</figure>
+<Figure caption="Getty collection interface" src={require("./2023-04-06-getty.png").default} />
 
 Most collection interfaces are work-centric, and allow users to filter on faceted metadata about a work. The set of available filters often includes date ranges for a work's creation, a hierarchy of geographical regions, and/or enumerated lists of people associated with works in the collection. More specialized collections may provide correspondingly specialized filters on metadata. For example, a digital costume collection may have metadata about the materials and techniques used in the construction of a work.
 
@@ -26,13 +41,7 @@ There is a wealth of other examples available online. The sections below show th
 
 ##### [The Metropolitan Museum of Art](https://www.metmuseum.org/art/collection/search)
 
-<figure>
-
-![Met Costume Institute collection interface screenshot](2023-04-05-met-search-the-collection.png)
-
-<figcaption style={{textAlign: "center"}}>Metropolitan Museum of Art collection interface</figcaption>
-</figure>
-
+<Figure caption="Metropolitan Museum of Art collection interface" src={require("./2023-04-05-met-search-the-collection.png").default} />
 
 The Met provides a uniform interface to its entire collection. The Met's interface is representative of the state of the art for museums, and includes:
 
@@ -48,77 +57,38 @@ The screenshot shows the works in the Met's collections filtered by type (Access
 
 ##### [The Museum at FIT](https://fashionmuseum.fitnyc.edu/collections)
 
-<figure>
-
-![Museum @ FIT collection interface collections screenshot](2023-04-06-mfit-collections.png)
-
-<figcaption style={{textAlign: "center"}}>Museum @ FIT collection interface: collections</figcaption>
-</figure>
-
+<Figure caption="Museum @ FIT collection interface: collections" src={require("./2023-04-06-mfit-collections.png").default} />
 
 The Museum @ FIT's collection interface invites the user to select a subset of works ("collections") before seeing any of them. Alternatively, the user can view all works in the museum's collection.
 
 Choosing a subset such as works from the 1920s takes the user to the primary faceted search screen:
 
-<figure>
-
-![Museum @ FIT collection interface objects screenshot](2023-04-06-mfit-objects.png)
-
-<figcaption style={{textAlign: "center"}}>Museum @ FIT collection interface: objects</figcaption>
-</figure>
-
+<Figure caption="Museum @ FIT collection interface: objects" src={require("./2023-04-06-mfit-objects.png").default} />
 
 The interface is similar to the Met's faceted search, except for the way filters are displayed. In order to filter the current search results, the user must click a Filter button
 which pops out a sidebar (shown). The filters for such as Designer comprise lists of field values found in works that matched the search, with each list ordered from most to least frequent value.
 
 ##### [Texas Fashion Collection](https://digital.library.unt.edu/explore/collections/TXFC/browse/)
 
-<figure>
+<Figure caption="Texas Fashion Collection interface: list view" src={require("./2023-04-06-txfc-list.png").default} />
 
-![Texas Fashion Collection interface list view screenshot](2023-04-06-txfc-list.png)
+The Texas Fashion Collection interface is visually distinct from those of the Met and the Museum at FIT. The default list view of the search results includes a relatively large image, the work's title, a long description, an approximate date, and provenance information. Users can select an alternative grid view, which displays large images. In the grid view the user must hover over an image to see its metadata:
 
-<figcaption style={{textAlign: "center"}}>Texas Fashion Collection interface: list view</figcaption>
-</figure>
-
-The Texas Fashion Collection interface is visually distinct from those of the Met and the Museum at FIT. The default list view of the search results includes a relatively large image, the work's title, a long description, an approximate date, and provenance information. Users can select an alternative grid view, shown below, which displays large images. In the grid view the user must hover over an image to see its metadata:
-
-<figure>
-
-![Texas Fashion Collection interface grid view screenshot](2023-04-06-txfc-grid.png)
-
-<figcaption style={{textAlign: "center"}}>Texas Fashion Collection interface: grid view</figcaption>
-</figure>
-
+<Figure caption="Texas Fashion Collection interface: grid view" src={require("./2023-04-06-txfc-grid.png").default} />
 
 Facet filters in the Texas Fashion Collection interface are listed in a sidebar panel, but selecting a filter pops up a modal dialog that lists facet values by descending frequency:
 
-<figure>
-
-![Texas Fashion Collection interface filter screenshot](2023-04-06-txfc-filter.png)
-
-<figcaption style={{textAlign: "center"}}>Texas Fashion Collection interface: filter</figcaption>
-</figure>
-
+<Figure caption="Texas Fashion Collection interface: filter" src={require("./2023-04-06-txfc-filter.png").default} />
 
 ### Commercial interfaces
 
-Companies such as [Airbnb](https://www.airbnb.com/) that rely on the user experience of their websites to drive revenue set the standard for faceted search interfaces. The screenshot below shows Airbnb's interface:
+Companies such as [Airbnb](https://www.airbnb.com/) that rely on the user experience of their websites to drive revenue set the standard for faceted search interfaces.
 
-<figure>
-
-![Airbnb home page screenshot](2023-04-05-airbnb-home.png)
-
-<figcaption style={{textAlign: "center"}}>Airbnb home page</figcaption>
-</figure>
+<Figure caption="Airbnb home page" src={require("./2023-04-05-airbnb-home.png").default} />
 
 The most important filters -- time range, number of guests, and listing category -- are given space at the top of the page. The filter for listing categories such as Beachfront and Mansions is an attractive ribbon of icons. Others filters can be accessed by clicking on the Filters button, which pops up a modal dialog:
 
-<figure>
-
-![Airbnb pop-up filters screenshot](2023-04-05-airbnb-filters.png)
-
-<figcaption style={{textAlign: "center"}}>Airbnb pop-up filters</figcaption>
-</figure>
+<Figure caption="Airbnb pop-up filters" src={require("./2023-04-05-airbnb-filters.png").default} />
 
 Unlike the digital collection interfaces, Airbnb customizes the filters on a per-field basis. There are range filters (price), value filters (bedrooms), checkboxes (Type of place), and so on.
 
@@ -128,14 +98,7 @@ The [Paradicms work search app](https://paradicms.org/docs/reference/apps/#work-
 
 The flexibility of this approach presents some challenges. In contrast to interfaces like Airbnb's, which can always assume the presence of certain metadata like price and location, the Paradicms work search app assumes that most properties are optional. Supporting arbitrary properties means the system must also support dynamic configuration of the user interface. Some properties may be fulltext searchable but not filterable. Some properties may require range instead of value filters.
 
-The screenshot below shows the initial state of the interface, before making any improvements:
-
-<figure>
-
-![Paradicms work search 'before' screenshot](2023-04-05-paradicms-work-search-before.png)
-
-<figcaption style={{textAlign: "center"}}>Paradicms work search app before improvements</figcaption>
-</figure>
+<Figure caption="Paradicms work search: before improvements" src={require("./2023-04-05-paradicms-work-search-before.png").default} />
 
 * The navbar contains a search box for fulltext search. If the user doesn't enter a query, the faceted search interface starts from all works in the collection.
 * Filters for various user-defined properties are shown in an inline sidebar, with an accordion that ensures that only one filter is visible at a time.
@@ -157,29 +120,14 @@ Limit gallery card information to the essentials:
 * Move Wikipedia and other links out of the card headers and on to the pages for each work.
 * Add an approximate date to each card as a subtitle.
 
-<div className="container">
-<div className="row">
-
-<div className="col coll--6" style={{display: "flex", justifyContent: "center"}}>
-<figure>
-<figcaption style={{textAlign: "center"}}>Before</figcaption>
-
-![Paradicms work gallery card 'before' screenshot](2023-04-07-paradicms-work-gallery-card-information-before.png)
-
-</figure>
-</div>
-<div className="col coll--6" style={{display: "flex", justifyContent: "center"}}>
-<figure>
-<figcaption style={{textAlign: "center"}}>After</figcaption>
-
-![Paradicms work gallery card 'after' screenshot](2023-04-07-paradicms-work-gallery-card-information-after.png)
-
-</figure>
-</div>
-
-</div>
-</div>
-
+<BeforeAfterFiguresContainer
+    before={{
+        src: require("./2023-04-07-paradicms-work-gallery-card-information-before.png").default
+    }}
+    after={{
+        src: require("./2023-04-07-paradicms-work-gallery-card-information-after.png").default
+    }}
+/>
 
 ##### Gallery card layout
 
@@ -196,7 +144,7 @@ Select boxes
 
 ##### Pop-up filters
 
-Filters on work type, associated time and place, and sub-collection are the essence of the faceted search interface. These can be shown inline, as on the Texas Fashion Collection site, or as a pop-up, as on the Met's collection interface. Pop-up filters like Airbnb's (shown below) seem to have become the more popular choice in recent years.
+Filters on work type, associated time and place, and sub-collection are the essence of the faceted search interface. These can be shown inline, as on the Texas Fashion Collection site, or as a pop-up, as on the Met's collection interface. Pop-up filters like Airbnb's seem to have become the more popular choice in recent years.
 
 
 Maximize real estate for results
