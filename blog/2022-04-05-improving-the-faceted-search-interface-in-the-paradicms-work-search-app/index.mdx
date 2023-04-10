@@ -21,6 +21,11 @@ authors: [minorg]
 
 
 
+
+
+
+
+
 import Figure from "./_Figure";
 import BeforeAfterFiguresContainer from "./_BeforeAfterFiguresContainer";
 
@@ -150,7 +155,19 @@ Rework the gallery card so that the most important information is the most promi
 
 ##### Compact filters
 
-Select boxes
+Make each filter and the overall set of filters more compact:
+
+* Use select boxes with autocomplete for value filters instead of tables of checkboxes.
+* Separate filters with whitespace margins instead of putting the filters in an accordion.
+
+<BeforeAfterFiguresContainer
+    before={{
+        src: require("./2023-04-09-paradicms-work-filters-before.png").default
+    }}
+    after={{
+        src: require("./2023-04-10-paradicms-work-filters-after.png").default
+    }}
+/>
 
 
 ##### Pop-up filters
