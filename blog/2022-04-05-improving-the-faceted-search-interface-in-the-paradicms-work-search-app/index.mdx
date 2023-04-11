@@ -43,6 +43,16 @@ authors: [minorg]
 
 
 
+
+
+
+
+
+
+
+
+
+
 import Figure from "./_Figure";
 import BeforeAfterFiguresContainer from "./_BeforeAfterFiguresContainer";
 
@@ -123,18 +133,23 @@ The flexibility of this approach presents some challenges. In contrast to interf
 
 <Figure caption="Paradicms work search: before improvements" src={require("./2023-04-05-paradicms-work-search-before.png").default} />
 
+The work search app has similar functionality to other faceted search interfaces:
 * The navbar contains a search box for fulltext search. If the user doesn't enter a query, the faceted search interface starts from all works in the collection.
 * Filters for various user-defined properties are shown in an inline sidebar, with an accordion that ensures that only one filter is visible at a time.
 * There is only one type of filter, on values. A value filter is modified by checking and unchecking boxes rows in a table of facet values. The first row is always "Unknown", indicating works that do not have a value for the associated property.
 * Works are displayed in a gallery of cards. Each card contains the work title, references to pages associated with the work, an image, and attribution for the image. Image attribution is included by default, since the app does not assume that the owner of the site also owns the image rights. That's a point of divergence from most digital collections, like the ones at the Met and the Museum at FIT, which own the rights to the images they display and don't have to include attribution.
 * The gallery has standard pagination and a sort dropdown with common options.
 
-
 ### Improvements
 
 Compared to the faceted search interfaces of the Met, the Museum at FIT, and the Texas Fashion Collection -- which have similar functionality -- the Paradicms work search app lacks polish and finesse. It looks like it was designed and built by a software engineer as an 80% solution -- because it was. Unfortunately, the remaining 20% is the difference between a clunky user interface and a good one.
 
-We can do better. Our goal is to close the gap between the current interface and other digital collection interfaces, like the Met's. In the sections below we'll walk through improvements to the app. We won't alter the basic functionality of the faceted search interface, only how it is presented. We'll start with high-impact, low-effort changes and go from there.
+We can do better. Our goal is to close the gap between the current interface and other digital collection interfaces, like the Met's. In particular, we'll focus on:
+
+* increasing the fraction of screen real estate dedicated to the most important part of the interface, the faceted search results
+* emphasizing the most important parts of each result (image, title) and de-emphasizing others
+
+In the sections below we'll walk through improvements to the app. We won't alter the basic functionality of the faceted search interface, only how it is presented. We'll start with high-impact, low-effort changes and go from there.
 
 ##### Gallery card information
 
@@ -202,6 +217,6 @@ Filters can be shown inline, as on the Texas Fashion Collection site, or in a dr
 
 ### Conclusion
 
-
+The improved Paradicms work search app makes better use of the available screen real estate, emphasizes the most important information about each faceted search result, and incorporates familiar user interface idioms, all while retaining the same functionality as before.
 
 <Figure caption="Paradicms work search: after improvements" src={require("./2023-04-11-paradicms-work-search-after.png").default} />
