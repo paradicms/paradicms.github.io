@@ -2,17 +2,14 @@ import React from "react";
 import MDXComponents from "@theme/MDXComponents";
 
 const Figure: React.FunctionComponent<{
-  caption: string;
+  caption?: string;
   src: any;
 }> = ({caption, src}) => (
-  <figure>
-    <figcaption style={{textAlign: "center"}}>
-      <h5>{caption}</h5>
-    </figcaption>
+  <figure className="margin-vert--lg">
     <MDXComponents.img alt={caption} src={src} />
-    <div className="text--center" style={{fontSize: "small"}}>
-      <i>Click image to zoom</i>
-    </div>
+    <figcaption style={{fontSize: "small", textAlign: "center"}}>
+      <strong>{caption}</strong>
+    </figcaption>
   </figure>
 );
 
