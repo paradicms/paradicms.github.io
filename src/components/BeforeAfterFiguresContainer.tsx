@@ -1,5 +1,5 @@
 import React from "react";
-import Figure from "./_Figure";
+import Figure from "./Figure";
 
 const BeforeAfterFiguresContainer: React.FunctionComponent<{
   after: {
