@@ -17,17 +17,35 @@ import WorkPropertiesTable from "./properties-tables/_work-properties-table.md";
 import WorkCreationPropertiesTable from "./properties-tables/_work-creation-properties-table.md";
 import WorkEventPropertiesTable from "./properties-tables/_work-event-properties-table.md";
 
-# Reference: data model
+# Reference: ontology
 
-This page documents the Paradicms data model and its mapping to RDF. For an explanatory overview of the data model, see the [introduction](/docs/introduction/data-model).
+The Paradicms ontology directly expresses the [Paradicms data model](/docs/introduction/data-model) as an RDF ontology. The ontology is relatively flat, with few properties requiring nested data structures like lists and sub-objects. That makes it easier to convert data from spreadsheets and other tabular sources into RDF.
+
+### Vocabularies
+
+The Paradicms ontology reuses different RDF-based vocabularies for describing the properties of works, collections, images, agents, et al. These vocabularies include:
+
+* [Basic Geo Vocabulary](https://www.w3.org/2003/01/geo/) for WGS84 latitude and longitude properties
+* [DCMI Metadata Terms](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/) (aka Dublin Core Terms) for generic properties such as a `Work`'s `title`.
+* [Costume Core](http://www.ardenkirkland.com/costumecore/) for properties that encode the structure of historic clothing `Work`s
+* [An Exif vocabulary](https://www.w3.org/2003/12/exif/) for basic `Image` metadata such as `height` and `width`
+* [The FOAF Vocabulary](http://xmlns.com/foaf/0.1/) for properties about people and organizations
+
+as well as properties from the Creative Commons Rights Expression Language, the RightsStatement.org data model, SKOS, and the Time Ontology.
+
+VRA Core 4.0 [has been translated to an RDF ontology](http://purl.org/vra/) for use in Linked Data systems. The Paradicms ontology reuses a number of properties from the VRA Core RDF ontology in order to describe aspects of cultural heritage artifacts, including a `Work`'s `culturalContext`, `material`, and `technique`.
+
+The Paradicms ontology defines custom properties where absolutely necessary. For example, configuration files for the static site generation system rely on a bespoke RDF vocabulary that is highly specific to Paradicms.
+
 
 ## Classes
 
-The following sections document classes in the data model such as `Collection`, `Image`, and `Work`.
+The following sections document classes in the ontology such as `Collection`, `Image`, and `Work`.
 
 A class section contains:
 
 * a brief description of the class
+* The class's `rdf:type`
 * a table of the class's properties
 
 A class's properties table has columns for:
@@ -98,12 +116,16 @@ For each property, the table lists one or more example values. As in the spreads
 
 A `Collection` is an aggregate of `Work`s.
 
+**`rdf:type`**: `cms:Collection`
+
 <CollectionPropertiesTable/>
 
 
 ### `Concept`
 
 A `Concept` is a [SKOS concept](https://www.w3.org/TR/skos-reference/#concepts). It is used for controlled vocabularies.
+
+**`rdf:type`**: `cms:Concept`
 
 <ConceptPropertiesTable/>
 
@@ -112,12 +134,16 @@ A `Concept` is a [SKOS concept](https://www.w3.org/TR/skos-reference/#concepts).
 
 A `DateTimeDescription` (borrowed from the Time Ontology) is used for partial date-times, where one or more of the components is unknown.
 
+**`rdf:type`**: `cms:DateTimeDescription`
+
 <DateTimeDescriptionPropertiesTable/>
 
 
 ### `Image`
 
 An `Image` is a visual surrogate for a `Work`, `Collection`, `Person`, or other instance of a Paradicms class.
+
+**`rdf:type`**: `cms:Image`
 
 <ImagePropertiesTable/>
 
@@ -126,12 +152,16 @@ An `Image` is a visual surrogate for a `Work`, `Collection`, `Person`, or other 
 
 A `License` describes copyright licenses.
 
+**`rdf:type`**: `cms:License`
+
 <LicensePropertiesTable/>
 
 
 ### `Location`
 
 A `Location` is an entity with a fixed (latitude/longitude) spatial presence. 
+
+**`rdf:type`**: `cms:Location`
 
 <LocationPropertiesTable/>
 
@@ -140,12 +170,16 @@ A `Location` is an entity with a fixed (latitude/longitude) spatial presence.
 
 An `Organization` is a company, institution, or other organization that can act as an agent.
 
+**`rdf:type`**: `cms:Organization`
+
 <OrganizationPropertiesTable/>
 
 
 ### `Person`
 
 An `Person` is a human such as Alan Turing.
+
+**`rdf:type`**: `cms:Person`
 
 <PersonPropertiesTable/>
 
@@ -154,6 +188,8 @@ An `Person` is a human such as Alan Turing.
 
 A `RightsStatement` describes interoperable rights statements, usually from RightsStatement.org.
 
+**`rdf:type`**: `cms:RightsStatement`
+
 <RightsStatementPropertiesTable/>
 
 
@@ -161,12 +197,16 @@ A `RightsStatement` describes interoperable rights statements, usually from Righ
 
 A `Text` is used to associate rights metadata with a text string.
 
+**`rdf:type`**: `cms:Text`
+
 <TextPropertiesTable/>
 
 
 ### `Work`
 
 A `Work` is a built or created object such as a manuscript or garment.
+
+**`rdf:type`**: `cms:Work`
 
 <WorkPropertiesTable/>
 
@@ -177,6 +217,8 @@ The work event classes describe events in the lifecycle of a `Work`, such as cre
 
 `WorkClosing` describes the closing of a `Work`, such as an exhibition closing.
 
+**`rdf:type`**: `cms:WorkClosing`
+
 <WorkEventPropertiesTable/>
 
 
@@ -184,11 +226,15 @@ The work event classes describe events in the lifecycle of a `Work`, such as cre
 
 `WorkCreation` describes the creation of a `Work`, such as the creation of a piece of furniture.
 
+**`rdf:type`**: `cms:WorkCreation`
+
 <WorkCreationPropertiesTable/>
 
 
 ### `WorkOpening`
 
 `WorkOpening` describes the opening of a `Work`, such as an exhibition opening.
+
+**`rdf:type`**: `cms:WorkOpening`
 
 <WorkEventPropertiesTable/>

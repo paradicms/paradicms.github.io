@@ -84,4 +84,4 @@ Save the [JPEG file from Wikimedia Commons](https://upload.wikimedia.org/wikiped
 
 ### Next steps
 
-You now have a Markdown directory with data about a `Collection`, `Image`, `Person`, and `Work`. From here you can enter more data, following the [data model reference](/docs/reference/data-model), or use the data you've entered to generate a website by following the appropriate [tutorial](/docs/tutorials/markdown-ssg).
+You now have a Markdown directory with data about a `Collection`, `Image`, `Person`, and `Work`. From here you can enter more data, following the [data model reference](/docs/reference/ontology), or use the data you've entered to generate a website by following the appropriate [tutorial](/docs/tutorials/markdown-ssg).

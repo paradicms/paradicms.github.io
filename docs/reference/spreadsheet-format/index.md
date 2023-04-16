@@ -14,7 +14,7 @@ A Paradicms-formatted spreadsheet such as the [Google Sheets template](https://d
 ![Screenshot of spreadsheet sheet tabs](sheets.png)
 
 Sheets can be named with variants of the class names:
-* `WorkCreation`: the exact class name (camel case) documented in the [data model reference](/docs/reference/data-model)
+* `WorkCreation`: the exact class name (camel case) documented in the [data model reference](/docs/reference/ontology)
 * `work_creation`: snake case variant of the class name
 * `work-creation`: spinal case variant of the class name
 
@@ -25,7 +25,7 @@ Sheets can be named with variants of the class names:
 
 The first row of each sheet is a header row corresponding to the properties of the class. Each property occupies its own column in the sheet. The columns can be in any order.
 
-For example, `Person` has the properties `familyName`, `givenName`, and `name`, among others. The full set of properties for each class is listed in the [data model reference](/docs/reference/data-model).
+For example, `Person` has the properties `familyName`, `givenName`, and `name`, among others. The full set of properties for each class is listed in the [data model reference](/docs/reference/ontology).
 
 ![Screenshot of a header row](header-row.png)
 
@@ -92,7 +92,7 @@ The spreadsheet to JSON conversion process works as follows:
 
 A cell can contain arbitrary JSON values, including objects (`{}`) and arrays (`[]`). The conversion process attempts to parse any string cell value as JSON before treating it as a string.
 
-Both Google Sheets and Excel support inserting image data (e.g., a copy of a `.jpg` or `.png`) directly into cells. These are not converted to JSON, but handled specially in conversion process for the `Image` sheet. See the [data model reference](/docs/reference/data-model) for more information.
+Both Google Sheets and Excel support inserting image data (e.g., a copy of a `.jpg` or `.png`) directly into cells. These are not converted to JSON, but handled specially in conversion process for the `Image` sheet. See the [data model reference](/docs/reference/ontology) for more information.
 
 Converting the Andrew Bolton spreadsheet row shown above would produce the following JSON:
 ```json
