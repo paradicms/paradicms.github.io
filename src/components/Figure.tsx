@@ -2,11 +2,11 @@ import React from "react";
 import MDXComponents from "@theme/MDXComponents";
 
 const Figure: React.FunctionComponent<{
-  caption?: string;
+  caption?: React.ReactElement | string;
   src: any;
 }> = ({caption, src}) => (
   <figure className="margin-vert--lg">
-    <MDXComponents.img alt={caption} src={src} />
+    <MDXComponents.img src={src} />
     <figcaption style={{fontSize: "small", textAlign: "center"}}>
       <strong>{caption}</strong>
     </figcaption>
