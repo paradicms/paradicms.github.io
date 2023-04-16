@@ -4,16 +4,6 @@ sidebar_position: 1
 
 # Motivation
 
-<!--
-
-Kent Beck 4 sentence abstract: https://plg.uwaterloo.ca/~migod/research/beckOOPSLA.html
-The problem
-Why the problem is a problem
-Startling sentence
-Implication of startling sentence
-
--->
-
 Existing [Collections Management Systems (CMSs)](https://en.wikipedia.org/wiki/Collections_management_system) assume that collection data is sparse, weakly-connected, and inherited from legacy systems. The underlying attitude of scarcity impoverishes the user experience.
 
 Paradicms takes the opposite approach, and assumes an attitude of abundance: rich, strongly-connected metadata and few legacy constraints on any aspect of the system. Although it's challenging to meet those assumptions, having them as a foundation allows us to develop a system with a dramatically higher ceiling than alternatives that are bound to incremental improvements on the status quo.
@@ -48,7 +38,9 @@ Paradicms meets these design principles through the thoughtful use of Linked Dat
 
 ### Linked Data
 
-Linked Data is "structured data which is interlinked with other data so it becomes more useful through semantic queries. It builds upon standard Web technologies such as HTTP, RDF and URIs, but rather than using them to serve web pages only for human readers, it extends them to share information in a way that can be read automatically by computers. Part of the vision of linked data is for the Internet to become a global database." ([Wikipedia](https://en.wikipedia.org/wiki/Linked_data))
+> Linked Data is structured data which is interlinked with other data so it becomes more useful through semantic queries. It builds upon standard Web technologies such as HTTP, RDF and URIs, but rather than using them to serve web pages only for human readers, it extends them to share information in a way that can be read automatically by computers. Part of the vision of linked data is for the Internet to become a global database.
+> 
+([Wikipedia](https://en.wikipedia.org/wiki/Linked_data))
 
 Linked Data is the backbone of Paradicms. The system captures data from various sources ([Airtable](https://www.airtable.com/), [Google Sheets](https://www.google.com/sheets/about/), [Omeka](https://omeka.org/), and others) in the form of [RDF graphs](https://en.wikipedia.org/wiki/Resource_Description_Framework). Paradicms user interfaces preserve the full expressivity of RDF by interpreting it directly instead of converting it to a semantically weaker form like JSON.
 
