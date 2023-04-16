@@ -4,7 +4,6 @@ import Link from "@docusaurus/Link";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import Layout from "@theme/Layout";
 
-import FlexibleDataEntryFeature from "../components/features/flexible-data-entry.md";
 import styles from "./index.module.css";
 
 type FeatureItem = {
@@ -44,7 +43,7 @@ const featureItems: FeatureItem[] = [
         <Link to="https://lib-static.github.io/">static web sites</Link>, from
         single- and multi-page digital exhibitions to faceted search interfaces.
         The generated sites -- a set of HTML, CSS, and JavaScript files -- can
-        be hosted on your institution's web pages or by using a variety of free
+        be hosted on your institution's server or by using a variety of free
         services, such as GitHub Pages.
       </>
     ),
