@@ -1,7 +1,7 @@
 | Namespace prefix | Namespace IRI                                 | Vocabulary                                                                               |
 |------------------|-----------------------------------------------|------------------------------------------------------------------------------------------|
 | `cc:`            | `http://creativecommons.org/ns#`              | [Creative Commons Rights Expression Language](https://creativecommons.org/ns#)           |
-| `cms:`           | `http://www.paradicms.org/ns/cms#`            | Paradicms data model                                                                     |
+| `cms:`           | `http://www.paradicms.org/ns/cms#`            | Paradicms ontology                                                                       |
 | `contact:`       | `http://www.w3.org/2000/10/swap/pim/contact#` | W3C PIM vocabulary                                                                       |
 | `dc:`            | `http://purl.org/dc/elements/1.1/`            | [DCMI Metadata terms](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/) |
 | `dcterms:`       | `http://purl.org/dc/terms/`                   | [DCMI Metadata terms](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/) |

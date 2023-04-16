@@ -9,12 +9,12 @@ This page documents the format of spreadsheets (in Google Sheets, Excel, et al.)
 
 ### Spreadsheet structure
 
-A Paradicms-formatted spreadsheet such as the [Google Sheets template](https://docs.google.com/spreadsheets/d/1j2oaMvMxY4pnXO-sEH_fky2R2gm6TQeIev_Q8rVOD4M/edit#gid=0) consists of multiple sheets. Each sheet corresponds to a class in the data model, such as `Person` and `Work`, and is named after that class, as in the Google Sheets screenshot below:
+A Paradicms-formatted spreadsheet such as the [Google Sheets template](https://docs.google.com/spreadsheets/d/1j2oaMvMxY4pnXO-sEH_fky2R2gm6TQeIev_Q8rVOD4M/edit#gid=0) consists of multiple sheets. Each sheet corresponds to a class in the [Paradicms ontology](/docs/reference/ontology), such as `Person` and `Work`, and is named after that class, as in the Google Sheets screenshot below:
 
 ![Screenshot of spreadsheet sheet tabs](sheets.png)
 
 Sheets can be named with variants of the class names:
-* `WorkCreation`: the exact class name (camel case) documented in the [data model reference](/docs/reference/ontology)
+* `WorkCreation`: the exact class name (camel case) documented in the [ontology reference](/docs/reference/ontology)
 * `work_creation`: snake case variant of the class name
 * `work-creation`: spinal case variant of the class name
 
@@ -25,7 +25,7 @@ Sheets can be named with variants of the class names:
 
 The first row of each sheet is a header row corresponding to the properties of the class. Each property occupies its own column in the sheet. The columns can be in any order.
 
-For example, `Person` has the properties `familyName`, `givenName`, and `name`, among others. The full set of properties for each class is listed in the [data model reference](/docs/reference/ontology).
+For example, `Person` has the properties `familyName`, `givenName`, and `name`, among others. The full set of properties for each class is listed in the [ontology reference](/docs/reference/ontology).
 
 ![Screenshot of a header row](header-row.png)
 
@@ -92,7 +92,7 @@ The spreadsheet to JSON conversion process works as follows:
 
 A cell can contain arbitrary JSON values, including objects (`{}`) and arrays (`[]`). The conversion process attempts to parse any string cell value as JSON before treating it as a string.
 
-Both Google Sheets and Excel support inserting image data (e.g., a copy of a `.jpg` or `.png`) directly into cells. These are not converted to JSON, but handled specially in conversion process for the `Image` sheet. See the [data model reference](/docs/reference/ontology) for more information.
+Both Google Sheets and Excel support inserting image data (e.g., a copy of a `.jpg` or `.png`) directly into cells. These are not converted to JSON, but handled specially in conversion process for the `Image` sheet. See the [ontology reference](/docs/reference/ontology) for more information.
 
 Converting the Andrew Bolton spreadsheet row shown above would produce the following JSON:
 ```json
@@ -110,7 +110,7 @@ Converting the Andrew Bolton spreadsheet row shown above would produce the follo
 
 #### Interpreting the JSON as JSON-LD
 
-Each data model class -- and thus each sheet in the spreadsheet -- has an associated [JSON-LD context](https://www.w3.org/TR/json-ld11/#the-context). Paradicms adds this context to the converted JSON (as a `@context` key) before interpreting the latter as JSON-LD. The JSON-LD context maps keys in the JSON object, such as `familyName`, to RDF predicate IRIs, in this case `http://xmlns.com/foaf/0.1/name`. 
+Each ontology class -- and thus each sheet in the spreadsheet -- has an associated [JSON-LD context](https://www.w3.org/TR/json-ld11/#the-context). Paradicms adds this context to the converted JSON (as a `@context` key) before interpreting the latter as JSON-LD. The JSON-LD context maps keys in the JSON object, such as `familyName`, to RDF predicate IRIs, in this case `http://xmlns.com/foaf/0.1/name`. 
 
 The result of this interpretation is a small RDF graph per data row:
 

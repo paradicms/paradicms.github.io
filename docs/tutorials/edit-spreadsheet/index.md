@@ -10,7 +10,7 @@ The tutorial will guide you in editing collection data in a spreadsheet program 
 ### Before you start
 
 * **Create a spreadsheet.** See below.
-* **Review the [Paradicms data model](/docs/introduction/data-model).**
+* **Review the [Paradicms data model](/docs/introduction/data-model) and [ontology](/docs/reference/ontology).**
 * Optionally, **review the [reference documentation on Paradicms-formatted spreadsheets](/docs/reference/spreadsheet-format).**
 
 #### Creating a spreadsheet
@@ -87,4 +87,4 @@ Alternatively, you can insert an image directly into the `src` cell:
 
 ### Next steps
 
-You now have a spreadsheet with data about a `Collection`, `Image`, `License`, `Person`, and `Work`. From here you can enter more data, following the [data model reference](/docs/reference/ontology), or use the data you've entered to generate a website by following the appropriate [tutorial](/docs/tutorials/spreadsheet-ssg).
+You now have a spreadsheet with data about a `Collection`, `Image`, `License`, `Person`, and `Work`. From here you can enter more data, following the [ontology reference](/docs/reference/ontology), or use the data you've entered to generate a website by following the appropriate [tutorial](/docs/tutorials/spreadsheet-ssg).

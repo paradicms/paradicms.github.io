@@ -10,7 +10,7 @@ This page documents the use of Markdown files for storing Paradicms collection d
 
 Collection data in the Markdown directory format consists of:
 * a single root directory, typically the root of a GitHub repository
-* a set of subdirectories of the root directory, corresponding to classes in the [Paradicms data model](/docs/reference/ontology)
+* a set of subdirectories of the root directory, corresponding to classes in the [Paradicms ontology](/docs/reference/ontology)
 * a set of Markdown files in each class subdirectory, corresponding to instances of the class
 
 Listing the root directory of the [template repository](https://github.com/minorg/ComputerScienceInventions) illustrates the structure:
@@ -61,10 +61,10 @@ Listing the root directory of the [template repository](https://github.com/minor
 
 #### Class directories
 
-In the listing above, `./collection` and `./person` are class directories corresponding to the `Collection` and `Person` classes in the Paradicms data model, respectively.
+In the listing above, `./collection` and `./person` are class directories corresponding to the `Collection` and `Person` classes in the Paradicms ontology, respectively.
 
 The class directories can be named with variants of the class names:
-* `WorkCreation`: the exact class name (camel case) documented in the [data model reference](/docs/reference/ontology)
+* `WorkCreation`: the exact class name (camel case) documented in the [ontology reference](/docs/reference/ontology)
 * `work_creation`: snake case variant of the class name
 * `work-creation`: spinal case variant of the class name
 
@@ -144,7 +144,7 @@ Note the `creator` property's IRI value: `md-person:Linus%20Torvalds` refers to 
 
 #### Interpreting the JSON as JSON-LD
 
-Each class directory is associated with a class in the [Paradicms data model](/docs/reference/ontology), and each class has an associated [JSON-LD context](https://www.w3.org/TR/json-ld11/#the-context). Paradicms adds this context to the converted JSON (as a `@context` key) before interpreting the latter as JSON-LD. The JSON-LD context maps keys in the JSON object, such as `creator`, to RDF predicate IRIs, in this case `http://purl.org/dc/terms/creator`.
+Each class directory is associated with a class in the [Paradicms ontology](/docs/reference/ontology), and each class has an associated [JSON-LD context](https://www.w3.org/TR/json-ld11/#the-context). Paradicms adds this context to the converted JSON (as a `@context` key) before interpreting the latter as JSON-LD. The JSON-LD context maps keys in the JSON object, such as `creator`, to RDF predicate IRIs, in this case `http://purl.org/dc/terms/creator`.
 
 The result of this interpretation is a small RDF graph per Markdown file:
 
