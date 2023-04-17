@@ -72,7 +72,7 @@ The listing above uses spinal case (`work-creation`).
 
 #### Markdown files
 
-`./work-creation/Linux.md` in the listing above is a Markdown file describing an instance of the class `WorkCreation`. The "Markdown file format" section below  will describe the format of these files in detail. 
+`./work-creation/Linux.md` in the listing above is a Markdown file describing an instance of the class `WorkCreation`. The "Markdown file format" section below documents the format of these files in detail. 
 
 #### Image data
 
@@ -121,13 +121,13 @@ Paradicms converts a Markdown file to Linked Data by converting it to [JSON](htt
 
 The Markdown file to JSON conversion process works as follows:
 
-* If present, YAML front matter is converted to as-is to a root JSON object; otherwise an empty root JSON object (`{}`) is synthesized.
+* If present, YAML front matter is converted as-is to a root JSON object; otherwise an empty root JSON object (`{}`) is synthesized.
 * Markdown paragraphs are added to the root JSON object following these rules:
   * A paragraph under a Markdown heading with the format `# [Your heading](#anykey)` is converted to an HTML string, and either 
     * Assigned to `anykey` in the root JSON object if `anykey` does not exist in that object
     * Concatenated to the existing string value of `anykey` if it does
   * A paragraph under no heading, like the `Frustrated ...` paragraph in the example above, has the implicit key `description`, and otherwise follows the rules of paragraphs with explicit keys.
-  * When a paragraph's key (explicit or implicit) was already present in the YAML front matter, the combined metadata and paragraph text(s) are treated as an instance of a `Text` class, with the paragraph text(s) forming the `value`.
+  * When a paragraph's key (explicit or implicit) was already present in the YAML front matter, the combined metadata and paragraph text(s) are treated as an instance of a `Text` ontology class, with the paragraph text(s) forming the `value`.
 
 Converting `work-creation/Linux.md` would result in the following JSON:
 
@@ -183,5 +183,5 @@ Most of these rules can be overridden by explicitly specifying a property: addin
 
 #### Putting it all together
 
-Converting each Markdown file with this process (file -> JSON, JSON -> RDF) produces a set of RDF graphs, which are merged to form a single large graph representing all of the data in the Markdown directory tree.
+Converting each Markdown file with this process (file -> JSON, JSON -> RDF) produces a set of RDF graphs. The set of graphs is consumed by [Paradicms apps](/docs/introduction/apps).
 
