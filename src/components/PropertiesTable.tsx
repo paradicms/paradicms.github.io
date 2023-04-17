@@ -1,14 +1,8 @@
 import React from "react";
+import PropertiesTableProperty from "@site/src/components/PropertiesTableProperty";
 
 const PropertiesTable: React.FunctionComponent<{
-  properties: readonly {
-    readonly exampleValues: string;
-    readonly cardinality: string;
-    readonly description: string;
-    readonly iri: string;
-    readonly term: string;
-    readonly valueType: string;
-  }[];
+  properties: readonly PropertiesTableProperty[];
 }> = ({properties}) => (
   <table>
     <thead>
@@ -22,20 +16,23 @@ const PropertiesTable: React.FunctionComponent<{
       </tr>
     </thead>
     <tbody>
-      {properties.map((property, propertyI) => (
-        <tr key={propertyI}>
-          <td>
-            <code>{property.term}</code>
-          </td>
-          <td>
-            <code>{property.iri}</code>
-          </td>
-          <td>{property.description}</td>
-          <td>{property.cardinality}</td>
-          <td>{property.valueType}</td>
-          <td>{property.exampleValues}</td>
-        </tr>
-      ))}
+      {properties
+        .concat()
+        .sort((left, right) => left.term.localeCompare(right.term))
+        .map((property, propertyI) => (
+          <tr key={propertyI}>
+            <td>
+              <code>{property.term}</code>
+            </td>
+            <td>
+              <code>{property.iri}</code>
+            </td>
+            <td>{property.description}</td>
+            <td>{property.cardinality}</td>
+            <td>{property.valueType}</td>
+            <td>{property.exampleValues}</td>
+          </tr>
+        ))}
     </tbody>
   </table>
 );
