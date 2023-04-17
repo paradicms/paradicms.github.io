@@ -21,7 +21,7 @@ def generate_github_action_table(repository_name: str):
     with open(repository_dir_path / "action.yml") as action_yml_file:
         action_yml = yaml.load(action_yml_file, Loader=yaml.FullLoader)
 
-    headers = ["Name", "Description", "Optional/Required"]
+    headers = ["Name", "Description", "Optional/Required", "Default"]
 
     value_matrix = []
     for input_name, input in action_yml["inputs"].items():
@@ -30,6 +30,7 @@ def generate_github_action_table(repository_name: str):
                 f"`{input_name}`",
                 input["description"],
                 "Required" if input["required"] else "Optional",
+                input.get("default", ""),
             ]
         )
     value_matrix.sort(key=lambda row: row[2] == "Required", reverse=True)
