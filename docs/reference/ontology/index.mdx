@@ -2,20 +2,22 @@
 sidebar_position: 3
 ---
 
-import CollectionPropertiesTable from "./imageProperties-tables/CollectionPropertiesTable"
-import ConceptPropertiesTable from "./imageProperties-tables/_concept-imageProperties-table.md"
-import DateTimeDescriptionPropertiesTable from "./imageProperties-tables/_date-time-description-imageProperties-table.md"
-import ImagePropertiesTable from "./imageProperties-tables/_image-imageProperties-table.md"
-import LicensePropertiesTable from "./imageProperties-tables/_license-imageProperties-table.md"
-import LocationPropertiesTable from "./imageProperties-tables/_location-imageProperties-table.md"
+
+import collectionProperties from "./properties/collectionProperties";
+import conceptProperties from "./properties/conceptProperties";
 import NamespacesTable from "./_namespaces-table.md"
-import OrganizationPropertiesTable from "./imageProperties-tables/_organization-imageProperties-table.md"
-import PersonPropertiesTable from "./imageProperties-tables/_person-imageProperties-table.md"
-import RightsStatementPropertiesTable from "./imageProperties-tables/_rights-statement-imageProperties-table.md"
-import TextPropertiesTable from "./imageProperties-tables/_text-imageProperties-table.md"
-import WorkPropertiesTable from "./imageProperties-tables/_work-imageProperties-table.md";
-import WorkCreationPropertiesTable from "./imageProperties-tables/_work-creation-imageProperties-table.md";
-import WorkEventPropertiesTable from "./imageProperties-tables/_work-event-imageProperties-table.md";
+import PropertiesTable from "@site/src/components/PropertiesTable";
+import dateTimeDescriptionProperties from "./properties/dateTimeDescriptionProperties";
+import imageProperties from "./properties/imageProperties";
+import licenseProperties from "./properties/licenseProperties";
+import locationProperties from "./properties/locationProperties";
+import organizationProperties from "./properties/organizationProperties";
+import personProperties from "./properties/personProperties";
+import rightsStatementProperties from "./properties/rightsStatementProperties";
+import textProperties from "./properties/textProperties";
+import workProperties from "./properties/workProperties";
+import workEventProperties from "./properties/workEventProperties"
+import workCreationProperties from "./properties/workCreationProperties";
 
 # Reference: ontology
 
@@ -118,7 +120,7 @@ A `Collection` is an aggregate of `Work`s.
 
 **`rdf:type`**: `cms:Collection`
 
-<CollectionPropertiesTable/>
+<PropertiesTable properties={collectionProperties} />
 
 
 ### `Concept`
@@ -127,7 +129,7 @@ A `Concept` is a [SKOS concept](https://www.w3.org/TR/skos-reference/#concepts).
 
 **`rdf:type`**: `cms:Concept`
 
-<ConceptPropertiesTable/>
+<PropertiesTable properties={conceptProperties} />
 
 
 ### `DateTimeDescription`
@@ -136,7 +138,7 @@ A `DateTimeDescription` (borrowed from the Time Ontology) is used for partial da
 
 **`rdf:type`**: `cms:DateTimeDescription`
 
-<DateTimeDescriptionPropertiesTable/>
+<PropertiesTable properties={dateTimeDescriptionProperties} />
 
 
 ### `Image`
@@ -145,7 +147,7 @@ An `Image` is a visual surrogate for a `Work`, `Collection`, `Person`, or other 
 
 **`rdf:type`**: `cms:Image`
 
-<ImagePropertiesTable/>
+<PropertiesTable properties={imageProperties} />
 
 
 ### `License`
@@ -154,7 +156,7 @@ A `License` describes copyright licenses.
 
 **`rdf:type`**: `cms:License`
 
-<LicensePropertiesTable/>
+<PropertiesTable properties={licenseProperties} />
 
 
 ### `Location`
@@ -163,7 +165,7 @@ A `Location` is an entity with a fixed (latitude/longitude) spatial presence.
 
 **`rdf:type`**: `cms:Location`
 
-<LocationPropertiesTable/>
+<PropertiesTable properties={locationProperties} />
 
 
 ### `Organization`
@@ -172,7 +174,7 @@ An `Organization` is a company, institution, or other organization that can act 
 
 **`rdf:type`**: `cms:Organization`
 
-<OrganizationPropertiesTable/>
+<PropertiesTable properties={organizationProperties} />
 
 
 ### `Person`
@@ -181,7 +183,7 @@ An `Person` is a human such as Alan Turing.
 
 **`rdf:type`**: `cms:Person`
 
-<PersonPropertiesTable/>
+<PropertiesTable properties={personProperties} />
 
 
 ### `RightsStatement`
@@ -190,7 +192,7 @@ A `RightsStatement` describes interoperable rights statements, usually from Righ
 
 **`rdf:type`**: `cms:RightsStatement`
 
-<RightsStatementPropertiesTable/>
+<PropertiesTable properties={rightsStatementProperties} />
 
 
 ### `Text`
@@ -199,7 +201,7 @@ A `Text` is used to associate rights metadata with a text string.
 
 **`rdf:type`**: `cms:Text`
 
-<TextPropertiesTable/>
+<PropertiesTable properties={textProperties} />
 
 
 ### `Work`
@@ -208,7 +210,7 @@ A `Work` is a built or created object such as a manuscript or garment.
 
 **`rdf:type`**: `cms:Work`
 
-<WorkPropertiesTable/>
+<PropertiesTable properties={workProperties} />
 
 
 ### `WorkClosing`
@@ -219,7 +221,7 @@ The work event classes describe events in the lifecycle of a `Work`, such as cre
 
 **`rdf:type`**: `cms:WorkClosing`
 
-<WorkEventPropertiesTable/>
+<PropertiesTable properties={workEventProperties} />
 
 
 ### `WorkCreation`
@@ -228,7 +230,7 @@ The work event classes describe events in the lifecycle of a `Work`, such as cre
 
 **`rdf:type`**: `cms:WorkCreation`
 
-<WorkCreationPropertiesTable/>
+<PropertiesTable properties={workCreationProperties} />
 
 
 ### `WorkOpening`
@@ -237,4 +239,4 @@ The work event classes describe events in the lifecycle of a `Work`, such as cre
 
 **`rdf:type`**: `cms:WorkOpening`
 
-<WorkEventPropertiesTable/>
+<PropertiesTable properties={workEventProperties} />
