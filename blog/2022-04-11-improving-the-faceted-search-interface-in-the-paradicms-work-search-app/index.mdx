@@ -24,13 +24,13 @@ More specialized collections may provide correspondingly specialized filters on 
 
 ### The Paradicms work search app
 
-The [Paradicms work search app](https://paradicms.org/docs/reference/apps/#work-search) provides a faceted and fulltext search interface over the set of [works](https://paradicms.org/docs/introduction/data-model/) in a digital collection. The app can be configured to facetize, filter, and search arbitrary domain-specific properties of works, such as the condition of a garment.
+The [Paradicms work search app](https://paradicms.org/docs/reference/apps/#work-search) provides a faceted and fulltext search interface over the set of [works](https://paradicms.org/docs/introduction/data-model/) in a digital collection. The app can be configured to facetize, filter, and search arbitrary domain-specific imageProperties of works, such as the condition of a garment.
 
 <Figure caption="Paradicms work search: before improvements" src={require("./2023-04-05-paradicms-work-search-before.png").default} />
 
 The work search app has similar functionality to other faceted search interfaces:
 * The navbar contains a search box for fulltext search. If the user doesn't enter a query, the faceted search interface starts from all works in the collection.
-* Filters for various user-defined properties are shown in an inline sidebar, with an accordion that ensures that only one filter is visible at a time.
+* Filters for various user-defined imageProperties are shown in an inline sidebar, with an accordion that ensures that only one filter is visible at a time.
 * There is only one type of filter, on values. A value filter is modified by checking and unchecking rows in a table of facet values. The first row is always "Unknown", indicating works that do not have a value for the associated property.
 * Works are displayed in a gallery of cards. Each card contains the work title, references to pages associated with the work, an image, and attribution for the image. Image attribution is included by default, since the app does not assume that the owner of the site also owns the image rights. This is a point of divergence from most digital collections, like the ones at the Met and the Museum at FIT, which own the rights to the images they display and don't have to include attribution.
 * The gallery has standard pagination and a sort dropdown with common options.

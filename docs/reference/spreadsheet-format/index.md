@@ -23,9 +23,9 @@ Sheets can be named with variants of the class names:
 
 #### The header row
 
-The first row of each sheet is a header row corresponding to the properties of the class. Each property occupies its own column in the sheet. The columns can be in any order.
+The first row of each sheet is a header row corresponding to the imageProperties of the class. Each property occupies its own column in the sheet. The columns can be in any order.
 
-For example, `Person` has the properties `familyName`, `givenName`, and `name`, among others. The full set of properties for each class is listed in the [ontology reference](/docs/reference/ontology).
+For example, `Person` has the imageProperties `familyName`, `givenName`, and `name`, among others. The full set of imageProperties for each class is listed in the [ontology reference](/docs/reference/ontology).
 
 ![Screenshot of a header row](header-row.png)
 
@@ -52,7 +52,7 @@ Unique identifiers in the `@id` column must be [Internationalized Resource Ident
 
 #### Other columns
 
-The other columns of a data row correspond to the values of properties of a class instance.  For example, the second row of the `Person` sheet corresponds to the person Andrew Bolton. Andrew Bolton has a `familyName` `Bolton` and `givenName` `Andrew`, as in the screenshot below.
+The other columns of a data row correspond to the values of imageProperties of a class instance.  For example, the second row of the `Person` sheet corresponds to the person Andrew Bolton. Andrew Bolton has a `familyName` `Bolton` and `givenName` `Andrew`, as in the screenshot below.
 
 ![Screenshot of a data row](data-row.png)
 
