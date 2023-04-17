@@ -3,7 +3,7 @@ import os.path
 from pathlib import Path
 
 ROOT_DIR_PATH = Path(__file__).parent.parent.absolute()
-TABLES_DIR_PATH = ROOT_DIR_PATH / "docs" / "reference" / "ontology" / "imageProperties"
+TABLES_DIR_PATH = ROOT_DIR_PATH / "docs" / "reference" / "ontology" / "properties"
 
 for file_name in os.listdir(TABLES_DIR_PATH):
     if not file_name.endswith("-table.md"):
@@ -33,7 +33,7 @@ for file_name in os.listdir(TABLES_DIR_PATH):
             f"""\
 import PropertiesTableProperty from "@site/src/components/PropertiesTableProperty";
 
-const imageProperties: readonly PropertiesTableProperty[] = {json.dumps(json_properties)};
-export default imageProperties;
+const properties: readonly PropertiesTableProperty[] = {json.dumps(json_properties)};
+export default properties;
 """
         )
