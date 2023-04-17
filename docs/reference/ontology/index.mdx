@@ -3,6 +3,7 @@ sidebar_position: 3
 ---
 
 
+
 import collectionProperties from "./properties/collectionProperties";
 import conceptProperties from "./properties/conceptProperties";
 import NamespacesTable from "./_namespaces-table.md"
@@ -23,23 +24,23 @@ import workCreationProperties from "./properties/workCreationProperties";
 
 # Reference: ontology
 
-The Paradicms ontology directly expresses the [Paradicms data model](/docs/introduction/data-model) as an RDF ontology. The ontology is relatively flat, with few imageProperties requiring nested data structures like lists and sub-objects. That makes it easier to convert data from spreadsheets and other tabular sources into RDF.
+The Paradicms ontology directly expresses the [Paradicms data model](/docs/introduction/data-model) as an RDF ontology. The ontology is relatively flat, with few properties requiring nested data structures like lists and sub-objects. That makes it easier to convert data from spreadsheets and other tabular sources into RDF.
 
 ### Vocabularies
 
-The Paradicms ontology reuses different RDF-based vocabularies for describing the imageProperties of works, collections, images, agents, et al. These vocabularies include:
+The Paradicms ontology reuses different RDF-based vocabularies for describing the properties of works, collections, images, agents, et al. These vocabularies include:
 
-* [Basic Geo Vocabulary](https://www.w3.org/2003/01/geo/) for WGS84 latitude and longitude imageProperties
-* [DCMI Metadata Terms](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/) (aka Dublin Core Terms) for generic imageProperties such as a `Work`'s `title`.
-* [Costume Core](http://www.ardenkirkland.com/costumecore/) for imageProperties that encode the structure of historic clothing `Work`s
+* [Basic Geo Vocabulary](https://www.w3.org/2003/01/geo/) for WGS84 latitude and longitude properties
+* [DCMI Metadata Terms](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/) (aka Dublin Core Terms) for generic properties such as a `Work`'s `title`.
+* [Costume Core](http://www.ardenkirkland.com/costumecore/) for properties that encode the structure of historic clothing `Work`s
 * [An Exif vocabulary](https://www.w3.org/2003/12/exif/) for basic `Image` metadata such as `height` and `width`
-* [The FOAF Vocabulary](http://xmlns.com/foaf/0.1/) for imageProperties about people and organizations
+* [The FOAF Vocabulary](http://xmlns.com/foaf/0.1/) for properties about people and organizations
 
-as well as imageProperties from the Creative Commons Rights Expression Language, the RightsStatement.org data model, SKOS, and the Time Ontology.
+as well as properties from the Creative Commons Rights Expression Language, the RightsStatement.org data model, SKOS, and the Time Ontology.
 
-VRA Core 4.0 [has been translated to an RDF ontology](http://purl.org/vra/) for use in Linked Data systems. The Paradicms ontology reuses a number of imageProperties from the VRA Core RDF ontology in order to describe aspects of cultural heritage artifacts, including a `Work`'s `culturalContext`, `material`, and `technique`.
+VRA Core 4.0 [has been translated to an RDF ontology](http://purl.org/vra/) for use in Linked Data systems. The Paradicms ontology reuses a number of properties from the VRA Core RDF ontology in order to describe aspects of cultural heritage artifacts, including a `Work`'s `culturalContext`, `material`, and `technique`.
 
-The Paradicms ontology defines custom imageProperties where absolutely necessary. For example, configuration files for the static site generation system rely on a bespoke RDF vocabulary that is highly specific to Paradicms.
+The Paradicms ontology defines custom properties where absolutely necessary. For example, configuration files for the static site generation system rely on a bespoke RDF vocabulary that is highly specific to Paradicms.
 
 
 ## Classes
@@ -50,9 +51,9 @@ A class section contains:
 
 * a brief description of the class
 * The class's `rdf:type`
-* a table of the class's imageProperties
+* a table of the class's properties
 
-A class's imageProperties table has columns for:
+A class's properties table has columns for:
 
 #### Term
 
@@ -68,7 +69,7 @@ A property's term expands to this predicate IRI. For space reasons the IRIs are 
 
 #### Description
 
-Most of the imageProperties used by Paradicms have well-described semantics, and are backed up by formal specifications in [RDF Schema](https://www.w3.org/TR/rdf-schema/), [Shapes Constraint Language (SHACL)](https://www.w3.org/TR/shacl/), and [the Web Ontology Language (OWL)](https://www.w3.org/OWL/). This column briefly summarizes the expected semantics of a property. For extended descriptions, refer to the original vocabulary for a property, such as [DCMI Metadata Terms](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/) for `dcterms:`-prefixed imageProperties like `dcterms:creator`.
+Most of the properties used by Paradicms have well-described semantics, and are backed up by formal specifications in [RDF Schema](https://www.w3.org/TR/rdf-schema/), [Shapes Constraint Language (SHACL)](https://www.w3.org/TR/shacl/), and [the Web Ontology Language (OWL)](https://www.w3.org/OWL/). This column briefly summarizes the expected semantics of a property. For extended descriptions, refer to the original vocabulary for a property, such as [DCMI Metadata Terms](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/) for `dcterms:`-prefixed properties like `dcterms:creator`.
 
 #### Cardinality
 
@@ -83,7 +84,7 @@ This column indicates the cardinality of the class property. It can contain the 
 
 A property IRI becomes the predicate of a `(subject, predicate, object)` RDF statement. The `subject` is usually implicit in the data source -- a synthesized IRI of a spreadsheet row, for example.
 
-This column of the imageProperties table specifies the expected type of the `object` in the statement. For example, values of `title` (i.e., `dcterms:title`) are expected to be strings, as in the following `(subject, predicate, object)` RDF triple:
+This column of the properties table specifies the expected type of the `object` in the statement. For example, values of `title` (i.e., `dcterms:title`) are expected to be strings, as in the following `(subject, predicate, object)` RDF triple:
 
 ```turtle
 <http://example.com/work> <http://purl.org/dc/terms/title> "Example title" .
@@ -93,7 +94,7 @@ Booleans, strings, and other literals in Paradicms have [XML Schema](https://www
 
 Literal syntax is handled in a per-data source fashion. In spreadsheet cells you don't need to quote (`"`) strings, for example, since the cell boundaries delimit the string.
 
-Other imageProperties expect IRI values. For example, values of `dcterms:license` are expected to be IRIs referencing a valid `License` class instance:
+Other properties expect IRI values. For example, values of `dcterms:license` are expected to be IRIs referencing a valid `License` class instance:
 
 ```turtle
 <http://example.com/work> <http://purl.org/dc/terms/license> <http://creativecommons.org/licenses/nc/1.0/> .

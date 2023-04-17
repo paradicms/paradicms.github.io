@@ -23,6 +23,6 @@ The `single-page-exhibition` app displays the `Work`s in a dataset in a vertical
 
 ### `work-search`
 
-The `work-search` app provides a faceted and full-text search interface over a set of `Work`s. The app can be [configured](../app-configuration.md) to facetize, filter, and search arbitrary domain-specific `Work` imageProperties such as [Costume Core](http://www.ardenkirkland.com/costumecore/) `condition`.
+The `work-search` app provides a faceted and full-text search interface over a set of `Work`s. The app can be [configured](../app-configuration.md) to facetize, filter, and search arbitrary domain-specific `Work` properties such as [Costume Core](http://www.ardenkirkland.com/costumecore/) `condition`.
 
 ![Screenshot of work-search app](work-search.png)

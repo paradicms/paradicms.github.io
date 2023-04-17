@@ -19,7 +19,7 @@ Like the data consumed by apps, app configuration is specified in RDF:
   .
 ```
 
-All app configuration imageProperties are in the namespace `http://www.paradicms.org/ns/configuration#`. In the Turtle example above it is the default namespace (`:`), which allows imageProperties to be specified as `:property`: `:stylesheet`, `:title`, et al.
+All app configuration properties are in the namespace `http://www.paradicms.org/ns/configuration#`. In the Turtle example above it is the default namespace (`:`), which allows properties to be specified as `:property`: `:stylesheet`, `:title`, et al.
 
 In JSON-LD syntax you can use a simple `@context` to indicate that terms are in the configuration namespace:
 ```json
@@ -38,7 +38,7 @@ In JSON-LD syntax you can use a simple `@context` to indicate that terms are in 
 
 The app configuration RDF graph must include a top-level resource with the type `AppConfiguration`. It can be a blank node, as in the examples above. In the Turtle the top-level resource is declared with  `[] a AppConfiguration`. In JSON-LD it is the `"@type": "AppConfiguration"` property.
 
-Most of the app configuration consists of statements about this top-level resource, like `:title "Example"` in the example Turtle. The following table documents the available imageProperties of an `AppConfiguration`. 
+Most of the app configuration consists of statements about this top-level resource, like `:title "Example"` in the example Turtle. The following table documents the available properties of an `AppConfiguration`. 
 
 #### Properties
 
@@ -48,12 +48,12 @@ Most of the app configuration consists of statements about this top-level resour
 | stylesheet   | Absolute or relative URL of a [Bootstrap 5](https://getbootstrap.com/) CSS file | 0..1        | string or IRI     | http://example.com/bootstrap.min.css |
 | title        | Site title, used in the HTML `<title>` tag and other parts of the app           | 0..1        | string            | My collection                        |
 
-Note that all the imageProperties are optional. Paradicms apps don't require configuration, but will run with sensible defaults.
+Note that all the properties are optional. Paradicms apps don't require configuration, but will run with sensible defaults.
 
 [//]: # (### `PropertyConfiguration`)
 
 [//]: # ()
-[//]: # (The `work-search` app can filter, facetize, and/or full-text search values of arbitrary `Work` imageProperties, which makes it possible to incorporate domain-specific imageProperties such as [Costume Core]&#40;http://www.ardenkirkland.com/costumecore/&#41; `condition` into the faceted search interface. A `PropertyConfiguration` tells the `work-search` app about these imageProperties.)
+[//]: # (The `work-search` app can filter, facetize, and/or full-text search values of arbitrary `Work` properties, which makes it possible to incorporate domain-specific properties such as [Costume Core]&#40;http://www.ardenkirkland.com/costumecore/&#41; `condition` into the faceted search interface. A `PropertyConfiguration` tells the `work-search` app about these properties.)
 
 [//]: # ()
 [//]: # (An `AppConfiguration` with a list of `work-search` `PropertyConfiguration`s in JSON-LD looks like:)
@@ -99,7 +99,7 @@ Note that all the imageProperties are optional. Paradicms apps don't require con
 [//]: # (#### Properties)
 
 [//]: # ()
-[//]: # (The following table documents the available imageProperties of a `PropertyConfiguration`:)
+[//]: # (The following table documents the available properties of a `PropertyConfiguration`:)
 
 [//]: # ()
 [//]: # (| Property/Term | Description                                                 | Cardinality | Value type | Example values                   |)
