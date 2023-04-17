@@ -23,9 +23,9 @@ Sheets can be named with variants of the class names:
 
 #### The header row
 
-The first row of each sheet is a header row corresponding to the properties of the class. Each property occupies its own column in the sheet. The columns can be in any order.
+The first row of each sheet is a header row corresponding to the [JSON-LD terms](https://www.w3.org/TR/json-ld11/#dfn-term) for properties of the class, as well as columns with special meanings in JSON-LD, such as `@id`. The columns can be in any order.
 
-For example, `Person` has the properties `familyName`, `givenName`, and `name`, among others. The full set of properties for each class is listed in the [ontology reference](/docs/reference/ontology).
+For example, `Person` has columns corresponding to the JSON-LD terms `familyName` (for the IRI `http://xmlns.com/foaf/0.1/familyName`), `givenName`, and `name`, among others. The full set of properties/terms for each class is listed in the [ontology reference](/docs/reference/ontology).
 
 ![Screenshot of a header row](header-row.png)
 
@@ -46,7 +46,7 @@ Sheets such as `Person` and `Work` have an `@id` column. By convention this is t
 
 The `@id` column contains a unique identifier that allows data rows in the sheet to be referenced by data rows in another sheet. For example, the `depicts` column in the `Image` sheet usually contains the value of an `@id` call in another sheet.
 
-Unique identifiers in the `@id` column must be [Internationalized Resource Identifiers (IRIs)](https://en.wikipedia.org/wiki/Internationalized_Resource_Identifier). Paradicms simplifies the use of IRIs in spreadsheets by providing an IRI namespace per sheet and an associated prefix. You can see this at work in the `Person` sheet. The unique identifier (`@id`) of Andrew Bolton is `ss-person:andrew-bolton`. Internally, Paradicms expands the `ss-person:` prefix to something like `urn:paradicms:` so that the result is a well-formed IRI like `urn:paradicms:andrew-bolton`. An `Image` data row that `depicts` Andrew Bolton can simply contain `ss-person:andrew-bolton` in the corresponding cell. You can see this mechanism at work in an `Image` that `depicts` Susan Sontag (`ss-person:susan-sontag`):
+`@id` is a [JSON-LD construct](https://www.w3.org/TR/json-ld11/#node-identifiers). Unique identifiers in the `@id` column must be [Internationalized Resource Identifiers (IRIs)](https://en.wikipedia.org/wiki/Internationalized_Resource_Identifier). Paradicms simplifies the use of IRIs in spreadsheets by providing an IRI namespace per sheet and an associated prefix. You can see this at work in the `Person` sheet. The unique identifier (`@id`) of Andrew Bolton is `ss-person:andrew-bolton`. Internally, Paradicms expands the `ss-person:` prefix to something like `urn:paradicms:` so that the result is a well-formed IRI like `urn:paradicms:andrew-bolton`. An `Image` data row that `depicts` Andrew Bolton can simply contain `ss-person:andrew-bolton` in the corresponding cell. You can see this mechanism at work in an `Image` that `depicts` Susan Sontag (`ss-person:susan-sontag`):
 
 ![Screenshot of an @id reference](id-reference.png)
 
@@ -79,7 +79,7 @@ The spreadsheet to JSON conversion process works as follows:
 
 * A data row converts to a JSON object (`{}`).
 * Each column header for the row is a key in that object. Columns with identical headers convert multiple values for that key.
-* Empty cells are ignored.
+* Empty and whitespace-only cells are ignored.
 * Non-empty cells in the row are converted to JSON values, attempting to preserve the type wherever possible. The table below shows the conversion process for common types.
 
 | Spreadsheet cell value type | JSON value type                  |
@@ -90,7 +90,7 @@ The spreadsheet to JSON conversion process works as follows:
 | Number                      | Number                           |
 | String                      | String                           |
 
-A cell can contain arbitrary JSON values, including objects (`{}`) and arrays (`[]`). The conversion process attempts to parse any string cell value as JSON before treating it as a string.
+A cell can contain arbitrary JSON values, including objects (`{}`) and arrays (`[]`). The conversion process attempts to parse any string cell value as JSON. Strings that can't be parsed as JSON are passed through as-is.
 
 Both Google Sheets and Excel support inserting image data (e.g., a copy of a `.jpg` or `.png`) directly into cells. These are not converted to JSON, but handled specially in conversion process for the `Image` sheet. See the [ontology reference](/docs/reference/ontology) for more information.
 
