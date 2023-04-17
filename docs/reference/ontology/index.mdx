@@ -13,6 +13,8 @@ import licenseProperties from "./properties/licenseProperties";
 import locationProperties from "./properties/locationProperties";
 import organizationProperties from "./properties/organizationProperties";
 import personProperties from "./properties/personProperties";
+import propertyProperties from "./properties/propertyProperties";
+import propertyGroupProperties from "./properties/propertyGroupProperties";
 import rightsStatementProperties from "./properties/rightsStatementProperties";
 import textProperties from "./properties/textProperties";
 import workProperties from "./properties/workProperties";
@@ -184,6 +186,24 @@ An `Person` is a human such as Alan Turing.
 **`rdf:type`**: `cms:Person`
 
 <PropertiesTable properties={personProperties} />
+
+
+### `Property`
+
+A `Property` is metadata about properties of `Image`s, `Work`s, and other class instances. `Property` metadata is primarily used by Paradicms apps to determine how to handle arbitrary/unknown properties. For example, by indicating a property is `searchable` the `work-search` app will include the property's values in the fulltext search index. Similarly, a property that is marked `filterable` will be incorporated into the `work-search` app's filter system.
+
+**`rdf:type`**: `cms:Property`
+
+<PropertiesTable properties={propertyProperties} />
+
+
+### `PropertyGroup`
+
+One or more `Property`'s can be grouped into a `PropertyGroup`. `Property`s in the same `PropertyGroup` are usually displayed together in a user interface.
+
+**`rdf:type`**: `cms:PropertyGroup`
+
+<PropertiesTable properties={propertyGroupProperties} />
 
 
 ### `RightsStatement`
