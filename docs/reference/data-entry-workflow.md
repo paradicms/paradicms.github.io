@@ -6,33 +6,42 @@ sidebar_position: 4
 
 The interdependencies between [classes in the Paradicms ontology](./ontology) suggest that there is an optimal workflow for entering completely new data into a spreadsheet, Markdown directory, or other source that maps directly to the ontology.
 
-For example, a `Work` has a one-way link to one or more `Collection`s, then the `Work`s that link to the `Collection`s.
+In a repeatable data entry workflow, we will enter data that other data depends on first, then enter first order dependencies, and so on.
+
+For example:
+
+* A `Work` has a one-way link to one or more `Collection`s, so enter `Collection`s first
+* After the `Collection`(s) are entered, enter `Work`s that link to the `Collection`s.
 
 ## Workflow
 
-In a repeatable data entry workflow, we will enter data that other data depends on first, then enter first order dependencies, and so on.
-
-You may not need to enter new data for every step. If your system already contains a row for e.g., the `License` your `Image` will link to, you can obviously skip the `License` entry step.
+You may not need to enter new data for every step. If your system already contains data for e.g., the `License` your `Image` will link to, you can obviously skip the `License` entry step.
 
 ### Enter self-contained classes
 
 These are classes that do not depend on any other classes. They can be entered in any order.
 
-* `License`. `License`s are often pre-populated in templates, but you can enter new ones if needed.
-* `Location`
-* `RightsStatement`. Similar to `License`, `RightsStatement`s are often pre-populated.
+* `License`s are often pre-populated in templates and/or available as [ambient data](./ambient-data), but you can enter new ones if needed.
+* `Location`s do not depend on any other classes.
+* `PropertyGroup`s do not depend on any other classes.
+* `RightsStatement`s, like `License`s are often pre-populated and/or available as ambient data.
 
-### Enter `Organization` and/or `Person`
+### Enter `Property`
 
-All of these can link to a `Location`.
+`Property` can link to `PropertyGroup`.
 
-### Enter `Collection`
+### Enter `Collection`, `Organization`,  and/or `Person`
 
-`Collection` can also link to a `Location`.
+These can link to a `Location`.
 
 ### Enter `Work`
 
-`Work` links to one or more `Collection`s, zero or more `Organization`s, and zero or more `Person`s.
+`Work` can link to:
+* one or more `Collection`s
+* zero or more `Organization`s
+* zero or one `License`
+* zero or more `Person`s
+* zero or one `RightsStatement`
 
 ### Enter `Image`
 
