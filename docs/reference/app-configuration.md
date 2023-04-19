@@ -134,7 +134,7 @@ App configuration RDF can be passed to an app via a file in any RDF serializatio
 
 or any of the other serializations supported by the [`rdf-parse` library](https://www.npmjs.com/package/rdf-parse). See the latter page for a list of file extensions associated with each serialization.
 
-The path to an app configuration file is specified via the `app_configuration_file_path` input parameter to GitHub Actions or the `CONFIGURATION_FILE_PATH` environment variable when building an app manually.
+The path to an app configuration file is specified via the `data_file_paths` input parameter to GitHub Actions or the `DATA_FILE_PATHS` environment variable when building an app manually.
 
 #### App configuration in the data
 
