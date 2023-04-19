@@ -4,7 +4,7 @@ sidebar_position: 3
 
 # Tutorial: generate a faceted search interface for data in Google Sheets
 
-The tutorial will guide you in creating a web-based faceted search interface for your collection data.
+The tutorial will guide you in creating a web-based faceted search interface for collection data in Google Sheets.
 
 You will:
 * Create a [Google Sheet](https://www.google.com/sheets/about/) for storing collection data
@@ -53,7 +53,7 @@ Following [these instructions](https://docs.github.com/en/actions/security-guide
 
 Follow the [recipe on manually running a GitHub Actions workflow](/docs/recipes/run-github-ssg-workflow).
 
-The GitHub Actions workflow is downloading the contents of the Google Sheet, transforming it to the Paradicms data model, generating the faceted search interface, and deploying it to GitHub Pages.
+The GitHub Actions workflow is downloading the contents of the Google Sheet, transforming them to the Paradicms data model, generating the faceted search interface, and deploying it to GitHub Pages.
 
 ### Navigate to your site
 

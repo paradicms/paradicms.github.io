@@ -28,7 +28,7 @@ The remaining sections of this document follow a subset of the [repeatable data 
 
 ### Enter a `Collection`
 
-Create a subdirectory named `collection` if it doesn't exist already, then create a file `costume-institute.yaml` in that directory with the following content:
+Create a subdirectory of your Markdown directory named `collection` if it doesn't exist already, then create a file `costume-institute.yaml` in that directory with the following content:
 
 ```yaml title="collection/costume-institute.yaml"
 page: "https://www3.metmuseum.org/about-the-met/collection-areas/the-costume-institute"

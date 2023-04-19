@@ -66,7 +66,7 @@ Following [these instructions](https://docs.github.com/en/actions/security-guide
 
 Follow the [recipe on manually running a GitHub Actions workflow](/docs/recipes/run-github-ssg-workflow).
 
-The GitHub Actions workflow is downloading the contents of the Google Sheet, transforming it to the Paradicms data model, generating the faceted search interface, and deploying it to GitHub Pages.
+The GitHub Actions workflow is downloading the contents of the Airtable base, transforming them to the Paradicms data model, generating the faceted search interface, and deploying it to GitHub Pages.
 
 ### Navigate to your site
 
