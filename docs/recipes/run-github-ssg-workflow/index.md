@@ -14,7 +14,7 @@ sidebar_position: 2
 
 ### Run the workflow
 
-Click the *Run workflow* button on the right. You don't need to change the *Use workflow* branch. Simply click the *Run workflow* button.
+Click the *Run workflow* button on the right. You don't need to change the *Use workflow from* branch. Simply click the *Run workflow* button.
 
 ![Screenshot of GitHub Actions run workflow dialog](run-workflow-dialog.png)
 
