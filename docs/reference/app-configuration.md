@@ -50,79 +50,16 @@ Most of the app configuration consists of statements about this top-level resour
 
 Note that all the properties are optional. Paradicms apps don't require configuration, but will run with sensible defaults.
 
-[//]: # (### `PropertyConfiguration`)
+### Other classes
 
-[//]: # ()
-[//]: # (The `work-search` app can filter, facetize, and/or full-text search values of arbitrary `Work` properties, which makes it possible to incorporate domain-specific properties such as [Costume Core]&#40;http://www.ardenkirkland.com/costumecore/&#41; `condition` into the faceted search interface. A `PropertyConfiguration` tells the `work-search` app about these properties.)
-
-[//]: # ()
-[//]: # (An `AppConfiguration` with a list of `work-search` `PropertyConfiguration`s in JSON-LD looks like:)
-
-[//]: # ()
-[//]: # (```json)
-
-[//]: # ({)
-
-[//]: # (    "@context": {)
-
-[//]: # (        "@vocab": "http://www.paradicms.org/ns/configuration")
-
-[//]: # (    },)
-
-[//]: # (    "@type": "AppConfiguration",)
-
-[//]: # (    "stylesheet": "http://example.com/example.css",)
-
-[//]: # (    "title": "Example",)
-
-[//]: # (    "workProperty": [)
-
-[//]: # (      {)
-
-[//]: # (        "filterable": true,)
-
-[//]: # (        "label": "Subject",)
-
-[//]: # (        "predicate": {"@type": "@id", "@value": "http://purl.org/dc/terms/subject"},)
-
-[//]: # (        "searchable": true)
-
-[//]: # (      })
-
-[//]: # (    ])
-
-[//]: # (})
-
-[//]: # (```)
-
-[//]: # ()
-[//]: # (#### Properties)
-
-[//]: # ()
-[//]: # (The following table documents the available properties of a `PropertyConfiguration`:)
-
-[//]: # ()
-[//]: # (| Property/Term | Description                                                 | Cardinality | Value type | Example values                   |)
-
-[//]: # (|---------------|-------------------------------------------------------------|-------------|------------|----------------------------------|)
-
-[//]: # (| filterable    | The property is filterable and facetizable &#40;default: false&#41; | 0..1        | boolean    | true                             |)
-
-[//]: # (| label         | Human-readable label for the property                       | 1           | string     | Subject                          |)
-
-[//]: # (| predicate     | IRI of the property                                         | 1           | IRI        | http://purl.org/dc/terms/subject |)
-
-[//]: # (| searchable    | The property is full-text searchable &#40;default: false&#41;       | 0..1        | boolean    | false                            |)
-
-[//]: # ()
-
+Instances of `Property` and `PropertyGroup` classes from the [Paradicms ontology](/docs/reference/ontology) may also affect the behavior of apps by e.g., making certain properties filterable and fulltext-searchable. See the [ontology reference](/docs/reference/ontology) for more information.
 
 ### Passing app configuration to an app
 
 App configuration can be passed to an app by:
 
 * putting the app configuration RDF in a separate file
-* adding an AppConfiguration class instance to the data in your preferred source
+* adding an `AppConfiguration` class instance to the data in your preferred source
 
 #### Separate app configuration RDF file
 
