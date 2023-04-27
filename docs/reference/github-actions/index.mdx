@@ -9,33 +9,25 @@ sidebar_position: 5
 
 
 
-
-
-
-
-
-
-
-
-
-import AirtableSsgActionInputsTable from "./inputs-tables/_airtable-ssg-action-inputs-table.md";
-import MarkdownSsgActionInputsTable from "./inputs-tables/_markdown-ssg-action-inputs-table.md";
-import SpreadsheetSsgActionInputsTable from "./inputs-tables/_spreadsheet-ssg-action-inputs-table.md";
+import AirtableEtlActionInputsTable from "./inputs-tables/_airtable-etl-action-inputs-table.md";
+import DirectoryEtlActionInputsTable from "./inputs-tables/_directory-etl-action-inputs-table.md";
+import SpreadsheetEtlActionInputsTable from "./inputs-tables/_spreadsheet-etl-action-inputs-table.md";
+import SsgActionInputsTable from "./inputs-tables/_ssg-action-inputs-table.md";
 
 # Reference: GitHub Actions
 
-[GitHub Actions](https://github.com/features/actions) are the glue that ties together disparate components of the Paradicms system. A GitHub Action like `spreadsheet-ssg-action` extracts data from a source like Google Sheets, transforms it to the Paradicms data model, and feeds the data to an app-specific static site generator (SSG). The result is a set of HTML, CSS, and JavaScript files which can be deployed to a static file hosting service such as GitHub Pages.
+[GitHub Actions](https://github.com/features/actions) are the glue that ties together disparate components of the Paradicms system. A GitHub Action like `spreadsheet-etl-action` extracts data from a source like Google Sheets, transforms it to the Paradicms data model, and loads it into a file that can be consumed by a downstream action such as `ssg-action`. `ssg-action` feeds the data to an app-specific static site generator (SSG). The result is a set of HTML, CSS, and JavaScript files which can be deployed to a static file hosting service such as GitHub Pages.
 
 This page documents the GitHub Actions provided by Paradicms, with one section per action.
 
 
-### `airtable-ssg-action`
+### `airtable-etl-action`
 
-The `airtable-ssg-action` generates a [Paradicms app](/docs/reference/apps) from an Airtable base.
+The `airtable-etl-action` extracts, transforms, and loads collection data from an Airtable base.
 
 #### Inputs
 
-<AirtableSsgActionInputsTable/>
+<AirtableEtlActionInputsTable/>
 
 #### Example
 
@@ -43,37 +35,37 @@ The example is adapted from the [Airtable template repository](https://raw.githu
 The [tutorial on generating a faceted search interface using data in Airtable](/docs/tutorials/airtable-ssg) explains the role of this action in context.
 
 ```yaml
-uses: paradicms/airtable-ssg-action@v1-beta
+uses: paradicms/airtable-etl-action@v1-beta
 with:
   airtable_access_token: ${{ secrets.AIRTABLE_ACCESS_TOKEN }}
   airtable_base_id: ${{ secrets.AIRTABLE_BASE_ID }}
 ```
 
 
-### `markdown-ssg-action`
+### `directory-etl-action`
 
-The `markdown-ssg-action` generates a [Paradicms app](/docs/reference/apps) from a directory tree of Markdown (`.md`) files. The files must reside in the GitHub repository.
+The `directory-etl-action` extracts, transforms, and loads collection data from a directory of files. The files must reside in the GitHub repository.
 
 #### Inputs
 
-<MarkdownSsgActionInputsTable/>
+<DirectoryEtlActionInputsTable/>
 
 #### Example
 
-The example is adapted from the [Markdown template repository](https://raw.githubusercontent.com/minorg/ComputerScienceInventions/main/.github/workflows/build.yml).
-The [tutorial on using Markdown to generate a digital exhibition](/docs/tutorials/markdown-ssg) explains the role of this action in context.
+The example is adapted from the [directory template repository](https://raw.githubusercontent.com/minorg/ComputerScienceInventions/main/.github/workflows/build.yml).
+The [tutorial on using files to generate a digital exhibition](/docs/tutorials/directory-ssg) explains the role of this action in context.
 
 ```yaml
-uses: paradicms/markdown-ssg-action@v1-beta
+uses: paradicms/markdown-etl-action@v1-beta
 ```
 
-### `spreadsheet-ssg-action`
+### `spreadsheet-etl-action`
 
-The `spreadsheet-ssg-action` generates a [Paradicms app](/docs/reference/apps) from a spreadsheet. The spreadsheet can reside on Google Sheets or in an Excel 2010 file (`.xlsx`) in the GitHub repository.
+The `spreadsheet-etl-action` extracts, transforms, and loads collection data from a spreadsheet. The spreadsheet can reside on Google Sheets or in an Excel 2010 file (`.xlsx`) in the GitHub repository.
 
 #### Inputs
 
-<SpreadsheetSsgActionInputsTable/>
+<SpreadsheetEtlActionInputsTable/>
 
 `spreadsheet` must be one of:
   * a Google Sheets spreadsheet id, such as `1j2oaMvMxY4pnXO-sEH_fky2R2gm6TQeIev_Q8rVOD4M`
@@ -86,7 +78,25 @@ The `spreadsheet-ssg-action` generates a [Paradicms app](/docs/reference/apps) f
 The example is adapted from the [GitHub Actions workflow in the Google Sheets template repository](https://raw.githubusercontent.com/dressdiscover/exhibitions/main/.github/workflows/build.yml). The [tutorial on using Google Sheets to generate a faceted search interface](/docs/tutorials/spreadsheet-ssg) explains the role of this action in context.
 
 ```yaml
-uses: paradicms/spreadsheet-ssg-action@v1-beta
+uses: paradicms/spreadsheet-etl-action@v1-beta
 with:
   spreadsheet: 1j2oaMvMxY4pnXO-sEH_fky2R2gm6TQeIev_Q8rVOD4M
+```
+
+### `ssg-action`
+
+The `ssg-action` generates a [Paradicms app](/docs/reference/apps) from data previously extracted, transformed, and loaded by one of the ETL actions (above).
+
+#### Inputs
+
+<SsgActionInputsTable/>
+
+#### Example
+
+The example is adapted from the [directory template repository](https://raw.githubusercontent.com/minorg/ComputerScienceInventions/main/.github/workflows/build.yml).
+The [tutorial on using files to generate a digital exhibition](/docs/tutorials/directory-ssg) explains the role of this action in context.
+
+```yaml
+- uses: paradicms/markdown-etl-action@v1-beta
+- uses: paradicms/ssg-action@v1-beta
 ```
