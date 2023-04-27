@@ -48,6 +48,7 @@ def generate_github_action_table(repository_name: str):
         writer.write_table()
 
 
-generate_github_action_table("airtable-ssg-action")
-generate_github_action_table("markdown-ssg-action")
-generate_github_action_table("spreadsheet-ssg-action")
+generate_github_action_table("airtable-etl-action")
+generate_github_action_table("directory-etl-action")
+generate_github_action_table("spreadsheet-etl-action")
+generate_github_action_table("ssg-action")
