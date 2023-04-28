@@ -2,12 +2,12 @@
 sidebar_position: 1
 ---
 
-# Tutorial: generate a digital exhibition from Markdown files in a GitHub repository
+# Tutorial: generate a digital exhibition from files in a GitHub repository
 
-The tutorial will guide you in creating a web-based digital exhibition from Markdown files.
+The tutorial will guide you in creating a web-based digital exhibition from files in a GitHub repository.
 
 You will:
-* Define the contents of your exhibition using [Markdown](https://www.markdownguide.org/) files arranged in a prescribed directory structure
+* Define the contents of your exhibition using files arranged in a prescribed directory structure
 * Generate a website for the exhibition using [GitHub Actions](https://github.com/features/actions)
 * Deploy the site using [GitHub Pages](https://pages.github.com/)
 
@@ -39,7 +39,7 @@ Follow [these instructions](https://docs.github.com/en/pages/getting-started-wit
 
 Follow the [recipe on manually running a GitHub Actions workflow](/docs/recipes/run-github-ssg-workflow).
 
-The GitHub Actions workflow is transforming Markdown files in the repository to the Paradicms data model, generating the digital exhibition website, and deploying it to GitHub Pages.
+The GitHub Actions workflow is transforming files in the repository to the Paradicms data model, generating the digital exhibition website, and deploying it to GitHub Pages.
 
 ### Navigate to your site
 
@@ -49,4 +49,4 @@ Your site is now available on the public Internet, and you can share it with peo
 
 ### Next steps
 
-Your new GitHub repository contains example data copied from the template. When you are ready, proceed to the tutorial on [editing a Markdown directory](/docs/tutorials/edit-markdown).
+Your new GitHub repository contains example data copied from the template. When you are ready, proceed to the tutorial on [editing file-based collection data](/docs/tutorials/edit-markdown).
