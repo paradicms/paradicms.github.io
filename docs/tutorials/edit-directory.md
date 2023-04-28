@@ -2,9 +2,9 @@
 sidebar_position: 2
 ---
 
-# Tutorial: Edit collection data in files 
+# Tutorial: Edit file-based collection data
 
-The tutorial will guide you in editing collection data in the Paradicms directory format.
+The tutorial will guide you in editing collection data stored in files.
 
 ### Before you start
 
