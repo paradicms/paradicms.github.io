@@ -2,20 +2,20 @@
 sidebar_position: 2
 ---
 
-# Tutorial: Edit collection data in Markdown files 
+# Tutorial: Edit collection data in files 
 
-The tutorial will guide you in editing collection data in the Paradicms Markdown format.
+The tutorial will guide you in editing collection data in the Paradicms directory format.
 
 ### Before you start
 
-* Create a Markdown directory. See below.
+* Create a directory. See below.
 * **Review the [Paradicms data model](/docs/introduction/data-model) and [ontology](/docs/reference/ontology).**
 * Optionally, **review the [reference documentation on the Paradicms Markdown format](/docs/reference/markdown-format).**
 
 
-#### Creating a Markdown directory
+#### Creating a directory
 
-For this tutorial you will need a place to store Markdown files. It can be any directory. As you enter data the directory will conform to the [expected structure](/docs/reference/markdown-format).
+For this tutorial you will need a place to store files. It can be any directory. As you enter data the directory will conform to the [expected structure](/docs/reference/directory-format).
 
 You can create directories and [edit YAML files](https://docs.github.com/en/repositories/working-with-files/managing-files/editing-files) directly on GitHub or clone the GitHub repository to your machine and perform these operations locally.
 
@@ -28,7 +28,7 @@ The remaining sections of this document follow a subset of the [repeatable data 
 
 ### Enter a `Collection`
 
-Create a subdirectory of your Markdown directory named `collection` if it doesn't exist already, then create a file `costume-institute.yaml` in that directory with the following content:
+Create a subdirectory named `collection` if it doesn't exist already, then create a file `costume-institute.yaml` in that directory with the following content:
 
 ```yaml title="collection/costume-institute.yaml"
 page: "https://www3.metmuseum.org/about-the-met/collection-areas/the-costume-institute"
@@ -84,4 +84,4 @@ Save the [JPEG file from Wikimedia Commons](https://upload.wikimedia.org/wikiped
 
 ### Next steps
 
-You now have a Markdown directory with data about a `Collection`, `Image`, `Person`, and `Work`. From here you can enter more data, following the [ontology reference](/docs/reference/ontology), or use the data you've entered to generate a website by following the appropriate [tutorial](/docs/tutorials/markdown-ssg).
+You now have a directory with data about a `Collection`, `Image`, `Person`, and `Work`. From here you can enter more data, following the [ontology reference](/docs/reference/ontology), or use the data you've entered to generate a website by following the appropriate [tutorial](/docs/tutorials/directory-ssg).
