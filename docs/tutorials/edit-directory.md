@@ -10,7 +10,7 @@ The tutorial will guide you in editing collection data in the Paradicms director
 
 * Create a directory. See below.
 * **Review the [Paradicms data model](/docs/introduction/data-model) and [ontology](/docs/reference/ontology).**
-* Optionally, **review the [reference documentation on the Paradicms Markdown format](/docs/reference/markdown-format).**
+* Optionally, **review the [reference documentation on the Paradicms directory format](/docs/reference/directory-format).**
 
 
 #### Creating a directory

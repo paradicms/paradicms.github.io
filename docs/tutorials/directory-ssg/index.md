@@ -49,4 +49,4 @@ Your site is now available on the public Internet, and you can share it with peo
 
 ### Next steps
 
-Your new GitHub repository contains example data copied from the template. When you are ready, proceed to the tutorial on [editing file-based collection data](/docs/tutorials/edit-markdown).
+Your new GitHub repository contains example data copied from the template. When you are ready, proceed to the tutorial on [editing file-based collection data](/docs/tutorials/edit-directory).
