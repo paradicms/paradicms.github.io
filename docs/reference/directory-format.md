@@ -1,0 +1,194 @@
+---
+sidebar_position: 6
+---
+
+# Reference: directory format
+
+This page documents the use of files for storing Paradicms collection data.
+
+### Directory structure
+
+Collection data in the Paradicms directory format consists of:
+* a single root directory, typically the root of a GitHub repository
+* a set of files in the root directory, corresponding to singleton instances of classes
+* a set of subdirectories of the root directory, corresponding to classes in the [Paradicms ontology](/docs/reference/ontology)
+* a set of files in each class subdirectory, corresponding to instances of the class
+
+Listing the root directory of the [template repository](https://github.com/minorg/ComputerScienceInventions) illustrates the structure:
+
+```
+./collection.yaml
+./image
+./image/Charles Babbage.jpg
+./image/Charles Babbage.yaml
+./image/Difference engine.jpg
+./image/Difference engine.yaml
+./image/Donald Knuth.jpg
+./image/Donald Knuth.yaml
+./image/Douglas Engelbart.jpg
+./image/Douglas Engelbart.yaml
+./image/Linus Torvalds.jpg
+./image/Linus Torvalds.yaml
+./image/Linux.png
+./image/Linux.yaml
+./image/TeX.png
+./image/TeX.yaml
+./image/Tim Berners-Lee.jpg
+./image/Tim Berners-Lee.yaml
+./image/World Wide Web.png
+./image/World Wide Web.yaml
+./image/oN-Line System.jpg
+./image/oN-Line System.yaml
+./person
+./person/Charles Babbage.yaml
+./person/Donald Knuth.yaml
+./person/Douglas Engelbart.yaml
+./person/Linus Torvalds.yaml
+./person/Tim Berners-Lee.yaml
+./work
+./work-creation
+./work-creation/Difference engine.md
+./work-creation/Linux.md
+./work-creation/TeX.md
+./work-creation/World Wide Web.md
+./work-creation/oN-Line System.md
+./work/Difference engine.yaml
+./work/Linux.yaml
+./work/TeX.yaml
+./work/World Wide Web.yaml
+./work/oN-Line System.yaml
+```
+
+#### Singleton files
+
+In the listing above, `./collection.yaml` corresponds to a singleton instance of the `Collection` class in the [Paradicms ontology](/docs/reference/ontology).
+
+The stem (`collection`) of the file is named after the class, or a variant of the class name:
+* `WorkCreation`: the exact class name (camel case) documented in the [ontology reference](/docs/reference/ontology)
+* `work_creation`: snake case variant of the class name
+* `work-creation`: spinal case variant of the class name
+
+#### Class directories
+
+In the listing above, `./person` and `./work` are class directories corresponding to the `Person` and `Work` classes in the [Paradicms ontology](/docs/reference/ontology), respectively.
+
+The class directories can be named with variants of the class names:
+* `WorkCreation`: the exact class name (camel case) documented in the [ontology reference](/docs/reference/ontology)
+* `work_creation`: snake case variant of the class name
+* `work-creation`: spinal case variant of the class name
+
+The listing above uses spinal case (`work-creation`).
+
+#### Files in a class directory
+
+`./work-creation/Linux.md` in the listing above is a Markdown file describing an instance of the class `WorkCreation`. The "File format" section below documents the format of these files in detail. 
+
+#### Image data
+
+Image data (`.jpg`, `.png`) should sit directly alongside the associated `Image` (metadata) in the `image/` directory, as in these files from the listing above:
+```
+./image/World Wide Web.png
+./image/World Wide Web.yaml
+```
+
+
+### File formats
+
+Files in the directory structure can use a variety of formats. The following sections document the formats as well as the process of converting the formats to RDF for use in Paradicms. Converting each file in the directory tree to RDF produces a set of RDF graphs that can be consumed by [Paradicms apps](/docs/introduction/apps).
+
+### JSON files
+
+As noted above, the directory structure and naming conventions mean that every file is associated with a class in the [Paradicms ontology](/docs/reference/ontology). Each class has an associated [JSON-LD context](https://www.w3.org/TR/json-ld11/#the-context). 
+
+Paradicms converts [JSON](https://www.json.org/) (`.json`) files to RDF by interpreting them [JSON-LD](https://json-ld.org/). A JSON file is expected to have a single top-level object (`{}`). Paradicms adds the JSON-LD context (as a `@context` key) corresponding to the file's associated class to this top-level object before interpreting the latter as JSON-LD. The JSON-LD context maps keys in the JSON object, such as `creator`, to RDF predicate IRIs, in this case `http://purl.org/dc/terms/creator`.
+
+### YAML files
+
+[YAML](https://yaml.org/) (`.yaml` or `.yml`) files are treated similarly to JSON, since the two formats have very similar data model. The YAML file is parsed, a `@context` key is added to the top-level object, and the file is interpreted as JSON-LD.
+
+```yaml title="person/Linus Torvalds.yaml"
+relation:
+  - http://en.wikipedia.org/wiki/Linus_Torvalds
+  - http://www.wikidata.org/entity/Q34253
+```
+
+### Markdown files
+
+The following code block shows an abridged version of the Markdown file `work-creation/Linux.md`:
+
+```markdown title="work-creation/Linux.md"
+---
+creator: md-person:Linus%20Torvalds
+date: 1991-09-17
+title: Linus Torvalds begins work on the Linux kernel
+---
+
+Frustrated by the limitations of existing operating systems and curious about kernel development, Linus Torvalds begins work on what eventually becomes the Linux kernel.
+```
+
+A Markdown file consists of:
+1. an optional [YAML](https://yaml.org/) front matter block delimited by `---` and `---`
+2. paragraphs under a labeled `#` heading (not present in the example)
+3. paragraphs not under a labeled `#` heading (`Frustrated ...` in the example)
+
+In order to convert a Markdown file to RDF, it is first converted to JSON through the following process:
+
+* If present, YAML front matter is converted as-is to a root JSON object; otherwise an empty root JSON object (`{}`) is synthesized.
+* Markdown paragraphs are added to the root JSON object following these rules:
+  * A paragraph under a Markdown heading with the format `# [Your heading](#anykey)` is converted to an HTML string, and either 
+    * Assigned to `anykey` in the root JSON object if `anykey` does not exist in that object
+    * Concatenated to the existing string value of `anykey` if it does
+  * A paragraph under no heading, like the `Frustrated ...` paragraph in the example above, has the implicit key `description`, and otherwise follows the rules of paragraphs with explicit keys.
+  * When a paragraph's key (explicit or implicit) was already present in the YAML front matter, the combined metadata and paragraph text(s) are treated as an instance of a `Text` ontology class, with the paragraph text(s) forming the `value`.
+
+Converting `work-creation/Linux.md` would result in the following JSON:
+
+```json
+{
+  "creator": "md-person:Linus%20Torvalds",
+  "date": "1991-09-17",
+  "description": "Frustrated by the limitations of existing operating systems and curious about kernel development, Linus Torvalds begins work on what eventually becomes the Linux kernel.",
+  "title": "Linus Torvalds begins work on the Linux kernel"
+}
+```
+
+Note the `creator` property's IRI value: `md-person:Linus%20Torvalds` refers to the `Person` instance in the Markdown file `person/Linus Torvalds.md`. The file extension is dropped and the space in the remaining file stem is URL-encoded to `%20` in order to conform to IRI rules.
+
+The Markdown-derived JSON is then converted to RDF by interpreting it as JSON-LD, in the same manner JSON files are converted to RDF. The `work-creation/Linux.md` Markdown would thus produce the following small RDF graph (in Turtle format): 
+
+```turtle
+<urn:directory:ComputerScienceInventions:work-creation:Linux> a cms:Event,
+        cms:WorkCreation,
+        cms:WorkEvent ;
+    dcterms:creator <urn:directory:ComputerScienceInventions:person:Linus%20Torvalds> ;
+    dcterms:date "1991-09-17"^^xsd:date ;
+    dcterms:description "<p>Frustrated by the limitations of existing operating systems and curious about kernel development, Linus Torvalds begins work on what eventually becomes the Linux kernel.</p>" ;
+    dcterms:title "Linus Torvalds begins work on the Linux kernel" ;
+    cms:work <urn:directory:ComputerScienceInventions:work:Linux> .
+}
+```
+
+### Other RDF file formats
+
+Files can also be encoded in any RDF serialization supported by [rdflib](https://rdflib.readthedocs.io/en/stable/). For example, the `WorkCreation` instance encoded in Markdown above could instead be encoded in Turtle syntax as `work-creation/Linux.ttl`. The contents of this file would resemble the output of the Markdown->JSON->RDF conversion process, shown above.
+
+### Implied RDF
+
+The `WorkCreation` RDF graph above contains more information than could be directly mapped from the contents of `work-creation/Linux.md`. For example, the file has no explicit reference to the `Work` the `WorkCreation` is about, but there is a `cms:work` statement in the RDF with that reference.
+
+Paradicms has a number of rules for inferring parts of the graph associated with a file:
+
+* The subject of a file (`urn:directory:ComputerScienceInventions:work-creation:Linux` in the RDF graph above) is automatically synthesized from
+  * a dataset identifier, which is usually the name of the GitHub repository (here `ComputerScienceInventions`)
+  * the class corresponding to the directory where the file resides (here `WorkCreation`)
+  * the file stem (here `Linux`)
+* The `rdf:type` of the subject (the `a cms:Event, cms:WorkCreation, cms:WorkEvent` statement) is the class corresponding to the directory where the file resides (`WorkCreation`), as well as the class's superclasses (`WorkEvent`, `Event`).
+* For subclasses of `WorkEvent` such as `WorkCreation`, if there is no explicit `work` property in the file, the `work` is assumed to be a `Work` in the `work/` directory with the same file stem (`work/Linux.md` or `work/Linux.yaml`) as the work event (here `work-creation/Linux.md`).
+* If no label property (usually `dcterms:title`) is specified in the file, it is adapted from the file stem (`Linux.md` -> `"Linux"`).
+* All `Work`s are assumed to belong to at least one `Collection`. If no `collection` property is specified in a `Work` file, the `Work` is assumed to belong to the default collection.
+* The default collection is either the first `Collection` defined in the `collection/` directory, or it is synthesized.
+* If an `Image` file does not specify a `depicts` property, Paradicms looks for a `Collection` (i.e., `collection/somefile.md`), `Person`, `Work`, or other non-`Image` file with the same file stem (`Linux`) and infers that the `Image` `depicts` that `Collection`, `Person`, or `Work`.
+* An image file (`.jpg`, `.png`, et al.) placed alongside a file with the same stem (`work/Linux.png` and `work/Linux.md`) is assumed to `depict` the sibling file. Paradicms synthesizes a new `Image` instance with only this `depicts` statement. This is not used in the template, since third party `Image`s should have rights metadata in addition to a `depicts` property.
+* References to [ambient data](/docs/reference/ambient-data) are resolved and included.
+
+Most of these rules can be overridden by explicitly specifying a property: adding a `depicts` to `Image`, for example, or including a `dcterms:title` in a `Work` file instead of allowing the `dcterms:title` to be inferred from the file stem. The rules are provided for convenience.
