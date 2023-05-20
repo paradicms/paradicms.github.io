@@ -1,0 +1,26 @@
+---
+title: Data first or interface first?
+authors: [minorg]
+---
+
+You've been asked to design a new data-driven software application. Do you focus on the data first, or the user interface?
+
+<!--truncate-->
+
+The answer probably depends on what you're most comfortable with. Software engineers and data scientists are likely to focus on the data and data model. User experience designers and marketers are likely to focus on the interface.
+
+In an ideal world you could focus on each in turn, or collaborate with people who would focus on the part you're less comfortable with. In the real world you see many applications that clearly emphasize the data or the interface, often to the detriment of the other.
+
+Many projects in the cultural heritage sector are data-first, and prioritize the creation of [Linked Data](https://en.wikipedia.org/wiki/Linked_data) as an end it itself. These projects craft comprehensive data models such as [Linked Art](https://linked.art/) or add statements to [Wikidata](https://en.wikipedia.org/wiki/Wikidata) and are judged by the quality and the quantity of data the project produces. If there's a user interface for the new data it is frequently treated as an afterthought. The interface might be as rudimentary as [SPARQL](https://en.wikipedia.org/wiki/SPARQL) endpoint or other [API](https://en.wikipedia.org/wiki/API). Projects that go one step further might provide a web application that displays the data as data: a tangled [knowledge graph](https://en.wikipedia.org/wiki/Knowledge_graph) or tables of [RDF](https://en.wikipedia.org/wiki/Resource_Description_Framework) statements (as in [Wikibase](https://en.wikipedia.org/wiki/Wikibase)).
+
+[Solid](https://solidproject.org/) is another clear example of a code- and (linked) data-first project. With a few exceptions like [Media Kraken](https://noeldemartin.github.io/media-kraken/), the majority of the apps listed on the [Solid apps](https://solidproject.org/apps) page are for viewing and manipulating the data in the system as data: pod browsers, RDF editors, etc.
+
+Who is using these interfaces? If there are users, they are the project developers themselves, or people with very similar skill sets. For engineers, librarians, and other specialists, developing an application for "people like me" is the path of least resistance. The assumption is that if other kinds of people want to use the system, they can develop their own interfaces by utilizing the carefully-crafted data and APIs.
+
+Many of the practices of [product management](https://en.wikipedia.org/wiki/Product_management) serve to counter our natural tendency to focus on what we know best -- ourselves, people like us, and the skills and experiences we share. [Product discovery processes](https://en.wikipedia.org/wiki/Product_development) insist that we get out of our bubbles and talk with different kinds of people in order to find out what matters to them and serve them better.
+
+Those processes naturally lead to focusing on the user interface first. The interface is how users will judge your project. Unless you are developing a system for a technical audience, the vast majority of users don't care about the elegance of your data. You can't make users care by putting the data front and center. That will only annoy people, and induce them to give up on your system.
+
+In the for-profit world, a user abandoning your application has real consequences, such as lost revenue and damage to a product's and company's reputation. Conversely, many data-first projects emerge from environments where user satisfaction is a second-order concern: academia, cultural heritage institutions, etc.
+
+Software applications for cultural heritage could be the best of both worlds: free to address end user needs in creative ways without being beholden to the narrow concerns of business. The best digital collection interfaces do exactly that: Mitchell Whitelaw's [generous interfaces](https://mtchl.net/generous-interfaces-for-digital-cultural-collections/), Olivia Vane's [thoughtful visualizations](https://www.oliviavane.co.uk/projects), and others. Those interfaces should be the standard, not the rare exceptions. There is still a place for excellence in data and data models -- not as ends in themselves, but as means of supporting the user experience.
