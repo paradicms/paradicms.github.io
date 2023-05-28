@@ -130,7 +130,7 @@ Note that the class (`Person`) is also incorporated into the RDF as an `rdf:type
 
 #### Putting it all together
 
-Converting each data row with this process (row -> JSON, JSON -> RDF) and resolving [ambient data](/docs/reference/ambient-data) produces a set of RDF graphs, which are merged to form a single large graph representing all of the data in the spreadsheet.
+Converting each data row with this process (row -> JSON, JSON -> RDF) produces a set of RDF graphs, which are merged to form a single large graph representing all of the data in the spreadsheet.
 
 Cross-references to `@id` columns between sheets creates links between graphs. The `Work` `collection` reference shown above produces RDF like the following (abridged for clarity):
 

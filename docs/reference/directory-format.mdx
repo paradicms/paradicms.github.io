@@ -191,6 +191,5 @@ Paradicms has a number of rules for inferring parts of the graph associated with
 * The default collection is either the first `Collection` defined in the `collection/` directory, or it is synthesized.
 * If an `Image` file does not specify a `depicts` property, Paradicms looks for a `Collection` (i.e., `collection/somefile.md`), `Person`, `Work`, or other non-`Image` file with the same file stem (`Linux`) and infers that the `Image` `depicts` that `Collection`, `Person`, or `Work`.
 * An image file (`.jpg`, `.png`, et al.) placed alongside a file with the same stem (`work/Linux.png` and `work/Linux.md`) is assumed to `depict` the sibling file. Paradicms synthesizes a new `Image` instance with only this `depicts` statement. This is not used in the template, since third party `Image`s should have rights metadata in addition to a `depicts` property.
-* References to [ambient data](/docs/reference/ambient-data) are resolved and included.
 
 Most of these rules can be overridden by explicitly specifying a property: adding a `depicts` to `Image`, for example, or including a `dcterms:title` in a `Work` file instead of allowing the `dcterms:title` to be inferred from the file stem. The rules are provided for convenience.

@@ -1,0 +1,60 @@
+---
+sidebar_position: 8
+---
+
+import CreativeCommonsLicensesTable from "./tables/_creative-commons-licenses-table.md"
+import RightsStatementDotOrgRightsStatementsTable from "./tables/_rights-statement-dot-org-rights-statements-table.md"
+
+# Reference: enrichment
+
+After extracting and transforming collection data from sources such as Airtable and Google Sheets, Paradicms automatically enriches the data by resolving references to external data sources.
+
+### Creative Commons `License`s
+
+Many collections reference [Creative Commons](https://creativecommons.org/) [licenses](https://creativecommons.org/ns), [RightsStatements.org](https://rightsstatements.org/en/) [rights statements](https://github.com/rightsstatements/data-model), and other widely-used Linked Data datasets. Although Paradicms provides mechanisms for explicitly adding licenses and rights statements to collection datasets, it is convenient to automatically resolve references to commonly-used IRIs and include the corresponding Linked Data in the collection dataset.
+
+Paradicms will automatically add RDF for a Creative Commons `License` to a collection dataset for any Creative Commons license IRI referenced in a `dcterms:license` statement.
+
+For example, an `Image` with a `license` property of `http://creativecommons.org/licenses/by-nc/4.0/` will cause Paradicms to automatically include the associated Creative Commons license in the collection dataset:
+
+```turtle
+<http://creativecommons.org/licenses/by-nc/4.0/> a creativecommons:License ;
+    creativecommons:legalcode <http://creativecommons.org/licenses/by-nc/4.0/legalcode> ;
+    creativecommons:licenseClass <http://creativecommons.org/license/> ;
+    creativecommons:permits creativecommons:DerivativeWorks,
+        creativecommons:Distribution,
+        creativecommons:Reproduction ;
+    creativecommons:prohibits creativecommons:CommercialUse ;
+    creativecommons:requires creativecommons:Attribution,
+        creativecommons:Notice ;
+    dc:creator <http://creativecommons.org> ;
+    dc:identifier "by-nc" ;
+    dc:title "Attribution-NonCommercial 4.0 International"@en ;
+    dcterms:hasVersion "4.0" ;
+    foaf:logo <http://i.creativecommons.org/l/by-nc/4.0/80x15.png>,
+        <http://i.creativecommons.org/l/by-nc/4.0/88x31.png> .
+```
+
+The table below documents the available Creative Commons licenses and their IRIs.
+
+<CreativeCommonsLicensesTable/>
+
+### RightsStatements.org `RightsStatement`s
+
+Paradicms will automatically add RDF for a RightsStatements.org rights statement to a collection dataset for any RightsStatements.org rights statement IRI referenced in a `dcterms:rights` statement.
+
+The table below documents the available RightsStatements.org rights statements and their IRIs.
+
+<RightsStatementDotOrgRightsStatementsTable/>
+
+### Wikidata
+
+Paradicms will automatically add (untransformed) Wikidata RDF corresponding to any concept referenced in a `dcterms:relation` or `owl:sameAs` statement.
+
+For example, a `Work` with a `sameAs` property of [`http://www.wikidata.org/entity/Q7251`](http://www.wikidata.org/entity/Q7251) will cause Paradicms to include the contents of [`http://www.wikidata.org/entity/Q7251.ttl`](http://www.wikidata.org/entity/Q7251.ttl) in the graph as a separate class instance. [Paradicms apps](/docs/reference/apps) will merge properties from the `Work` and the Wikidata concept linked by `owl:sameAs`.
+
+### Wikimedia Commons
+
+Paradicms will automatically attempt to add image licenses (`dcterms:license`) for `Image`s with a `dcterm:source` of Wikimedia Commons file. For example, an `Image` with `dcterms:source` of `http://commons.wikimedia.org/wiki/File:Babbage_Difference_Engine.jpg` will add a `dcterms:license` of `http://creativecommons.org/licenses/by-sa/4.0/`.
+
+The process works by scraping the HTML of the Wikimedia Commons file page ([http://commons.wikimedia.org/wiki/File:Babbage_Difference_Engine.jpg](http://commons.wikimedia.org/wiki/File:Babbage_Difference_Engine.jpg)). Wikimedia Commons does not export its metadata in machine-readable form.

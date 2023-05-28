@@ -4,7 +4,7 @@ version = "0.1.0"
 description = ""
 authors = ["Minor Gordon <minorg@server.fake>"]
 readme = "README.md"
-packages = [{include = "paradicms_www"}]
+packages = []
 
 [tool.poetry.dependencies]
 python = "^3.11"

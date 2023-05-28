@@ -21,10 +21,10 @@ You may not need to enter new data for every step. If your system already contai
 
 These are classes that do not depend on any other classes. They can be entered in any order.
 
-* `License`s are often pre-populated in templates and/or available as [ambient data](./ambient-data), but you can enter new ones if needed.
+* `License`s are often pre-populated in templates and/or resolved during [enrichment](./enrichment), but you can enter new ones if needed.
 * `Location`s do not depend on any other classes.
 * `PropertyGroup`s do not depend on any other classes.
-* `RightsStatement`s, like `License`s are often pre-populated and/or available as ambient data.
+* `RightsStatement`s, like `License`s are often pre-populated and/or resolved during enrichment.
 
 ### Enter `Property`
 
