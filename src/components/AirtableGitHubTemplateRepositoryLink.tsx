@@ -3,9 +3,10 @@ import GitHubTemplateRepositoryLink from "@site/src/components/GitHubTemplateRep
 
 const AirtableGitHubTemplateRepositoryLink: React.FunctionComponent<React.PropsWithChildren<{
   rawPath?: string;
-}>> = ({children}) => (
+}>> = ({children, rawPath}) => (
   <GitHubTemplateRepositoryLink
     organization="dressdiscover"
+    rawPath={rawPath}
     repository="costume-core-template"
   >
     {children}

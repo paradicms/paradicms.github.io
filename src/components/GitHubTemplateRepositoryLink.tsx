@@ -9,7 +9,7 @@ const GitHubTemplateRepositoryLink: React.FunctionComponent<React.PropsWithChild
   <MDXComponents.a
     href={
       rawPath
-        ? `https://raw.githubusercontent.com/${organization}/${repository}${
+        ? `https://raw.githubusercontent.com/${organization}/${repository}/main${
             rawPath.startsWith("/") ? "" : "/"
           }${rawPath}`
         : `https://github.com/${organization}/${repository}`

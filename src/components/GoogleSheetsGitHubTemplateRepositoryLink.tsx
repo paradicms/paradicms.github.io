@@ -3,9 +3,10 @@ import GitHubTemplateRepositoryLink from "@site/src/components/GitHubTemplateRep
 
 const GoogleSheetsGitHubTemplateRepositoryLink: React.FunctionComponent<React.PropsWithChildren<{
   rawPath?: string;
-}>> = ({children}) => (
+}>> = ({children, rawPath}) => (
   <GitHubTemplateRepositoryLink
     organization="dressdiscover"
+    rawPath={rawPath}
     repository="exhibitions"
   >
     {children}

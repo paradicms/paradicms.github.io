@@ -16,6 +16,8 @@ import AirtableEtlActionInputsTable from "./inputs-tables/_airtable-etl-action-i
 import DirectoryEtlActionInputsTable from "./inputs-tables/_directory-etl-action-inputs-table.md";
 import SpreadsheetEtlActionInputsTable from "./inputs-tables/_spreadsheet-etl-action-inputs-table.md";
 import SsgActionInputsTable from "./inputs-tables/_ssg-action-inputs-table.md";
+import DirectoryGitHubTemplateRepositoryLink from "@site/src/components/DirectoryGitHubTemplateRepositoryLink";
+
 
 # Reference: GitHub Actions
 
@@ -34,7 +36,7 @@ The `airtable-etl-action` extracts, transforms, and loads collection data from a
 
 #### Example
 
-The example is adapted from the [Airtable template repository](https://raw.githubusercontent.com/dressdiscover/costume-core-template/main/.github/workflows/build.yml).
+The example is adapted from the <AirtableGitHubTemplateRepositoryLink rawPath="/.github/workflows/build.yml">Airtable template repository</AirtableGitHubTemplateRepositoryLink>.
 The [tutorial on generating a faceted search interface using data in Airtable](/docs/tutorials/airtable-ssg) explains the role of this action in context.
 
 ```yaml
@@ -55,7 +57,7 @@ The `directory-etl-action` extracts, transforms, and loads collection data from 
 
 #### Example
 
-The example is adapted from the [directory template repository](https://raw.githubusercontent.com/minorg/ComputerScienceInventions/main/.github/workflows/build.yml).
+The example is adapted from the <DirectoryGitHubTemplateRepositoryLink rawPath="/.github/workflows/build.yml">directory template repository</DirectoryGitHubTemplateRepositoryLink>.
 The [tutorial on using files to generate a digital exhibition](/docs/tutorials/directory-ssg) explains the role of this action in context.
 
 ```yaml
@@ -78,7 +80,7 @@ The `spreadsheet-etl-action` extracts, transforms, and loads collection data fro
 
 #### Example
 
-The example is adapted from the [GitHub Actions workflow in the Google Sheets template repository](https://raw.githubusercontent.com/dressdiscover/exhibitions/main/.github/workflows/build.yml). The [tutorial on using Google Sheets to generate a faceted search interface](/docs/tutorials/spreadsheet-ssg) explains the role of this action in context.
+The example is adapted from the <GoogleSheetsGitHubTemplateRepositoryLink rawPath="/.github/workflows/build.yml">GitHub Actions workflow in the Google Sheets template repository</GoogleSheetsGitHubTemplateRepositoryLink>. The [tutorial on using Google Sheets to generate a faceted search interface](/docs/tutorials/spreadsheet-ssg) explains the role of this action in context.
 
 ```yaml
 uses: paradicms/spreadsheet-etl-action@v1-beta
@@ -96,7 +98,7 @@ The `ssg-action` generates a [Paradicms app](/docs/reference/apps) from data pre
 
 #### Example
 
-The example is adapted from the [directory template repository](https://raw.githubusercontent.com/minorg/ComputerScienceInventions/main/.github/workflows/build.yml).
+The example is adapted from the <DirectoryGitHubTemplateRepositoryLink rawPath="/.github/workflows/build.yml">directory template repository</DirectoryGitHubTemplateRepositoryLink>.
 The [tutorial on using files to generate a digital exhibition](/docs/tutorials/directory-ssg) explains the role of this action in context.
 
 ```yaml
