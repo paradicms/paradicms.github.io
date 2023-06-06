@@ -117,7 +117,7 @@ const config = {
         copyright: `Copyright © ${new Date().getFullYear()} Minor Gordon`,
       },
       prism: {
-        additionalLanguages: ["turtle"],
+        additionalLanguages: ["turtle", "sparql"],
         darkTheme: darkCodeTheme,
         theme: lightCodeTheme,
       },
