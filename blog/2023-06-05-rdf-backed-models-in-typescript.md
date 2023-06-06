@@ -42,7 +42,7 @@ for (const quad of store.match(namedNode('http://ex.org/Mickey'), null, null))
   console.log(quad);
 ```
 
-The `DatasetCore` `match` method is the workhorse of the interface, extracting subsets of quads in the dataset that match a pattern. The pattern consists of exact (`equals`) or wildcard (anything accepted) matches on the components of a quad (subject, predicate, object, graph). More sophisticated matching such as partial IRIs or literal comparisons is left to higher-level libraries.
+The `DatasetCore` `match` method is the workhorse of the interface, extracting subsets of quads in the dataset that match a pattern. The pattern consists of exact (`equals`) or wildcard (anything accepted) matches on the components of a quad (subject, predicate, object, graph). More sophisticated matching such as partial [IRI](https://en.wikipedia.org/wiki/Internationalized_Resource_Identifier)s or literal comparisons is left to higher-level libraries.
 
 ### Domain-specific languages
 
@@ -133,7 +133,7 @@ The techniques described in the sections above involve relatively low-level mani
 
 Most end user applications, including the [Paradicms apps](/docs/reference/apps), are designed against more abstract data models, however. These applications employ RDF as a low-level interchange data model and never expose it to end users. The user interfaces of Paradicms apps are framed in terms of collections, works, and other high-level abstractions, and not in terms in RDF triples or graphs. These abstractions comprise the Paradicms [abstract data model](/docs/introduction/data-model).
 
-One of the primary design goals of Paradicms is for its abstract data model accommodate multiple concrete data models with compatible structures, such as [Linked Art](https://linked.art/), [schema.org](https://schema.org/), [Wikidata](https://wikidata.org/), and Omeka Classic items/files/elements/element sets. Supporting multiple concrete data models means the same application logic and interfaces can be used with data from multiple sources, such as Linked Art APIs or Wikidata.
+One of the primary design goals of Paradicms is for its abstract data model accommodate multiple concrete data models with compatible structures, such as [Linked Art](https://linked.art/), [schema.org](https://schema.org/), [Wikidata](https://wikidata.org/), and [Omeka Classic](https://omeka.org/classic/) items/files/elements/element sets. Supporting multiple concrete data models means the same application logic and interfaces can be used with data from multiple sources, such as Linked Art APIs or Wikidata.
 
 The flexibility of this design comes at the cost of requiring transformation between the concrete data models and the abstract data model. There are several ways to implement this transformation.
 
@@ -141,7 +141,7 @@ The flexibility of this design comes at the cost of requiring transformation bet
 
 A transformation close to the data source is usually part of an [extract-transform-load (ETL)](https://en.wikipedia.org/wiki/Extract,_transform,_load) process. Data is extracted from a source such as a Linked Art API, then transformed into a single concrete data model (the _target_) that corresponds closely to the [abstract] data model expected by applications. The [Paradicms ontology](/docs/reference/ontology) serves as the target data model for this kind of transformation in Paradicms. The ontology is the most direct encoding of the Paradicms abstract data model.
 
-For example, the ETL process could transform the following snippet of JSON-LD-serialized Linked Art (abridged from the [documentation](https://linked.art/model/collection/))
+For example, the ETL process could transform the following snippet of [JSON-LD](https://json-ld.org/)-serialized Linked Art (abridged from the [documentation](https://linked.art/model/collection/))
 
 ```json
 {
@@ -159,7 +159,7 @@ For example, the ETL process could transform the following snippet of JSON-LD-se
 }
 ```
 
-into Turtle-serialized RDF that adheres to the Paradicms ontology:
+into [Turtle](https://en.wikipedia.org/wiki/Turtle_(syntax))-serialized RDF that adheres to the Paradicms ontology:
 
 ```turtle
 @prefix cms: <http://www.paradicms.org/ns/cms#> .
@@ -173,9 +173,9 @@ Transforming disparate source data models (e.g., Linked Art, Wikidata) into a co
 
 ### Transformation close to the application logic
 
-In this scenario applications may query data sources directly, as described in ["Federated SPARQL queries in your browser"](https://ruben.verborgh.org/blog/2015/06/09/federated-sparql-queries-in-your-browser/), or a separate process may cache data ahead of time and deliver them to applications asynchronously. In either case, application logic is responsible for transforming the range of concrete data models (Linked Art, Wikidata, et al.) into the abstract data model by using techniques like SPARQL projection (described above).
+In this scenario applications may query data sources directly, as described in ["Federated SPARQL queries in your browser"](https://ruben.verborgh.org/blog/2015/06/09/federated-sparql-queries-in-your-browser/), or a separate process may cache extracted data ahead of time and deliver them to applications asynchronously. In either case, application logic is responsible for transforming the range of compatible concrete data models (Linked Art, Wikidata, et al.) into the abstract data model by using techniques like SPARQL projection, described above.
 
-For example, an application that displays a table of works associated would contain code for traversing the specific vocabularies and graph structures that Linked Art, Wikidata, and schema.org use to describe works and dynamically transform these structures into a common format for display in the table. A Wikidata snippet like the following:
+An application that displays a table of works associated would contain code for traversing the specific vocabularies and graph structures that Linked Art, Wikidata, and schema.org use to describe works and dynamically transform these structures into a common format for display in the table. A Wikidata snippet like the following:
 
 ```turtle
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -217,21 +217,97 @@ would be transformed directly into HTML for display in the browser:
 </table>
 ```
 
-The key advantage of this approach is that each part of the application only needs to transform as much of the source data as it needs, in the form it needs. No single target data model design needs to anticipate what any application might need from the source data.
+The key advantage of this approach is that each part of the application only needs to transform as much of the source data as it needs, in the form it needs. No single target data model design needs to anticipate what every application might need from the source data.
 
 ### Hybrid approaches
 
-Paradicms takes a hybrid approach
-Non-RDF -> Paradicms ontology, which is a direct encoding ...
-  In Paradicms the [Paradicms ontology](/docs/reference/ontology) is the most direct encoding of the abstract data model, and could serve as the target for transformations from other concrete models. This is necessary for
-RDF is transformed as is (no T in 'ETL')
-
-+ abstraction layer over multiple RDF
+Paradicms takes a hybrid approach that varies between data sources. For non-RDF native data sources such as [spreadsheets](/docs/reference/spreadsheet-format) and [YAML files](/docs/reference/directory-format), Paradicms executes an asynchronous extract-transform-load process that transforms the data into RDF conforming to the Paradicms ontology. For RDF-native data sources such as Wikidata, Paradicms extracts data ahead of time and passes it asynchronously to Paradicms apps, to be transformed as part of application logic. (The alternative of querying the RDF data sources at runtime would also be possible.) Every concrete data model handled by an application -- the Paradicms ontology, Wikidata, et al. -- can be transformed to the abstract data model. These transformations are implemented in RDF-backed models in TypeScript.
 
 ## RDF-backed models in TypeScript
 
+Paradicms apps are implemented in TypeScript using [React](https://react.dev/) and [Next.js](https://nextjs.org/). Pages and React components interact with *models* in a manner similar to the [Model-View-Controller pattern](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller), but without an explicit controller.
 
-## Handling `owl:sameAs`
+Models represent instances of classes in the Paradicms abstract data model, such as `Collection` or `Work`. A model class is defined by a TypeScript `interface`, like the following for `License`:
 
+```ts
+export interface License extends Model {
+  readonly label: string;
+}
+```
 
+Implementations of `License` are responsible for transforming RDF conforming to different concrete data models (Paradicms ontology, Wikidata, et al.) to suit this interface. For example, the Paradicms ontology implementation of `License` is `CmsLicense` (abridged):
 
+```ts
+export class CmsLicense extends CmsNamedModel implements License {
+  get label(): string {
+    return requireNonNull(
+            this.findAndMapObject(dc11.title, this.mapStringObject)
+    );
+  }
+}
+```
+
+The `CmsLicense` `label` gets down to the RDF of the Paradicms ontology, looking for triples of the form `(<this model IRI>, dc:title, "some string literal")` and pulling out the literal object as a TypeScript `string`. Convenience methods like `findAndMapObject` and `mapStringObject` encapsulate common uses of the low-level RDF/JS `DatasetCore` `match` method, described above.
+
+The same approach can be extended to navigating a graph of model instances backed by the same underlying RDF [dataset](https://www.w3.org/TR/rdf11-datasets/). For example, the `Collection` interface (abridged, below) allows you to get an array of `Work`s associated with a `Collection`:
+
+```ts
+export interface Collection extends NamedModel {
+  readonly works: readonly Work[];
+}
+```
+
+The `CmsCollection` implementation (abridged, below) of the `works` getter uses a cache of model instances for efficiency:
+
+```ts
+export class CmsCollection extends CmsNamedModel implements Collection {
+  get works(): readonly Work[] {
+    return this.modelSet.worksByCollectionKey(this.key);
+  }
+}
+```
+
+Paradicms apps are agnostic of model class implementations and the RDF transformations needed to support them. From an app's perspective, it's irrelevant whether a `Work` is a `CmsWork` or a `WikidataWork`, since they both expose the same high-level `Work` interface. Similarly, the `CmsCollection` snippet above is agnostic of whether a `Work` belonging to it is a `CmsWork` or some other implementation of `Work`. The design follows the [dependency inversion principle](https://en.wikipedia.org/wiki/Dependency_inversion_principle).
+
+### Handling `owl:sameAs`
+
+It is natural to associate a single subject (blank or named node) in a set of RDF triples with a single model instance in TypeScript. For example, `wd:Q937690` can be the subject IRI of a `WikidataWork` instance. Paradicms uses [named graphs](https://en.wikipedia.org/wiki/Named_graph) to distinguish which quad subjects in an RDF dataset correspond to model instances and which do not. Each model instance -- a Paradicms ontology-backed `CmsLicense`, for example, or a Wikidata-backed `WikidataWork` -- inhabits its own named graph in the RDF dataset, and the model's subject IRI or blank node is the same as the graph name.
+
+This simple approach breaks down when handling `owl:sameAs`, which should, in effect, merge two model instances under a [facade](https://en.wikipedia.org/wiki/Facade_pattern). Consider a Paradicms ontology person that is `owl:sameAs` a Wikidata person in this abridged [TRiG](https://en.wikipedia.org/wiki/TriG_(syntax)):
+
+```trig
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sdohttp: <http://schema.org/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+
+<http://example.com/person0> {
+    <http://example.com/person0> a cms:Person ;
+        owl:sameAs wd:Q7251 ;
+        foaf:name "CmsPerson 0"
+        .
+}
+
+wd:Q7251 {
+    wd:Q7251 a wikibase:Item ;
+        rdfs:label "Alan Turing"@en ;
+        sdohttp:description "English mathematician and computer scientist (1912–1954)"@en
+    .    
+}
+```
+
+There are two models in the dataset, a `CmsPerson` corresponding to `<http://example.com/person0>` and a `WikidataPerson` corresponding to `wd:Q7251`. However, `owl:sameAs` from the former to the latter means the two should be merged under a facade that implements `Person`. This facade delegates to the underlying `CmsPerson` and `WikidataPerson` instances depending on which information it can get from each. For example, the `CmsPerson` has a `name` but not a `description`, so `description` should be sourced from the `WikidataPerson`. In other cases, like gathering images associated with a `Person`, the facade will concatenate results from both underlying models.
+
+## Conclusion
+
+Paradicms takes a hybrid approach to working with RDF from source to application:
+* data from non-RDF native data sources such as spreadsheets and YAML files are transformed to RDF as part of asynchronous extract-transform-load processes
+* data from RDF native data sources such as Wikidata is passed through to applications as-is
+* application logic is written against abstract TypeScript interfaces corresponding to the Paradicms data model
+* multiple implementations of these interfaces support working with multiple concrete data models on the application side
+
+This approach evolved through trial and error. Early versions of Paradicms had more conventional designs that extracted data from different sources (RDF- and non-RDF-native) and immediately transformed the data to TypeScript-friendly JSON for downstream consumption by browser-based applications.
+
+The current design, in contrast, allows applications to take advantage of the power of RDF and Linked Data while still supporting non-RDF data sources. With the help of RDF-backed models in TypeScript, Paradicms applications can transform and consume what they need from an RDF dataset without requiring the end-to-end system to capture every source's semantics in a single concrete data model.
