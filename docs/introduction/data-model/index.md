@@ -14,7 +14,7 @@ Paradicms adapts the essential structure and nomenclature of its data model from
 * `Image`: a visual surrogate of a `Work`
 
 The basic `Work`-`Collection`-`Image` structure can accommodate a wide range of externally-sourced collection data with compatible structures, such as [Linked Art](https://linked.art/),
-[schema.org](https://schema.org/), [Wikidata](https://wikidata.org/), and Omeka Classic items/files/elements/element sets. The model is abstract enough to permit for multiple encodings, typically in the form of RDF ontologies. The [Paradicms ontology](/docs/reference/ontology) is the most direct encoding of the data model.
+[schema.org](https://schema.org/), [Wikidata](https://wikidata.org/), and [Omeka Classic](https://omeka.org/classic/) items/files/elements/element sets. The model is abstract enough to permit for multiple encodings, typically in the form of RDF ontologies. The [Paradicms ontology](/docs/reference/ontology) is the most direct encoding of the data model.
 
 Beyond the primary entities, the Paradicms data model incorporates a few other elements of VRA Core 4.0, such as agents (people and organizations), as well as concepts from several other standards:
 
