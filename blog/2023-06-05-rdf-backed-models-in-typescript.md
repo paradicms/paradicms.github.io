@@ -173,7 +173,7 @@ Transforming disparate source data models (e.g., Linked Art, Wikidata) into a co
 
 ### Transformation close to the application logic
 
-In this scenario data is extracted from a source such as a Linked Art API and passed through to applications as-is. Application logic is responsible for transforming the range of concrete data models (Linked Art, Wikidata, et al.) into the abstract data model by using techniques like SPARQL projection (described above).
+In this scenario applications may query data sources directly, as described in ["Federated SPARQL queries in your browser"](https://ruben.verborgh.org/blog/2015/06/09/federated-sparql-queries-in-your-browser/), or a separate process may cache data ahead of time and deliver them to applications asynchronously. In either case, application logic is responsible for transforming the range of concrete data models (Linked Art, Wikidata, et al.) into the abstract data model by using techniques like SPARQL projection (described above).
 
 For example, an application that displays a table of works associated would contain code for traversing the specific vocabularies and graph structures that Linked Art, Wikidata, and schema.org use to describe works and dynamically transform these structures into a common format for display in the table. A Wikidata snippet like the following:
 
