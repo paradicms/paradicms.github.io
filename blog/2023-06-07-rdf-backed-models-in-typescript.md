@@ -7,7 +7,7 @@ An object-oriented abstraction layer can ease some of the burden of navigating R
 
 <!-- truncate -->
 
-A [previous post](/blog/2023-06-05-javascript-rdf-techniques) explored various techniques for manipulating RDF data in JavaScript and TypeScript, including the [RDF/JS interfaces](https://rdf.js.org/), the [clownface library](https://github.com/zazuko/clownface), and [SPARQL](https://www.w3.org/TR/2013/REC-sparql11-query-20130321/#select) projection into JSON. Those techniques are often sufficient for simple applications as well as ones that expose a low-level RDF data model i.e., showing RDF graphs or allowing users to create arbitrary RDF statements.
+A [previous post](/blog/2023/06/05/javascript-rdf-techniques) explored various techniques for manipulating RDF data in JavaScript and TypeScript, including the [RDF/JS interfaces](https://rdf.js.org/), the [clownface library](https://github.com/zazuko/clownface), and [SPARQL](https://www.w3.org/TR/2013/REC-sparql11-query-20130321/#select) projection into JSON. Those techniques are often sufficient for simple applications as well as ones that expose a low-level RDF data model i.e., showing RDF graphs or allowing users to create arbitrary RDF statements.
 
 Complex, end user-facing applications are usually designed against more abstract data models than RDF's. Applications like the ones in [Paradicms](/docs/reference/apps) employ RDF as a low-level interchange data model and never expose it to end users. The user interfaces of the Paradicms apps are framed in terms of collections, works, and other high-level abstractions, and not in terms in RDF triples or graphs. These abstractions comprise the Paradicms [abstract data model](/docs/introduction/data-model).
 
@@ -47,7 +47,7 @@ into [Turtle](https://en.wikipedia.org/wiki/Turtle_(syntax))-serialized RDF that
     dcterms:title "Collection of Example Museum" .
 ```
 
-This transformation can be implemented with low-level RDF manipulation techniques like the ones described in a [previous post](/blog/2023-06-05-javascript-rdf-techniques) or with declarative mapping systems using e.g., [RML](https://rml.io/specs/rml/).
+This transformation can be implemented with low-level RDF manipulation techniques like the ones described in a [previous post](/blog/2023/06/05/javascript-rdf-techniques) or with declarative mapping systems using e.g., [RML](https://rml.io/specs/rml/).
 
 Transforming disparate source data to fit a common target data model as part of an ETL process has the advantage of simplifying application logic, since applications only have to consume data encoded in the target model. The main disadvantage of this approach is that the target data model must be carefully designed to preserve the semantics of any data from the source data models that any downstream application might need. Accurately anticipating what applications will need from source data can be challenging. In designing and evolving the target data model there is a tendency to recapitulate the source data models rather than carefully capturing commonalities and excluding unnecessary details, which leads to the target data model becoming as complex as all the source data models combined.
 
