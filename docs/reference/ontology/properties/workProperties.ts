@@ -37,6 +37,15 @@ const workProperties: readonly PropertiesTableProperty[] = rightsProperties.conc
       exampleValues: "http://www.wikidata.org/entity/Q7251",
     },
     {
+      term: "sameAs",
+      iri: "owl:sameAs",
+      description:
+        "IRI of a work this work is the same as, e.g., a Wikidata concept IRI",
+      cardinality: "0..n",
+      valueType: "IRI",
+      exampleValues: "http://www.wikidata.org/entity/Q7251",
+    },
+    {
       term: "spatial",
       iri: "dcterms:spatial",
       description:
