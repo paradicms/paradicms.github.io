@@ -186,10 +186,10 @@ Paradicms has a number of rules for inferring parts of the graph associated with
   * the file stem (here `Linux`)
 * The `rdf:type` of the subject (the `a cms:Event, cms:WorkCreation, cms:WorkEvent` statement) is the class corresponding to the directory where the file resides (`WorkCreation`), as well as the class's superclasses (`WorkEvent`, `Event`).
 * For subclasses of `WorkEvent` such as `WorkCreation`, if there is no explicit `work` property in the file, the `work` is assumed to be a `Work` in the `work/` directory with the same file stem (`work/Linux.md` or `work/Linux.yaml`) as the work event (here `work-creation/Linux.md`).
-* If no label property (usually `dcterms:title`) is specified in the file, it is adapted from the file stem (`Linux.md` -> `"Linux"`).
+* If no label property (e.g., `dcterms:title`) is specified in the file, it is adapted from the file stem (`Linux.md` -> `"Linux"`).
 * All `Work`s are assumed to belong to at least one `Collection`. If no `collection` property is specified in a `Work` file, the `Work` is assumed to belong to the default collection.
 * The default collection is either the first `Collection` defined in the `collection/` directory, or it is synthesized.
-* If an `Image` file does not specify a `depicts` property, Paradicms looks for a `Collection` (i.e., `collection/somefile.md`), `Person`, `Work`, or other non-`Image` file with the same file stem (`Linux`) and infers that the `Image` `depicts` that `Collection`, `Person`, or `Work`.
-* An image file (`.jpg`, `.png`, et al.) placed alongside a file with the same stem (`work/Linux.png` and `work/Linux.md`) is assumed to `depict` the sibling file. Paradicms synthesizes a new `Image` instance with only this `depicts` statement. This is not used in the template, since third party `Image`s should have rights metadata in addition to a `depicts` property.
+* An image file (`.jpg`, `.png`, et al.) placed alongside a metadata file with the same stem (`image/Linux.png` and `image/Linux.md`) is assumed to be the 'src' of that `Image`
+* An `Image` that has is not explicitly referenced will be implicitly associated with a `Collection`, `Work`, or other instance with the same file stem
 
-Most of these rules can be overridden by explicitly specifying a property: adding a `depicts` to `Image`, for example, or including a `dcterms:title` in a `Work` file instead of allowing the `dcterms:title` to be inferred from the file stem. The rules are provided for convenience.
+Most of these rules can be overridden by explicitly specifying a property: adding a `src` to `Image`, for example, or including a label property in a `Work` file instead of allowing the label to be inferred from the file stem. The rules are provided for convenience.
