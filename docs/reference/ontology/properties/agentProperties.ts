@@ -34,14 +34,5 @@ const agentProperties: readonly PropertiesTableProperty[] = [
     valueType: "IRI",
     exampleValues: "http://www.wikidata.org/entity/Q7251",
   },
-  {
-    term: "sortName",
-    iri: "contact:sortName",
-    description:
-      "Name to use in sorting the person in a list of names; if not specified, use name",
-    cardinality: "0..1",
-    valueType: "string",
-    exampleValues: "Alan Turing",
-  },
 ];
 export default agentProperties;
