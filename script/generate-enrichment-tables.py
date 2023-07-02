@@ -1,7 +1,3 @@
-from pathlib import Path
-from shutil import rmtree
-from typing import List, Any
-
 from dataproperty import Align
 from paradicms_etl.models.creative_commons.creative_commons_licenses import (
     CreativeCommonsLicenses,
@@ -9,8 +5,11 @@ from paradicms_etl.models.creative_commons.creative_commons_licenses import (
 from paradicms_etl.models.rights_statements_dot_org.rights_statements_dot_org_rights_statements import (
     RightsStatementsDotOrgRightsStatements,
 )
+from pathlib import Path
 from pytablewriter import MarkdownTableWriter
 from pytablewriter.style import Style
+from shutil import rmtree
+from typing import List, Any
 
 ROOT_DIR_PATH = Path(__file__).parent.parent.absolute()
 TABLES_DIR_PATH = ROOT_DIR_PATH / "docs" / "reference" / "enrichment" / "tables"
@@ -38,7 +37,7 @@ def write_markdown_table(*, file_name_prefix: str, value_matrix: List[List[Any]]
 write_markdown_table(
     file_name_prefix="creative-commons-licenses",
     value_matrix=[
-        [str(license.uri), license.title]
+        [str(license.uri), license.label]
         for license in CreativeCommonsLicenses.as_tuple()
     ],
 )
