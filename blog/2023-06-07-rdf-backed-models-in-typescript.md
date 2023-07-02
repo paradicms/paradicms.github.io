@@ -101,7 +101,7 @@ The key advantage of this approach is that each part of the application only nee
 
 ### Hybrid approaches
 
-Paradicms takes a hybrid approach that varies between data sources. For non-RDF native data sources such as [spreadsheets](/docs/reference/spreadsheet-format) and [YAML files](/docs/reference/directory-format), Paradicms executes an asynchronous extract-transform-load process that transforms the data into RDF conforming to the Paradicms ontology. For RDF-native data sources such as Wikidata, Paradicms extracts data ahead of time and passes it asynchronously to Paradicms apps, to be transformed as part of application logic. (The alternative of querying the RDF data sources at runtime would also be possible.) Every concrete data model handled by Paradicms apps -- the Paradicms ontology, Wikidata, et al. -- can be transformed to the Paradicms abstract data model.
+Paradicms takes a hybrid approach that varies between data sources. For non-RDF native data sources such as [YAML files](/docs/reference/directory-format), Paradicms executes an asynchronous extract-transform-load process that transforms the data into RDF conforming to the Paradicms ontology. For RDF-native data sources such as Wikidata, Paradicms extracts data ahead of time and passes it asynchronously to Paradicms apps, to be transformed as part of application logic. (The alternative of querying the RDF data sources at runtime would also be possible.) Every concrete data model handled by Paradicms apps -- the Paradicms ontology, Wikidata, et al. -- can be transformed to the Paradicms abstract data model.
 
 ## RDF-backed models in TypeScript
 

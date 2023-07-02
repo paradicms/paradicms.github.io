@@ -64,29 +64,43 @@ The [tutorial on using files to generate a digital exhibition](/docs/tutorials/d
 uses: paradicms/directory-etl-action@v1-beta
 ```
 
-### `spreadsheet-etl-action`
+[//]: # (### `spreadsheet-etl-action`)
 
-The `spreadsheet-etl-action` extracts, transforms, and loads collection data from a spreadsheet. The spreadsheet can reside on Google Sheets or in an Excel 2010 file (`.xlsx`) in the GitHub repository.
+[//]: # ()
+[//]: # (The `spreadsheet-etl-action` extracts, transforms, and loads collection data from a spreadsheet. The spreadsheet can reside on Google Sheets or in an Excel 2010 file &#40;`.xlsx`&#41; in the GitHub repository.)
 
-#### Inputs
+[//]: # ()
+[//]: # (#### Inputs)
 
-<SpreadsheetEtlActionInputsTable/>
+[//]: # ()
+[//]: # (<SpreadsheetEtlActionInputsTable/>)
 
-`spreadsheet` must be one of:
-  * a Google Sheets spreadsheet id, such as `1j2oaMvMxY4pnXO-sEH_fky2R2gm6TQeIev_Q8rVOD4M`
-  * the full URL of a Google Sheet, such as `https://docs.google.com/spreadsheets/d/1j2oaMvMxY4pnXO-sEH_fky2R2gm6TQeIev_Q8rVOD4M/edit?usp=sharing`
-  * the path to an Excel 2010 file (`.xlsx`) within the repository, such as `data/data.xlsx`
+[//]: # ()
+[//]: # (`spreadsheet` must be one of:)
 
+[//]: # (  * a Google Sheets spreadsheet id, such as `1j2oaMvMxY4pnXO-sEH_fky2R2gm6TQeIev_Q8rVOD4M`)
 
-#### Example
+[//]: # (  * the full URL of a Google Sheet, such as `https://docs.google.com/spreadsheets/d/1j2oaMvMxY4pnXO-sEH_fky2R2gm6TQeIev_Q8rVOD4M/edit?usp=sharing`)
 
-The example is adapted from the <GoogleSheetsGitHubTemplateRepositoryLink rawPath="/.github/workflows/build.yml">GitHub Actions workflow in the Google Sheets template repository</GoogleSheetsGitHubTemplateRepositoryLink>. The [tutorial on using Google Sheets to generate a faceted search interface](/docs/tutorials/spreadsheet-ssg) explains the role of this action in context.
+[//]: # (  * the path to an Excel 2010 file &#40;`.xlsx`&#41; within the repository, such as `data/data.xlsx`)
 
-```yaml
-uses: paradicms/spreadsheet-etl-action@v1-beta
-with:
-  spreadsheet: 1j2oaMvMxY4pnXO-sEH_fky2R2gm6TQeIev_Q8rVOD4M
-```
+[//]: # ()
+[//]: # ()
+[//]: # (#### Example)
+
+[//]: # ()
+[//]: # (The example is adapted from the <GoogleSheetsGitHubTemplateRepositoryLink rawPath="/.github/workflows/build.yml">GitHub Actions workflow in the Google Sheets template repository</GoogleSheetsGitHubTemplateRepositoryLink>. The [tutorial on using Google Sheets to generate a faceted search interface]&#40;/docs/tutorials/spreadsheet-ssg&#41; explains the role of this action in context.)
+
+[//]: # ()
+[//]: # (```yaml)
+
+[//]: # (uses: paradicms/spreadsheet-etl-action@v1-beta)
+
+[//]: # (with:)
+
+[//]: # (  spreadsheet: 1j2oaMvMxY4pnXO-sEH_fky2R2gm6TQeIev_Q8rVOD4M)
+
+[//]: # (```)
 
 ### `ssg-action`
 
