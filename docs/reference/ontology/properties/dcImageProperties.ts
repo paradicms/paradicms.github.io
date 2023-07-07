@@ -1,7 +1,7 @@
 import PropertiesTableProperty from "@site/src/components/PropertiesTableProperty";
-import rightsProperties from "@site/docs/reference/ontology/properties/rightsProperties";
+import dcRightsProperties from "@site/docs/reference/ontology/properties/dcRightsProperties";
 
-const imageProperties: readonly PropertiesTableProperty[] = rightsProperties.concat(
+const dcImageProperties: readonly PropertiesTableProperty[] = dcRightsProperties.concat(
   [
     {
       term: "copyable",
@@ -122,4 +122,4 @@ const imageProperties: readonly PropertiesTableProperty[] = rightsProperties.con
     },
   ]
 );
-export default imageProperties;
+export default dcImageProperties;

@@ -1,7 +1,7 @@
 import PropertiesTableProperty from "@site/src/components/PropertiesTableProperty";
-import agentProperties from "@site/docs/reference/ontology/properties/agentProperties";
+import foafAgentProperties from "@site/docs/reference/ontology/properties/foafAgentProperties";
 
-const personProperties: readonly PropertiesTableProperty[] = agentProperties.concat(
+const foafPersonProperties: readonly PropertiesTableProperty[] = foafAgentProperties.concat(
   [
     {
       term: "familyName",
@@ -21,4 +21,4 @@ const personProperties: readonly PropertiesTableProperty[] = agentProperties.con
     },
   ]
 );
-export default personProperties;
+export default foafPersonProperties;

@@ -1,7 +1,7 @@
 import PropertiesTableProperty from "@site/src/components/PropertiesTableProperty";
-import rightsProperties from "@site/docs/reference/ontology/properties/rightsProperties";
+import dcRightsProperties from "@site/docs/reference/ontology/properties/dcRightsProperties";
 
-const workProperties: readonly PropertiesTableProperty[] = rightsProperties.concat(
+const dcPhysicalWorkProperties: readonly PropertiesTableProperty[] = dcRightsProperties.concat(
   [
     {
       term: "collection",
@@ -73,4 +73,4 @@ const workProperties: readonly PropertiesTableProperty[] = rightsProperties.conc
     },
   ]
 );
-export default workProperties;
+export default dcPhysicalWorkProperties;

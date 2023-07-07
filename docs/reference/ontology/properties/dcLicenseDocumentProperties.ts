@@ -1,6 +1,6 @@
 import PropertiesTableProperty from "@site/src/components/PropertiesTableProperty";
 
-const licenseProperties: readonly PropertiesTableProperty[] = [
+const dcLicenseDocumentProperties: readonly PropertiesTableProperty[] = [
   {
     term: "identifier",
     iri: "dc:identifier",
@@ -26,4 +26,4 @@ const licenseProperties: readonly PropertiesTableProperty[] = [
     exampleValues: "2.0",
   },
 ];
-export default licenseProperties;
+export default dcLicenseDocumentProperties;

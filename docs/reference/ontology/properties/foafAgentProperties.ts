@@ -1,6 +1,6 @@
 import PropertiesTableProperty from "@site/src/components/PropertiesTableProperty";
 
-const agentProperties: readonly PropertiesTableProperty[] = [
+const foafAgentProperties: readonly PropertiesTableProperty[] = [
   {
     term: "name",
     iri: "foaf:name",
@@ -35,4 +35,4 @@ const agentProperties: readonly PropertiesTableProperty[] = [
     exampleValues: "http://www.wikidata.org/entity/Q7251",
   },
 ];
-export default agentProperties;
+export default foafAgentProperties;

@@ -1,6 +1,6 @@
 import PropertiesTableProperty from "@site/src/components/PropertiesTableProperty";
 
-const locationProperties: readonly PropertiesTableProperty[] = [
+const schemaPlaceProperties: readonly PropertiesTableProperty[] = [
   {
     term: "label",
     iri: "rdfs:label",
@@ -26,4 +26,4 @@ const locationProperties: readonly PropertiesTableProperty[] = [
     exampleValues: "-73.68758",
   },
 ];
-export default locationProperties;
+export default schemaPlaceProperties;

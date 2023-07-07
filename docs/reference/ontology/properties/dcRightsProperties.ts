@@ -1,11 +1,11 @@
 import PropertiesTableProperty from "@site/src/components/PropertiesTableProperty";
 
-const textProperties: readonly PropertiesTableProperty[] = [
+const dcRightsProperties: readonly PropertiesTableProperty[] = [
   {
     term: "contributor",
     iri: "dcterms:contributor",
     description:
-      "Reference to the contributor (usually an `Organization` or `Person`) of this text",
+      "Reference to the contributor (usually an `Organization` or `Person`) of this object",
     cardinality: "0..1",
     valueType: "IRI",
     exampleValues: "http://example.com/Person",
@@ -14,7 +14,7 @@ const textProperties: readonly PropertiesTableProperty[] = [
     term: "contributorLiteral",
     iri: "dcterms:contributor",
     description:
-      "String identifying a contributor to this text, used as a fallback when no IRI is available",
+      "String identifying a contributor to this object, used as a fallback when no IRI is available",
     cardinality: "0..1",
     valueType: "string",
     exampleValues: '"Wikipedia user Bob"',
@@ -23,7 +23,7 @@ const textProperties: readonly PropertiesTableProperty[] = [
     term: "creator",
     iri: "dcterms:creator",
     description:
-      "Reference to the creator (usually an `Organization` or `Person`) of this text",
+      "Reference to the creator (usually an `Organization` or `Person`) of this object",
     cardinality: "0..1",
     valueType: "IRI",
     exampleValues: "http://example.com/Person",
@@ -32,7 +32,7 @@ const textProperties: readonly PropertiesTableProperty[] = [
     term: "creatorLiteral",
     iri: "dcterms:creator",
     description:
-      "String identifying the creator of this text, used as a fallback when no IRI is available",
+      "String identifying the creator of this object, used as a fallback when no IRI is available",
     cardinality: "0..1",
     valueType: "string",
     exampleValues: '"Wikipedia user Bob"',
@@ -40,7 +40,7 @@ const textProperties: readonly PropertiesTableProperty[] = [
   {
     term: "license",
     iri: "dcterms:license",
-    description: "Reference to the `License` of this text",
+    description: "Reference to the `License` of this object",
     cardinality: "0..1",
     valueType: "IRI",
     exampleValues: "http://example.com/License",
@@ -49,7 +49,7 @@ const textProperties: readonly PropertiesTableProperty[] = [
     term: "rightsHolder",
     iri: "dcterms:rightsHolder",
     description:
-      "Reference to the rights holder (usually an `Organization` or `Person`) of this text",
+      "Reference to the rights holder (usually an `Organization` or `Person`) of this object",
     cardinality: "0..1",
     valueType: "IRI",
     exampleValues: "http://example.com/Person",
@@ -58,7 +58,7 @@ const textProperties: readonly PropertiesTableProperty[] = [
     term: "rightsHolderLiteral",
     iri: "dcterms:rightsHolder",
     description:
-      "String identifying the rights holder of this text, used as a fallback when no IRI is available",
+      "String identifying the rights holder of this object, used as a fallback when no IRI is available",
     cardinality: "0..1",
     valueType: "string",
     exampleValues: '"Wikipedia user Bob"',
@@ -66,18 +66,10 @@ const textProperties: readonly PropertiesTableProperty[] = [
   {
     term: "rights",
     iri: "dcterms:rights",
-    description: "Reference to the `RightsStatement` of this text",
+    description: "Reference to the `RightsStatement` of this object",
     cardinality: "0..1",
     valueType: "IRI",
     exampleValues: "http://example.com/RightsStatement",
   },
-  {
-    term: "value",
-    iri: "rdf:value",
-    description: "Text value",
-    cardinality: "1",
-    valueType: "string",
-    exampleValues: '"Text with metadata"',
-  },
 ];
-export default textProperties;
+export default dcRightsProperties;

@@ -1,6 +1,6 @@
 import PropertiesTableProperty from "@site/src/components/PropertiesTableProperty";
 
-const propertyProperties: readonly PropertiesTableProperty[] = [
+const rdfPropertyProperties: readonly PropertiesTableProperty[] = [
   {
     term: "comment",
     iri: "rdfs:comment",
@@ -60,4 +60,4 @@ const propertyProperties: readonly PropertiesTableProperty[] = [
     exampleValues: "true",
   },
 ];
-export default propertyProperties;
+export default rdfPropertyProperties;

@@ -1,6 +1,6 @@
 import PropertiesTableProperty from "@site/src/components/PropertiesTableProperty";
 
-const propertyGroupProperties: readonly PropertiesTableProperty[] = [
+const cmsPropertyGroupProperties: readonly PropertiesTableProperty[] = [
   {
     term: "comment",
     iri: "rdfs:comment",
@@ -18,4 +18,4 @@ const propertyGroupProperties: readonly PropertiesTableProperty[] = [
     exampleValues: "My property group",
   },
 ];
-export default propertyGroupProperties;
+export default cmsPropertyGroupProperties;

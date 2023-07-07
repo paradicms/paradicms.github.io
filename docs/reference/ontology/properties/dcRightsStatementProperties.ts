@@ -1,6 +1,6 @@
 import PropertiesTableProperty from "@site/src/components/PropertiesTableProperty";
 
-const rightsStatementProperties: readonly PropertiesTableProperty[] = [
+const dcRightsStatementProperties: readonly PropertiesTableProperty[] = [
   {
     term: "definition",
     iri: "skos:definition",
@@ -56,4 +56,4 @@ const rightsStatementProperties: readonly PropertiesTableProperty[] = [
     exampleValues: "This Rights Statement should be used ...",
   },
 ];
-export default rightsStatementProperties;
+export default dcRightsStatementProperties;

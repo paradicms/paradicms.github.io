@@ -4,21 +4,21 @@ sidebar_position: 3
 
 
 
-import collectionProperties from "./properties/collectionProperties";
-import conceptProperties from "./properties/conceptProperties";
+import dcCollectionProperties from "./properties/dcCollectionProperties";
+import skosConceptProperties from "./properties/skosConceptProperties";
 import NamespacesTable from "./_namespaces-table.md"
 import PropertiesTable from "@site/src/components/PropertiesTable";
-import dateTimeDescriptionProperties from "./properties/dateTimeDescriptionProperties";
-import imageProperties from "./properties/imageProperties";
-import licenseProperties from "./properties/licenseProperties";
-import locationProperties from "./properties/locationProperties";
-import organizationProperties from "./properties/organizationProperties";
-import personProperties from "./properties/personProperties";
-import propertyProperties from "./properties/propertyProperties";
-import propertyGroupProperties from "./properties/propertyGroupProperties";
-import rightsStatementProperties from "./properties/rightsStatementProperties";
-import textProperties from "./properties/textProperties";
-import workProperties from "./properties/workProperties";
+import owlTimeDateTimeDescriptionProperties from "./properties/owlTimeDateTimeDescriptionProperties";
+import dcImageProperties from "./properties/dcImageProperties";
+import dcLicenseDocumentProperties from "./properties/dcLicenseDocumentProperties";
+import schemaPlaceProperties from "./properties/schemaPlaceProperties";
+import foafOrganizationProperties from "./properties/foafOrganizationProperties";
+import foafPersonProperties from "./properties/foafPersonProperties";
+import rdfPropertyProperties from "./properties/rdfPropertyProperties";
+import cmsPropertyGroupProperties from "./properties/cmsPropertyGroupProperties";
+import dcRightsStatementProperties from "./properties/dcRightsStatementProperties";
+import dcTextProperties from "./properties/dcTextProperties";
+import dcPhysicalWorkProperties from "./properties/dcPhysicalWorkProperties";
 import workEventProperties from "./properties/workEventProperties"
 import workCreationProperties from "./properties/workCreationProperties";
 
@@ -123,7 +123,7 @@ A `Collection` is an aggregate of `Work`s.
 
 **`rdf:type`**: `cms:Collection`
 
-<PropertiesTable properties={collectionProperties} />
+<PropertiesTable properties={dcCollectionProperties} />
 
 
 ### `Concept`
@@ -132,7 +132,7 @@ A `Concept` is a [SKOS concept](https://www.w3.org/TR/skos-reference/#concepts).
 
 **`rdf:type`**: `cms:Concept`
 
-<PropertiesTable properties={conceptProperties} />
+<PropertiesTable properties={skosConceptProperties} />
 
 
 ### `DateTimeDescription`
@@ -141,7 +141,7 @@ A `DateTimeDescription` (borrowed from the Time Ontology) is used for partial da
 
 **`rdf:type`**: `cms:DateTimeDescription`
 
-<PropertiesTable properties={dateTimeDescriptionProperties} />
+<PropertiesTable properties={owlTimeDateTimeDescriptionProperties} />
 
 
 ### `Image`
@@ -150,7 +150,7 @@ An `Image` is a visual surrogate for a `Work`, `Collection`, `Person`, or other 
 
 **`rdf:type`**: `cms:Image`
 
-<PropertiesTable properties={imageProperties} />
+<PropertiesTable properties={dcImageProperties} />
 
 
 ### `License`
@@ -159,7 +159,7 @@ A `License` describes copyright licenses.
 
 **`rdf:type`**: `cms:License`
 
-<PropertiesTable properties={licenseProperties} />
+<PropertiesTable properties={dcLicenseDocumentProperties} />
 
 
 ### `Location`
@@ -168,7 +168,7 @@ A `Location` is an entity with a fixed (latitude/longitude) spatial presence.
 
 **`rdf:type`**: `cms:Location`
 
-<PropertiesTable properties={locationProperties} />
+<PropertiesTable properties={schemaPlaceProperties} />
 
 
 ### `Organization`
@@ -177,7 +177,7 @@ An `Organization` is a company, institution, or other organization that can act 
 
 **`rdf:type`**: `cms:Organization`
 
-<PropertiesTable properties={organizationProperties} />
+<PropertiesTable properties={foafOrganizationProperties} />
 
 
 ### `Person`
@@ -186,7 +186,7 @@ An `Person` is a human such as Alan Turing.
 
 **`rdf:type`**: `cms:Person`
 
-<PropertiesTable properties={personProperties} />
+<PropertiesTable properties={foafPersonProperties} />
 
 
 ### `Property`
@@ -195,7 +195,7 @@ A `Property` is metadata about properties of `Image`s, `Work`s, and other class 
 
 **`rdf:type`**: `cms:Property`
 
-<PropertiesTable properties={propertyProperties} />
+<PropertiesTable properties={rdfPropertyProperties} />
 
 
 ### `PropertyGroup`
@@ -204,7 +204,7 @@ One or more `Property`'s can be grouped into a `PropertyGroup`. `Property`s in t
 
 **`rdf:type`**: `cms:PropertyGroup`
 
-<PropertiesTable properties={propertyGroupProperties} />
+<PropertiesTable properties={cmsPropertyGroupProperties} />
 
 
 ### `RightsStatement`
@@ -213,7 +213,7 @@ A `RightsStatement` describes interoperable rights statements, usually from Righ
 
 **`rdf:type`**: `cms:RightsStatement`
 
-<PropertiesTable properties={rightsStatementProperties} />
+<PropertiesTable properties={dcRightsStatementProperties} />
 
 
 ### `Text`
@@ -222,7 +222,7 @@ A `Text` is used to associate rights metadata with a text string.
 
 **`rdf:type`**: `cms:Text`
 
-<PropertiesTable properties={textProperties} />
+<PropertiesTable properties={dcTextProperties} />
 
 
 ### `Work`
@@ -231,7 +231,7 @@ A `Work` is a built or created object such as a manuscript or garment.
 
 **`rdf:type`**: `cms:Work`
 
-<PropertiesTable properties={workProperties} />
+<PropertiesTable properties={dcPhysicalWorkProperties} />
 
 
 ### `WorkClosing`

@@ -1,7 +1,7 @@
 import React from "react";
 import PropertiesTableProperty from "@site/src/components/PropertiesTableProperty";
 
-const collectionProperties: PropertiesTableProperty[] = [
+const dcCollectionProperties: PropertiesTableProperty[] = [
   {
     cardinality: "0..1",
     description: "Human-readable summary of the collection",
@@ -20,4 +20,4 @@ const collectionProperties: PropertiesTableProperty[] = [
   },
 ];
 
-export default collectionProperties;
+export default dcCollectionProperties;

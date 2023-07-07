@@ -1,6 +1,6 @@
 import PropertiesTableProperty from "@site/src/components/PropertiesTableProperty";
 
-const conceptProperties: readonly PropertiesTableProperty[] = [
+const skosConceptProperties: readonly PropertiesTableProperty[] = [
   {
     cardinality: "0..1",
     description: "Alternative label",
@@ -35,4 +35,4 @@ const conceptProperties: readonly PropertiesTableProperty[] = [
   },
 ];
 
-export default conceptProperties;
+export default skosConceptProperties;

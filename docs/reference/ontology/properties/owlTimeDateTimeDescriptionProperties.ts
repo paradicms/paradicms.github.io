@@ -1,6 +1,6 @@
 import PropertiesTableProperty from "@site/src/components/PropertiesTableProperty";
 
-const dateTimeDescriptionProperties: readonly PropertiesTableProperty[] = [
+const owlTimeDateTimeDescriptionProperties: readonly PropertiesTableProperty[] = [
   {
     cardinality: "0..1",
     description: "Day of the month, 1..31 inclusive",
@@ -43,4 +43,4 @@ const dateTimeDescriptionProperties: readonly PropertiesTableProperty[] = [
   },
 ];
 
-export default dateTimeDescriptionProperties;
+export default owlTimeDateTimeDescriptionProperties;
