@@ -1,38 +1,33 @@
 import PropertiesTableProperty from "@site/src/components/PropertiesTableProperty";
+import {foafDepictionProperty} from "@site/docs/reference/ontology/properties/foafDepictionProperty";
 
-const foafAgentProperties: readonly PropertiesTableProperty[] = [
+const foafAgentProperties = (kwds: {
+  className: string;
+}): readonly PropertiesTableProperty[] => [
+  foafDepictionProperty(kwds),
   {
-    term: "name",
-    iri: "foaf:name",
-    description: "Human-readable name",
-    cardinality: "1",
-    valueType: "string",
-    exampleValues: "Alan Turing",
+    term: "homepage",
+    iri: "foaf:homepage",
+    description: `Reference to the homepage of this ${kwds.className}`,
+    cardinality: "0..n",
+    valueType: "string or IRI",
+    exampleValues: "http://example.com/somepage",
   },
   {
     term: "page",
     iri: "foaf:page",
-    description: "Website of the person",
+    description: `Reference to a webpage, such as a Wikipedia page, whose focus is this ${kwds.className}`,
     cardinality: "0..n",
+    valueType: "string or IRI",
+    exampleValues: "http://example.com/somepage",
+  },
+  {
+    term: "name",
+    iri: "foaf:name",
+    description: `Human-readable name of this ${kwds.className}`,
+    cardinality: "1",
     valueType: "string",
-    exampleValues: "https://mysite.com",
-  },
-  {
-    term: "relation",
-    iri: "dcterms:relation",
-    description: "Related IRI e.g., a Wikidata concept IRI",
-    cardinality: "0..n",
-    valueType: "IRI",
-    exampleValues: "http://www.wikidata.org/entity/Q7251",
-  },
-  {
-    term: "sameAs",
-    iri: "owl:sameAs",
-    description:
-      "IRI of an agent this agent is the same as e.g., a Wikidata concept IRI",
-    cardinality: "0..n",
-    valueType: "IRI",
-    exampleValues: "http://www.wikidata.org/entity/Q7251",
+    exampleValues: "Alan Turing",
   },
 ];
 export default foafAgentProperties;

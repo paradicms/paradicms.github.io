@@ -1,6 +1,10 @@
 import PropertiesTableProperty from "@site/src/components/PropertiesTableProperty";
+import {foafDepictionProperty} from "@site/docs/reference/ontology/properties/foafDepictionProperty";
+
+const className = "SkosConcept";
 
 const skosConceptProperties: readonly PropertiesTableProperty[] = [
+  foafDepictionProperty({className}),
   {
     cardinality: "0..1",
     description: "Alternative label",

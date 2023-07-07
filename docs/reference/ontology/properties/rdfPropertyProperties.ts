@@ -1,14 +1,14 @@
 import PropertiesTableProperty from "@site/src/components/PropertiesTableProperty";
+import {rdfsCommentProperty} from "@site/docs/reference/ontology/properties/rdfsCommentProperty";
+import {rdfsLabelProperty} from "@site/docs/reference/ontology/properties/rdfsLabelProperty";
+import {foafDepictionProperty} from "@site/docs/reference/ontology/properties/foafDepictionProperty";
+
+const className = "RdfProperty";
 
 const rdfPropertyProperties: readonly PropertiesTableProperty[] = [
-  {
-    term: "comment",
-    iri: "rdfs:comment",
-    description: "Description of this property",
-    cardinality: "0..1",
-    valueType: "string",
-    exampleValues: "Human-readable long description of this property",
-  },
+  foafDepictionProperty({className}),
+  rdfsCommentProperty({className}),
+  rdfsLabelProperty({className}),
   {
     term: "filterable",
     iri: "cms:propertyFilterable",
@@ -17,23 +17,6 @@ const rdfPropertyProperties: readonly PropertiesTableProperty[] = [
     cardinality: "0..1",
     valueType: "boolean",
     exampleValues: "true",
-  },
-  {
-    term: "group",
-    iri: "cms:propertyGroup",
-    description:
-      "Group this property belongs to, typically used to group properties in a user interface",
-    cardinality: "0..1p",
-    valueType: "IRI",
-    exampleValues: "http://example.com/propertyGroup",
-  },
-  {
-    term: "label",
-    iri: "rdfs:label",
-    description: "Short human-readable label of this property",
-    cardinality: "1",
-    valueType: "string",
-    exampleValues: "My property",
   },
   {
     term: "order",
