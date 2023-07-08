@@ -1,8 +1,11 @@
 import PropertiesTableProperty from "@site/src/components/PropertiesTableProperty";
+import {schemaThingProperties} from "@site/docs/reference/ontology/properties/schemaThingProperties";
 
 export const schemaCreativeWorkProperties = (kwds: {
   className: string;
+  nameRequired?: boolean;
 }): readonly PropertiesTableProperty[] => [
+  ...schemaThingProperties({className: kwds.className}),
   {
     term: "contributor",
     iri: "schema:contributor",

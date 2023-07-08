@@ -10,11 +10,11 @@ const dcCollectionProperties: PropertiesTableProperty[] = [
   dctermsTitleProperty({className}),
   {
     cardinality: "0..n",
-    description: "Reference a Work that is part of the collection",
+    description: `Reference to a Work that is part of the ${className}`,
     exampleValues: "http://example.com/work",
     iri: "dcterms:hasPart",
     term: "hasPart",
-    valueType: "string",
+    valueType: "IRI",
   },
 ];
 
