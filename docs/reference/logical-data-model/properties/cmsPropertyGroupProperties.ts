@@ -1,7 +1,7 @@
 import PropertiesTableProperty from "@site/src/components/PropertiesTableProperty";
-import {rdfsCommentProperty} from "@site/docs/reference/physical-data-models/properties/rdfsCommentProperty";
-import {rdfsLabelProperty} from "@site/docs/reference/physical-data-models/properties/rdfsLabelProperty";
-import {foafDepictionProperty} from "@site/docs/reference/physical-data-models/properties/foafDepictionProperty";
+import {rdfsCommentProperty} from "@site/docs/reference/logical-data-model/properties/rdfsCommentProperty";
+import {rdfsLabelProperty} from "@site/docs/reference/logical-data-model/properties/rdfsLabelProperty";
+import {foafDepictionProperty} from "@site/docs/reference/logical-data-model/properties/foafDepictionProperty";
 
 const className = "CmsPropertyGroup";
 

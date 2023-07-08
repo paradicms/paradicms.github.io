@@ -22,34 +22,24 @@ import dcPhysicalObjectProperties from "./properties/dcPhysicalObjectProperties"
 import workEventProperties from "./properties/workEventProperties"
 import workCreationProperties from "./properties/workCreationProperties";
 
-# Reference: ontology
+# Reference: physical data models
 
-The Paradicms ontology directly expresses the [Paradicms data model](/docs/introduction/data-model) as an RDF ontology. The ontology is relatively flat, with few properties requiring nested data structures like lists and sub-objects. That makes it easier to convert data from spreadsheets and other tabular sources into RDF.
+`Work`s, `Collection`s, and other entities in the [Paradicms logical data model](/docs/introduction/data-model) can be encoded in different physical data models, such as [Schema.org](https://schema.org) or [FOAF](http://xmlns.com/foaf/0.1/). The abstraction layer of the logical data model allows [Paradicms apps](/docs/reference/apps) to use data encoded in a variety of physical models with little or no translation.
 
-### Vocabularies
+This page documents the entities in the logical data model as well as the different physical data models for encoding them.
 
-The Paradicms ontology reuses different RDF-based vocabularies for describing the properties of works, collections, images, agents, et al. These vocabularies include:
+## Structure of this document
 
-* [Basic Geo Vocabulary](https://www.w3.org/2003/01/geo/) for WGS84 latitude and longitude properties
-* [DCMI Metadata Terms](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/) (aka Dublin Core Terms) for generic properties such as a `Work`'s `title`.
-* [Costume Core](http://www.ardenkirkland.com/costumecore/) for properties that encode the structure of historic clothing `Work`s
-* [An Exif vocabulary](https://www.w3.org/2003/12/exif/) for basic `Image` metadata such as `height` and `width`
-* [The FOAF Vocabulary](http://xmlns.com/foaf/0.1/) for properties about people and organizations
+### Entities
 
-as well as properties from the Creative Commons Rights Expression Language, the RightsStatement.org data model, SKOS, and the Time Ontology.
+Each top-level section of the page documents an entity in the logical data model.
 
-VRA Core 4.0 [has been translated to an RDF ontology](http://purl.org/vra/) for use in Linked Data systems. The Paradicms ontology reuses a number of properties from the VRA Core RDF ontology in order to describe aspects of cultural heritage artifacts, including a `Work`'s `culturalContext`, `material`, and `technique`.
+### Classes
 
-The Paradicms ontology defines custom properties where absolutely necessary. For example, configuration files for the static site generation system rely on a bespoke RDF vocabulary that is highly specific to Paradicms.
+Each sub-section of an entity section documents a physical
 
+RDF-based
 
-## Classes
-
-The following sections document classes in the ontology such as `Collection`, `Image`, and `Work`.
-
-A class section contains:
-
-* a brief description of the class
 * The class's `rdf:type`
 * a table of the class's properties
 
