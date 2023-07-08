@@ -1,11 +1,11 @@
 import PropertiesTableProperty from "@site/src/components/PropertiesTableProperty";
-import {rdfsCommentProperty} from "@site/docs/reference/physical-data-models/properties/rdfsCommentProperty";
-import {rdfsLabelProperty} from "@site/docs/reference/physical-data-models/properties/rdfsLabelProperty";
-import {foafDepictionProperty} from "@site/docs/reference/physical-data-models/properties/foafDepictionProperty";
-import {cmsPropertyFilterableProperty} from "@site/docs/reference/physical-data-models/properties/cmsPropertyFilterableProperty";
-import {cmsPropertyHiddenProperty} from "@site/docs/reference/physical-data-models/properties/cmsPropertyHiddenProperty";
-import {cmsPropertyOrderProperty} from "@site/docs/reference/physical-data-models/properties/cmsPropertyOrderProperty";
-import {cmsPropertySearchableProperty} from "@site/docs/reference/physical-data-models/properties/cmsPropertySearchableProperty";
+import {rdfsCommentProperty} from "@site/docs/reference/logical-data-models/properties/rdfsCommentProperty";
+import {rdfsLabelProperty} from "@site/docs/reference/logical-data-models/properties/rdfsLabelProperty";
+import {foafDepictionProperty} from "@site/docs/reference/logical-data-models/properties/foafDepictionProperty";
+import {cmsPropertyFilterableProperty} from "@site/docs/reference/logical-data-models/properties/cmsPropertyFilterableProperty";
+import {cmsPropertyHiddenProperty} from "@site/docs/reference/logical-data-models/properties/cmsPropertyHiddenProperty";
+import {cmsPropertyOrderProperty} from "@site/docs/reference/logical-data-models/properties/cmsPropertyOrderProperty";
+import {cmsPropertySearchableProperty} from "@site/docs/reference/logical-data-models/properties/cmsPropertySearchableProperty";
 
 const className = "RdfProperty";
 

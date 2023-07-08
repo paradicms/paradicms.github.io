@@ -1,6 +1,6 @@
 import PropertiesTableProperty from "@site/src/components/PropertiesTableProperty";
-import {dctermsDescriptionProperty} from "@site/docs/reference/logical-data-model/properties/dctermsDescriptionProperty";
-import {dctermsTitleProperty} from "@site/docs/reference/logical-data-model/properties/dctermsTitleProperty";
+import {dctermsDescriptionProperty} from "@site/docs/reference/logical-data-models/properties/dctermsDescriptionProperty";
+import {dctermsTitleProperty} from "@site/docs/reference/logical-data-models/properties/dctermsTitleProperty";
 
 const className = "DcCollection";
 

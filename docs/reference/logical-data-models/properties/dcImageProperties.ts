@@ -1,9 +1,9 @@
 import PropertiesTableProperty from "@site/src/components/PropertiesTableProperty";
-import dcRightsProperties from "@site/docs/reference/physical-data-models/properties/dcRightsProperties";
-import {owlSameAsProperty} from "@site/docs/reference/physical-data-models/properties/owlSameAsProperty";
-import {dctermsTitleProperty} from "@site/docs/reference/physical-data-models/properties/dctermsTitleProperty";
-import {dctermsModifiedProperty} from "@site/docs/reference/physical-data-models/properties/dctermsModifiedProperty";
-import {cmsImageSrcProperty} from "@site/docs/reference/physical-data-models/properties/cmsImageSrcProperty";
+import dcRightsProperties from "@site/docs/reference/logical-data-models/properties/dcRightsProperties";
+import {owlSameAsProperty} from "@site/docs/reference/logical-data-models/properties/owlSameAsProperty";
+import {dctermsTitleProperty} from "@site/docs/reference/logical-data-models/properties/dctermsTitleProperty";
+import {dctermsModifiedProperty} from "@site/docs/reference/logical-data-models/properties/dctermsModifiedProperty";
+import {cmsImageSrcProperty} from "@site/docs/reference/logical-data-models/properties/cmsImageSrcProperty";
 
 const className = "DcImage";
 

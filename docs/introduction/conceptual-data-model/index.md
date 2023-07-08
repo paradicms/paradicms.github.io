@@ -6,7 +6,7 @@ sidebar_position: 2
 
 The Paradicms [conceptual data model](https://en.wikipedia.org/wiki/Conceptual_schema) is designed to cover the core elements of a digital collection, such as images and works, while being flexible on how the elements are represented in logical data models. The diagram below shows the core classes in the model:
 
-![Overview of the Paradicms conceptual data model](data-model-classes.png)
+![Overview of the Paradicms conceptual data model](conceptual-data-model-classes.png)
 
 Paradicms adapts the essential structure and nomenclature of its conceptual data model from [VRA Core](https://www.loc.gov/standards/vracore/), a data standard for the description of images and works of art and culture.  There are three primary entities in VRA Core 4.0:
 * `Work`: a built or created object
