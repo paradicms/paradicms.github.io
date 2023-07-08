@@ -1,5 +1,4 @@
 import PropertiesTableProperty from "@site/src/components/PropertiesTableProperty";
-import {schemaThingProperties} from "@site/docs/reference/ontology/properties/schemaThingProperties";
 
 const className = "SchemaTextObject";
 

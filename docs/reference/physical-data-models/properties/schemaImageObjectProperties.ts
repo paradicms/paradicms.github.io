@@ -1,6 +1,6 @@
 import PropertiesTableProperty from "@site/src/components/PropertiesTableProperty";
-import {schemaCreativeWorkProperties} from "@site/docs/reference/ontology/properties/schemaCreativeWorkProperties";
-import {cmsImageSrcProperty} from "@site/docs/reference/ontology/properties/cmsImageSrcProperty";
+import {schemaCreativeWorkProperties} from "@site/docs/reference/physical-data-models/properties/schemaCreativeWorkProperties";
+import {cmsImageSrcProperty} from "@site/docs/reference/physical-data-models/properties/cmsImageSrcProperty";
 
 const className = "SchemaImageObject";
 

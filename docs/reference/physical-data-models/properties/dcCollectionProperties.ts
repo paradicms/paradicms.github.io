@@ -1,7 +1,7 @@
 import React from "react";
 import PropertiesTableProperty from "@site/src/components/PropertiesTableProperty";
-import {dctermsDescriptionProperty} from "@site/docs/reference/ontology/properties/dctermsDescriptionProperty";
-import {dctermsTitleProperty} from "@site/docs/reference/ontology/properties/dctermsTitleProperty";
+import {dctermsDescriptionProperty} from "@site/docs/reference/physical-data-models/properties/dctermsDescriptionProperty";
+import {dctermsTitleProperty} from "@site/docs/reference/physical-data-models/properties/dctermsTitleProperty";
 
 const className = "DcCollection";
 

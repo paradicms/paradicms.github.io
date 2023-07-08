@@ -1,5 +1,5 @@
 import PropertiesTableProperty from "@site/src/components/PropertiesTableProperty";
-import dcRightsProperties from "@site/docs/reference/ontology/properties/dcRightsProperties";
+import dcRightsProperties from "@site/docs/reference/physical-data-models/properties/dcRightsProperties";
 
 const className = "DcText";
 

@@ -1,5 +1,5 @@
 import PropertiesTableProperty from "@site/src/components/PropertiesTableProperty";
-import {foafDepictionProperty} from "@site/docs/reference/ontology/properties/foafDepictionProperty";
+import {foafDepictionProperty} from "@site/docs/reference/physical-data-models/properties/foafDepictionProperty";
 
 const className = "SkosConcept";
 

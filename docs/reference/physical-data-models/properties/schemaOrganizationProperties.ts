@@ -1,5 +1,5 @@
 import PropertiesTableProperty from "@site/src/components/PropertiesTableProperty";
-import {schemaThingProperties} from "@site/docs/reference/ontology/properties/schemaThingProperties";
+import {schemaThingProperties} from "@site/docs/reference/physical-data-models/properties/schemaThingProperties";
 
 const className = "SchemaOrganization";
 

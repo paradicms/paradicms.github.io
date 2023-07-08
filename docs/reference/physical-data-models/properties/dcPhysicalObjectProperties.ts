@@ -1,9 +1,9 @@
 import PropertiesTableProperty from "@site/src/components/PropertiesTableProperty";
-import dcRightsProperties from "@site/docs/reference/ontology/properties/dcRightsProperties";
-import {dctermsCreatedProperty} from "@site/docs/reference/ontology/properties/dctermsCreatedProperty";
-import {dctermsDescriptionProperty} from "@site/docs/reference/ontology/properties/dctermsDescriptionProperty";
-import {dctermsModifiedProperty} from "@site/docs/reference/ontology/properties/dctermsModifiedProperty";
-import {dctermsTitleProperty} from "@site/docs/reference/ontology/properties/dctermsTitleProperty";
+import dcRightsProperties from "@site/docs/reference/physical-data-models/properties/dcRightsProperties";
+import {dctermsCreatedProperty} from "@site/docs/reference/physical-data-models/properties/dctermsCreatedProperty";
+import {dctermsDescriptionProperty} from "@site/docs/reference/physical-data-models/properties/dctermsDescriptionProperty";
+import {dctermsModifiedProperty} from "@site/docs/reference/physical-data-models/properties/dctermsModifiedProperty";
+import {dctermsTitleProperty} from "@site/docs/reference/physical-data-models/properties/dctermsTitleProperty";
 
 const className = "DcPhysicalObject";
 
