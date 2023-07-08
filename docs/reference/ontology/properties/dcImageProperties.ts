@@ -3,10 +3,12 @@ import dcRightsProperties from "@site/docs/reference/ontology/properties/dcRight
 import {owlSameAsProperty} from "@site/docs/reference/ontology/properties/owlSameAsProperty";
 import {dctermsTitleProperty} from "@site/docs/reference/ontology/properties/dctermsTitleProperty";
 import {dctermsModifiedProperty} from "@site/docs/reference/ontology/properties/dctermsModifiedProperty";
+import {cmsImageSrcProperty} from "@site/docs/reference/ontology/properties/cmsImageSrcProperty";
 
 const className = "DcImage";
 
 const dcImageProperties: readonly PropertiesTableProperty[] = [
+  cmsImageSrcProperty,
   ...dcRightsProperties({className}),
   dctermsModifiedProperty({className}),
   dctermsTitleProperty({cardinality: "0..1", className}),
@@ -50,15 +52,6 @@ const dcImageProperties: readonly PropertiesTableProperty[] = [
     cardinality: "0..1",
     valueType: "integer",
     exampleValues: "200",
-  },
-  {
-    term: "src",
-    iri: "cms:imageSrc",
-    description:
-      "Absolute or relative URL where the image data is stored; if not specified, use the `Image`'s IRI",
-    cardinality: "0..1",
-    valueType: "string",
-    exampleValues: "http://example.com/image.jpg",
   },
   {
     term: "source",
