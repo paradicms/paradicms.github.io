@@ -9,7 +9,7 @@ The tutorial will guide you in editing collection data stored in files.
 ### Before you start
 
 * Create a directory. See below.
-* **Review the [Paradicms data model](/docs/introduction/data-model) and [ontology](/docs/reference/ontology).**
+* **Review the [Paradicms conceptual data model](/docs/introduction/conceptual-data-model) and [logical data models](/docs/reference/logical-data-models).**
 * Optionally, **review the [reference documentation on the Paradicms directory format](/docs/reference/directory-format).**
 
 

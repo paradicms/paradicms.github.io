@@ -10,7 +10,7 @@ The tutorial will guide you in editing collection data in a spreadsheet program 
 ### Before you start
 
 * **Create a spreadsheet.** See below.
-* **Review the [Paradicms data model](/docs/introduction/data-model) and [ontology](/docs/reference/ontology).**
+* **Review the [Paradicms conceptual data model](/docs/introduction/conceptual-data-model) and [logical data models](/docs/reference/logical-data-models).**
 * Optionally, **review the [reference documentation on Paradicms-formatted spreadsheets](/docs/reference/spreadsheet-format).**
 
 #### Creating a spreadsheet
