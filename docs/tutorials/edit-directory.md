@@ -22,7 +22,7 @@ You can create directories and [edit YAML files](https://docs.github.com/en/repo
 
 ### Data entry workflow
 
-The remaining sections of this document follow a subset of the [repeatable data entry workflow](/docs/reference/data-entry-workflow). We will not attempt to create instances of every class in the ontology, but only enough to demonstrate the editing process.
+The remaining sections of this document follow a subset of the [repeatable data entry workflow](/docs/reference/data-entry-workflow). We will not attempt to create instances of every class in the data model, but only enough to demonstrate the editing process.
 
 
 
@@ -84,4 +84,4 @@ Save the [JPEG file from Wikimedia Commons](https://upload.wikimedia.org/wikiped
 
 ### Next steps
 
-You now have a directory with data about a `Collection`, `Image`, `Person`, and `Work`. From here you can enter more data, following the [ontology reference](/docs/reference/ontology), or use the data you've entered to generate a website by following the appropriate [tutorial](/docs/tutorials/directory-ssg).
+You now have a directory with data about a `Collection`, `Image`, `Person`, and `Work`. From here you can enter more data, following the [logical data models reference](/docs/reference/logical-data-models), or use the data you've entered to generate a website by following the appropriate [tutorial](/docs/tutorials/directory-ssg).

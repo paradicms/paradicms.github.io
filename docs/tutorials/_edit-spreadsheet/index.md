@@ -87,4 +87,4 @@ Alternatively, you can insert an image directly into the `src` cell:
 
 ### Next steps
 
-You now have a spreadsheet with data about a `Collection`, `Image`, `License`, `Person`, and `Work`. From here you can enter more data, following the [ontology reference](/docs/reference/ontology), or use the data you've entered to generate a website by following the appropriate [tutorial](/docs/tutorials/spreadsheet-ssg).
+You now have a spreadsheet with data about a `Collection`, `Image`, `License`, `Person`, and `Work`. From here you can enter more data, following the [logical data models reference](/docs/reference/logical-data-models), or use the data you've entered to generate a website by following the appropriate [tutorial](/docs/tutorials/spreadsheet-ssg).
