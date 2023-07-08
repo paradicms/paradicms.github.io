@@ -6,7 +6,7 @@ const className = "SkosConcept";
 const skosConceptProperties: readonly PropertiesTableProperty[] = [
   foafDepictionProperty({className}),
   {
-    cardinality: "0..1",
+    cardinality: "0..n",
     description: "Alternative label",
     exampleValues: "Alternative concept label",
     iri: "skos:altLabel",
