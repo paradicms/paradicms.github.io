@@ -4,7 +4,7 @@ sidebar_position: 2
 
 # Conceptual data model
 
-The Paradicms [conceptual data model](https://en.wikipedia.org/wiki/Conceptual_schema) is designed to cover the core elements of a digital collection, such as images and works, while being flexible on how the elements are encoded in physical data models. The diagram below shows the core classes in the model:
+The Paradicms [conceptual data model](https://en.wikipedia.org/wiki/Conceptual_schema) is designed to cover the core elements of a digital collection, such as images and works, while being flexible on how the elements are represented in logical data models. The diagram below shows the core classes in the model:
 
 ![Overview of the Paradicms conceptual data model](data-model-classes.png)
 
@@ -14,7 +14,7 @@ Paradicms adapts the essential structure and nomenclature of its conceptual data
 * `Image`: a visual surrogate of a `Work`
 
 The basic `Work`-`Collection`-`Image` model can accommodate a wide range of externally-sourced collection data with compatible structures, such as [Linked Art](https://linked.art/),
-[schema.org](https://schema.org/), [Wikidata](https://wikidata.org/), and [Omeka Classic](https://omeka.org/classic/) items/files/elements/element sets. The model is abstract enough to permit for multiple encodings, typically in the form of RDF ontologies. The [Paradicms physical data models](/docs/reference/physical-data-models) reference documents supported encodings.
+[schema.org](https://schema.org/), [Wikidata](https://wikidata.org/), and [Omeka Classic](https://omeka.org/classic/) items/files/elements/element sets. The model is abstract enough to permit for multiple logical data models, typically in the form of RDF ontologies. The [Paradicms logical data models](/docs/reference/logical-data-models) reference documents supported representations.
 
 Beyond the primary entities, the Paradicms conceptual data model incorporates a few other elements of VRA Core 4.0, such as agents (people and organizations), as well as concepts from several other standards:
 

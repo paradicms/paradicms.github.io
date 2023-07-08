@@ -1,9 +1,9 @@
 import PropertiesTableProperty from "@site/src/components/PropertiesTableProperty";
-import {cmsPropertyFilterableProperty} from "@site/docs/reference/logical-data-model/properties/cmsPropertyFilterableProperty";
-import {cmsPropertyHiddenProperty} from "@site/docs/reference/logical-data-model/properties/cmsPropertyHiddenProperty";
-import {cmsPropertyOrderProperty} from "@site/docs/reference/logical-data-model/properties/cmsPropertyOrderProperty";
-import {cmsPropertySearchableProperty} from "@site/docs/reference/logical-data-model/properties/cmsPropertySearchableProperty";
-import {schemaThingProperties} from "@site/docs/reference/logical-data-model/properties/schemaThingProperties";
+import {cmsPropertyFilterableProperty} from "@site/docs/reference/logical-data-models/properties/cmsPropertyFilterableProperty";
+import {cmsPropertyHiddenProperty} from "@site/docs/reference/logical-data-models/properties/cmsPropertyHiddenProperty";
+import {cmsPropertyOrderProperty} from "@site/docs/reference/logical-data-models/properties/cmsPropertyOrderProperty";
+import {cmsPropertySearchableProperty} from "@site/docs/reference/logical-data-models/properties/cmsPropertySearchableProperty";
+import {schemaThingProperties} from "@site/docs/reference/logical-data-models/properties/schemaThingProperties";
 
 const className = "SchemaProperty";
 
