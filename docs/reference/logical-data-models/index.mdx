@@ -1,10 +1,4 @@
----
-sidebar_position: 3
----
-
-
-
-import dcCollectionProperties from "./properties/dcCollectionProperties";
+import {schemaImageObjectProperties} from "./properties/schemaImageObjectProperties";import dcCollectionProperties from "./properties/dcCollectionProperties";
 import skosConceptProperties from "./properties/skosConceptProperties";
 import NamespacesTable from "./_namespaces-table.md"
 import PropertiesTable from "@site/src/components/PropertiesTable";
@@ -21,29 +15,27 @@ import dcTextProperties from "./properties/dcTextProperties";
 import dcPhysicalObjectProperties from "./properties/dcPhysicalObjectProperties";
 import workEventProperties from "./properties/workEventProperties"
 import workCreationProperties from "./properties/workCreationProperties";
+import {schemaOrganizationProperties} from "./properties/schemaOrganizationProperties";
+import {schemaPersonProperties} from "./properties/schemaPersonProperties";
+import schemaPropertyProperties from "./properties/schemaPropertyProperties";
+import schemaTextObjectProperties from "./properties/schemaTextObjectProperties";
+import {schemaCreativeWorkProperties} from "./properties/schemaCreativeWorkProperties";
+import {schemaDefinedTermProperties} from "./properties/schemaDefinedTermProperties";
 
 # Reference: logical data models
 
-`Work`s, `Collection`s, and other entities in the [Paradicms conceptual data model](/docs/introduction/data-model) can be encoded in different physical data models, such as [Schema.org](https://schema.org) or [FOAF](http://xmlns.com/foaf/0.1/). The abstraction layer of the logical data model allows [Paradicms apps](/docs/reference/apps) to use data encoded in a variety of physical models with little or no translation.
-
-This page documents the entities in the logical data model as well as the different physical data models for encoding them.
+`Work`s, `Collection`s, and other entities in the [Paradicms conceptual data model](/docs/introduction/data-model) can be represented in different logical data models, such as [Schema.org](https://schema.org) or [FOAF](http://xmlns.com/foaf/0.1/). The abstraction layer of the conceptual data model allows [Paradicms apps](/docs/reference/apps) to use data represented in a variety of logical models with little or no translation.
 
 ## Structure of this document
 
-### Entities
+This page documents the entities in the conceptual data model as well as the different ways of representing them. Each top-level section of the page documents an entity in the conceptual data model, with sub-sections for supported representation.
 
-Each top-level section of the page documents an entity in the logical data model.
+### RDF classes
 
-### Classes
+For RDF-based logical representations, each sub-section includes
 
-Each sub-section of an entity section documents a physical
-
-RDF-based
-
-* The class's `rdf:type`
-* a table of the class's properties
-
-A class's properties table has columns for:
+* a short file name-safe identifier for the model, such as `DcCollection`, which is used in various input formats (e.g., as a sheet name in the [spreadsheet format](/docs/reference/spreadsheet-format))
+* a table of RDF properties with the following columns:
 
 #### Term
 
@@ -111,43 +103,71 @@ For each property, the table lists one or more example values. As in the spreads
 
 A `Collection` is an aggregate of `Work`s.
 
-**`rdf:type`**: `cms:Collection`
+#### `DcCollection`
+
+**`rdf:type`**: [`dcmitype:Collection`](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/dcmitype/Collection/)
 
 <PropertiesTable properties={dcCollectionProperties} />
+
+#### `SchemaCollection`
+
+**`rdf:type`**: [`schema:Collection`](https://schema.org/Collection)
+
+<PropertiesTable properties={schemaCollectionProperties} />
 
 
 ### `Concept`
 
-A `Concept` is a [SKOS concept](https://www.w3.org/TR/skos-reference/#concepts). It is used for controlled vocabularies.
+A `Concept` is used for controlled vocabularies.
 
-**`rdf:type`**: `cms:Concept`
+#### `SchemaDefinedTerm`
+
+**`rdf:type`: [`schema:DefinedTerm`](https://schema.org/DefinedTerm)
+
+<PropertiesTable properties={schemaDefinedTermProperties} />
+
+#### `SkosConcept`
+
+**`rdf:type`: [`skos:Concept`](https://www.w3.org/TR/skos-reference/#concepts)
 
 <PropertiesTable properties={skosConceptProperties} />
 
 
 ### `DateTimeDescription`
 
-A `DateTimeDescription` (borrowed from the Time Ontology) is used for partial date-times, where one or more of the components is unknown.
+A `DateTimeDescription` is used for partial date-times, where one or more of the components is unknown.
 
-**`rdf:type`**: `cms:DateTimeDescription`
+#### `OwlTimeDateTimeDescription`
+
+**`rdf:type`**: [`time:DateTimeDescription`](https://www.w3.org/TR/owl-time/#time:DateTimeDescription)
 
 <PropertiesTable properties={owlTimeDateTimeDescriptionProperties} />
 
 
 ### `Image`
 
-An `Image` is a visual surrogate for a `Work`, `Collection`, `Person`, or other instance of a Paradicms class.
+An `Image` is a visual surrogate for a `Work`, `Collection`, `Person`, or other instance of a Paradicms entity.
 
-**`rdf:type`**: `cms:Image`
+#### `DcImage`
+
+**`rdf:type`**: [`dcmitype:Image`](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/dcmitype/Image/)
 
 <PropertiesTable properties={dcImageProperties} />
+
+#### `SchemaImageObject`
+
+**`rdf:type`**: [`schema:ImageObject`](https://schema.org/ImageObject)
+
+<PropertiesTable properties={schemaImageObjectProperties} />
 
 
 ### `License`
 
 A `License` describes copyright licenses.
 
-**`rdf:type`**: `cms:License`
+#### `DcLicenseDocument`
+
+**`rdf:type`**: [`dcmitype:LicenseDocument`](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/terms/LicenseDocument/)
 
 <PropertiesTable properties={dcLicenseDocumentProperties} />
 
@@ -156,7 +176,9 @@ A `License` describes copyright licenses.
 
 A `Location` is an entity with a fixed (latitude/longitude) spatial presence. 
 
-**`rdf:type`**: `cms:Location`
+#### `SchemaPlace`
+
+**`rdf:type`**: [`schema:Place`](https://schema.org/Place)
 
 <PropertiesTable properties={schemaPlaceProperties} />
 
@@ -165,32 +187,58 @@ A `Location` is an entity with a fixed (latitude/longitude) spatial presence.
 
 An `Organization` is a company, institution, or other organization that can act as an agent.
 
-**`rdf:type`**: `cms:Organization`
+#### `FoafOrganization`
+
+**`rdf:type`**: `foaf:Organization`
 
 <PropertiesTable properties={foafOrganizationProperties} />
+
+#### `SchemaOrganization`
+
+**`rdf:type`**: [`schema:Organization`](https://schema.org/Organization)
+
+<PropertiesTable properties={schemaOrganizationProperties} />
 
 
 ### `Person`
 
 An `Person` is a human such as Alan Turing.
 
-**`rdf:type`**: `cms:Person`
+#### `FoafPerson`
+
+**`rdf:type`**: `foaf:Person`
 
 <PropertiesTable properties={foafPersonProperties} />
+
+#### `SchemaPerson`
+
+**`rdf:type`**: [`schema:Person`](https://schema.org/Person)
+
+<PropertiesTable properties={schemaPersonProperties} />
 
 
 ### `Property`
 
 A `Property` is metadata about properties of `Image`s, `Work`s, and other class instances. `Property` metadata is primarily used by Paradicms apps to determine how to handle arbitrary/unknown properties. For example, by indicating a property is `searchable` the `work-search` app will include the property's values in the fulltext search index. Similarly, a property that is marked `filterable` will be incorporated into the `work-search` app's filter system.
 
-**`rdf:type`**: `cms:Property`
+#### `RdfProperty`
+
+**`rdf:type`**: [`rdf:Property`](https://www.w3.org/TR/rdf12-schema/#ch_property)
 
 <PropertiesTable properties={rdfPropertyProperties} />
+
+#### `SchemaProperty`
+
+**`rdf:type`**: [`schema:Property`](https://schema.org/Property)
+
+<PropertiesTable properties={schemaPropertyProperties} />
 
 
 ### `PropertyGroup`
 
 One or more `Property`'s can be grouped into a `PropertyGroup`. `Property`s in the same `PropertyGroup` are usually displayed together in a user interface.
+
+#### `CmsPropertyGroup`
 
 **`rdf:type`**: `cms:PropertyGroup`
 
@@ -201,7 +249,9 @@ One or more `Property`'s can be grouped into a `PropertyGroup`. `Property`s in t
 
 A `RightsStatement` describes interoperable rights statements, usually from RightsStatement.org.
 
-**`rdf:type`**: `cms:RightsStatement`
+#### `DcRightsStatement`
+
+**`rdf:type`**: [`dcterms:RightsStatement`](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/)
 
 <PropertiesTable properties={dcRightsStatementProperties} />
 
@@ -210,44 +260,31 @@ A `RightsStatement` describes interoperable rights statements, usually from Righ
 
 A `Text` is used to associate rights metadata with a text string.
 
-**`rdf:type`**: `cms:Text`
+#### `DcText`
+
+**`rdf:type`**: [`dcmitype:Text`](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/dcmitype/Text/)
 
 <PropertiesTable properties={dcTextProperties} />
+
+#### `SchemaTextObject`
+
+**`rdf:type`**: [`schema:TextObject`](https://schema.org/TextObject)
+
+<PropertiesTable properties={schemaTextObjectProperties} />
 
 
 ### `Work`
 
 A `Work` is a built or created object such as a manuscript or garment.
 
-**`rdf:type`**: `cms:Work`
+#### `DcPhysicalObject`
+
+**`rdf:type`**: [`dcmitype:PhysicalObject`](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/dcmitype/PhysicalObject/)
 
 <PropertiesTable properties={dcPhysicalObjectProperties} />
 
+#### `SchemaCreativeWork`
 
-### `WorkClosing`
+**`rdf:type`**: [`schema:CreativeWork`](https://schema.org/CreativeWork)
 
-The work event classes describe events in the lifecycle of a `Work`, such as creation (`WorkCreation`).
-
-`WorkClosing` describes the closing of a `Work`, such as an exhibition closing.
-
-**`rdf:type`**: `cms:WorkClosing`
-
-<PropertiesTable properties={workEventProperties} />
-
-
-### `WorkCreation`
-
-`WorkCreation` describes the creation of a `Work`, such as the creation of a piece of furniture.
-
-**`rdf:type`**: `cms:WorkCreation`
-
-<PropertiesTable properties={workCreationProperties} />
-
-
-### `WorkOpening`
-
-`WorkOpening` describes the opening of a `Work`, such as an exhibition opening.
-
-**`rdf:type`**: `cms:WorkOpening`
-
-<PropertiesTable properties={workEventProperties} />
+<PropertiesTable properties={schemaCreativeWorkProperties({className: 'SchemaCreativeWork'})} />
