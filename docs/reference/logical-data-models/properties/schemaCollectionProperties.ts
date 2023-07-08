@@ -1,5 +1,5 @@
 import PropertiesTableProperty from "@site/src/components/PropertiesTableProperty";
-import {schemaCreativeWorkProperties} from "@site/docs/reference/logical-data-models/properties/schemaCreativeWorkProperties";
+import {schemaCreativeWorkProperties} from "./schemaCreativeWorkProperties";
 
 const className = "SchemaCollection";
 

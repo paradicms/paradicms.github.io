@@ -1,5 +1,5 @@
 import PropertiesTableProperty from "@site/src/components/PropertiesTableProperty";
-import {dctermsTitleProperty} from "@site/docs/reference/logical-data-models/properties/dctermsTitleProperty";
+import {dctermsTitleProperty} from "./dctermsTitleProperty";
 
 const className = "DcRightsStatement";
 

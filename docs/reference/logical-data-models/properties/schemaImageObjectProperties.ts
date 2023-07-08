@@ -1,6 +1,6 @@
 import PropertiesTableProperty from "@site/src/components/PropertiesTableProperty";
-import {schemaCreativeWorkProperties} from "@site/docs/reference/logical-data-models/properties/schemaCreativeWorkProperties";
-import {cmsImageSrcProperty} from "@site/docs/reference/logical-data-models/properties/cmsImageSrcProperty";
+import {schemaCreativeWorkProperties} from "./schemaCreativeWorkProperties";
+import {cmsImageSrcProperty} from "./cmsImageSrcProperty";
 
 const className = "SchemaImageObject";
 
