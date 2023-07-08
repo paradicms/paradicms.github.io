@@ -2,7 +2,7 @@ import PropertiesTableProperty from "@site/src/components/PropertiesTablePropert
 
 export const schemaThingProperties = (kwds: {
   className: string;
-  nameRequired?: boolean;
+  nameRequired: boolean;
 }): readonly PropertiesTableProperty[] => [
   {
     cardinality: "0..n",

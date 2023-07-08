@@ -3,7 +3,7 @@ import {schemaThingProperties} from "@site/docs/reference/ontology/properties/sc
 
 export const schemaCreativeWorkProperties = (kwds: {
   className: string;
-  nameRequired?: boolean;
+  nameRequired: boolean;
 }): readonly PropertiesTableProperty[] => [
   ...schemaThingProperties({className: kwds.className}),
   {

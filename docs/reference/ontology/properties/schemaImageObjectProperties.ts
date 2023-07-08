@@ -5,7 +5,7 @@ import {cmsImageSrcProperty} from "@site/docs/reference/ontology/properties/cmsI
 const className = "SchemaImageObject";
 
 export const schemaImageObjectProperties: readonly PropertiesTableProperty[] = [
-  ...schemaCreativeWorkProperties({className}),
+  ...schemaCreativeWorkProperties({className, nameRequired: false}),
   cmsImageSrcProperty,
   {
     cardinality: "0..1",

@@ -4,7 +4,7 @@ import {schemaThingProperties} from "@site/docs/reference/ontology/properties/sc
 const className = "SchemaDefinedTerm";
 
 export const schemaDefinedTermProperties: readonly PropertiesTableProperty[] = [
-  ...schemaThingProperties({className}),
+  ...schemaThingProperties({className, nameRequired: false}),
   {
     cardinality: "0..n",
     description: "Alternative name for this defined term",
