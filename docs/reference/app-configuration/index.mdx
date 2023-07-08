@@ -15,7 +15,7 @@ This page documents the means of configuring [Paradicms apps](/docs/reference/ap
 
 App configuration is specified by an (RDF) instance of `AppConfiguration`. The latter can be included in the same data source you use for your collection data or in an auxiliary data source such as [files](/docs/reference/directory-format).
 
-For example, you can add an `AppConfiguration` sheet to a spreadsheet (as in the <GoogleSheetsTemplateLink>Google Sheets template</GoogleSheetsTemplateLink>) or an `AppConfiguration` file (as in the <DirectoryGitHubTemplateRepositoryLink>directory template</DirectoryGitHubTemplateRepositoryLink>). The `AppConfiguration` follows the usual rules of the format, just like other Paradicms models (`Collection`, `Image`, `Work`, et al.).
+For example, you can add an `AppConfiguration` sheet to a spreadsheet (as in the <GoogleSheetsTemplateLink>Google Sheets template</GoogleSheetsTemplateLink>) or an `AppConfiguration` file (as in the <DirectoryGitHubTemplateRepositoryLink>directory template</DirectoryGitHubTemplateRepositoryLink>). The `AppConfiguration` follows the usual rules of the format, just like other Paradicms [logical data models](/docs/reference/logical-data-models)
 
 #### Properties
 
@@ -23,4 +23,4 @@ For example, you can add an `AppConfiguration` sheet to a spreadsheet (as in the
 
 ### Other classes
 
-Instances of `Property` and `PropertyGroup` classes from the [Paradicms ontology](/docs/reference/ontology) may also affect the behavior of apps by e.g., making certain properties filterable and fulltext-searchable. See the [ontology reference](/docs/reference/ontology) for more information.
+Instances of `Property` and `PropertyGroup` (e.g., `RdfProperty`, `CmsPropertyGroup`) may also affect the behavior of apps by e.g., making certain properties filterable and fulltext-searchable. See the [logical data models reference](/docs/reference/logical-data-models) for more information.
