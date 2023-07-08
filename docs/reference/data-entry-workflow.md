@@ -4,56 +4,53 @@ sidebar_position: 4
 
 # Reference: a repeatable data entry workflow
 
-The interdependencies between [classes in the Paradicms ontology](./ontology) suggest that there is an optimal workflow for entering completely new data into a spreadsheet, Markdown directory, or other source that maps directly to the ontology.
+The interdependencies between [classes in the Paradicms conceptual model](/docs/introduction/conceptual-data-model) suggest that there is an optimal workflow for entering completely new data into a spreadsheet, Markdown directory, or other source that maps to one of the [logical data models](/docs/reference/logical-data-models) supported by Paradicms.
 
 In a repeatable data entry workflow, we will enter data that other data depends on first, then enter first order dependencies, and so on.
 
 For example:
 
-* A `Work` has a one-way link to one or more `Collection`s, so enter `Collection`s first
-* After the `Collection`(s) are entered, enter `Work`s that link to the `Collection`s.
+* A `Collection` has a one-way link to one or more `Work`s, so enter `Work`s first
+* After the `Work`(s) are entered, link the `Collection` to the `Work`(s)
 
 ## Workflow
 
 You may not need to enter new data for every step. If your system already contains data for e.g., the `License` your `Image` will link to, you can obviously skip the `License` entry step.
 
-### Enter self-contained classes
+### Enter `License`, `Location`, and `RightsStatement`
 
 These are classes that do not depend on any other classes. They can be entered in any order.
 
 * `License`s are often pre-populated in templates and/or resolved during [enrichment](./enrichment), but you can enter new ones if needed.
 * `Location`s do not depend on any other classes.
-* `PropertyGroup`s do not depend on any other classes.
 * `RightsStatement`s, like `License`s are often pre-populated and/or resolved during enrichment.
 
-### Enter `Property`
+### Enter `Image`
 
-`Property` can link to `PropertyGroup`.
+An `Image` should be linked to `License` and `RightsStatement`.
 
-### Enter `Collection`, `Organization`,  and/or `Person`
+### Enter `Concept` and `Property`
 
-These can link to a `Location`.
+These classes can both link to `Image`.
+
+### Enter `PropertyGroup`
+
+`PropertyGroup` can link to `Image` and `Property`.
+
+### Enter `Organization` and `Person`
+
+Both can link to `Image` as well as `Location`.
 
 ### Enter `Work`
 
 `Work` can link to:
-* one or more `Collection`s
-* zero or more `Organization`s
-* zero or one `License`
-* zero or more `Person`s
-* zero or one `RightsStatement`
-
-### Enter `Image`
-
-An `Image` can `depict` (and thus link to) instances of several other classes, including:
-
-* `Collection`
+* `Image`
+* `License`
+* `Location`
 * `Organization`
 * `Person`
-* `Work`
+* `RightsStatement`
 
-An `Image` should also be linked to a `License` and a `RightsStatement`.
+### Enter `Collection`
 
-### Enter work events
-
-Work events such as `WorkCreation` link to a `Work`. They may also link to `Location`, `Person`, and other classes. 
+`Collection` can link to `Image` and `Work`.
