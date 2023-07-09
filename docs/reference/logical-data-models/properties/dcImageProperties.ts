@@ -3,12 +3,10 @@ import dcRightsProperties from "./dcRightsProperties";
 import {owlSameAsProperty} from "./owlSameAsProperty";
 import {dctermsTitleProperty} from "./dctermsTitleProperty";
 import {dctermsModifiedProperty} from "./dctermsModifiedProperty";
-import {cmsImageSrcProperty} from "./cmsImageSrcProperty";
 
 const className = "DcImage";
 
 const dcImageProperties: readonly PropertiesTableProperty[] = [
-  cmsImageSrcProperty,
   ...dcRightsProperties({className}),
   dctermsModifiedProperty({className}),
   dctermsTitleProperty({cardinality: "0..1", className}),
@@ -20,6 +18,15 @@ const dcImageProperties: readonly PropertiesTableProperty[] = [
     cardinality: "0..1",
     valueType: "boolean",
     exampleValues: "true",
+  },
+  {
+    term: "src",
+    iri: "cms:imageSrc",
+    description:
+      "Absolute or relative URL where the image data is stored; if not specified, use the `Image`'s IRI",
+    cardinality: "0..1",
+    valueType: "string",
+    exampleValues: "http://example.com/image.jpg",
   },
   {
     term: "format",
