@@ -37,8 +37,8 @@ def write_markdown_table(*, file_name_prefix: str, value_matrix: List[List[Any]]
 write_markdown_table(
     file_name_prefix="creative-commons-licenses",
     value_matrix=[
-        [str(license.uri), license.label]
-        for license in CreativeCommonsLicenses.as_tuple()
+        [str(license_.uri), license_.label]
+        for license_ in CreativeCommonsLicenses.as_tuple()
     ],
 )
 
