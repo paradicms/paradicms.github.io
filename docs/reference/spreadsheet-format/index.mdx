@@ -16,9 +16,11 @@ A Paradicms-formatted spreadsheet such as the <GoogleSheetsTemplateLink>Google S
 ![Screenshot of spreadsheet sheet tabs](./sheets.png)
 
 Sheets can be named with variants of the class names:
-* `WorkCreation`: the exact class name (camel case) documented in the [ontology reference](/docs/reference/ontology)
-* `work_creation`: snake case variant of the class name
-* `work-creation`: spinal case variant of the class name
+* `SchemaPerson`: the exact class name (camel case) documented in the [logical data models reference](/docs/reference/logical-data-models)
+* `schema_person`: snake case variant of the class name
+* `schema-person`: spinal case variant of the class name
+
+Sheets with names that start with a `#` are ignored.
 
 
 ### Sheet structure
@@ -27,11 +29,13 @@ Sheets can be named with variants of the class names:
 
 The first row of each sheet is a header row corresponding to the [JSON-LD terms](https://www.w3.org/TR/json-ld11/#dfn-term) for properties of the class, as well as columns with special meanings in JSON-LD, such as `@id`. The columns can be in any order.
 
-For example, `Person` has columns corresponding to the JSON-LD terms `familyName` (for the IRI `http://xmlns.com/foaf/0.1/familyName`), `givenName`, and `name`, among others. The full set of properties/terms for each class is listed in the [ontology reference](/docs/reference/ontology).
+For example, `SchemaPerson` has columns corresponding to the JSON-LD terms `familyName` (for the IRI `https://schema.org/familyName`), `givenName`, and `name`, among others. The full set of properties/terms for each class is listed in the [logical data models reference](/docs/reference/logical-data-models).
 
 ![Screenshot of a header row](header-row.png)
 
-Note that the header columns do not have to be unique. Columns with identical headers, such as the two `relation` columns in the `Work` sheet, allow you to enter multiple values for the same property (`relation`).
+Note that the header columns do not have to be unique. Columns with identical headers allow you to enter multiple values for the same property.
+
+Columns with headers that start with a `#` are ignored.
 
 #### Data rows
 
@@ -44,31 +48,31 @@ Any rows after the header row are considered data rows, and correspond to instan
 
 #### The `@id` column
 
-Sheets such as `Person` and `Work` have an `@id` column. By convention this is the first column in the sheet.
+Sheets such as `SchemaCreativeWork` and `SchemaPerson` have an `@id` column. By convention this is the first column in the sheet.
 
-The `@id` column contains a unique identifier that allows data rows in the sheet to be referenced by data rows in another sheet. For example, the `depicts` column in the `Image` sheet usually contains the value of an `@id` call in another sheet.
+The `@id` column contains a unique identifier that allows data rows in the sheet to be referenced by data rows in another sheet. For example, the `image` column in the `SchemaPerson` sheet should contain the value of an `@id` cell in the `SchemaImage` sheet.
 
-`@id` is a [JSON-LD construct](https://www.w3.org/TR/json-ld11/#node-identifiers). Unique identifiers in the `@id` column must be [Internationalized Resource Identifiers (IRIs)](https://en.wikipedia.org/wiki/Internationalized_Resource_Identifier). Paradicms simplifies the use of IRIs in spreadsheets by providing an IRI namespace per sheet and an associated prefix. You can see this at work in the `Person` sheet. The unique identifier (`@id`) of Andrew Bolton is `ss-person:andrew-bolton`. Internally, Paradicms expands the `ss-person:` prefix to something like `urn:paradicms:` so that the result is a well-formed IRI like `urn:paradicms:andrew-bolton`. An `Image` data row that `depicts` Andrew Bolton can simply contain `ss-person:andrew-bolton` in the corresponding cell. You can see this mechanism at work in an `Image` that `depicts` Susan Sontag (`ss-person:susan-sontag`):
+`@id` is a [JSON-LD construct](https://www.w3.org/TR/json-ld11/#node-identifiers). Unique identifiers in the `@id` column must be [Internationalized Resource Identifiers (IRIs)](https://en.wikipedia.org/wiki/Internationalized_Resource_Identifier). Paradicms simplifies the use of IRIs in spreadsheets by providing an IRI namespace per sheet and an associated prefix. You can see this at work in the `SchemaPerson` sheet. The unique identifier (`@id`) of Andrew Bolton is `ss-schema-person:andrew-bolton`. Internally, Paradicms expands the `ss-schema-person:` prefix to something like `urn:paradicms:` so that the result is a well-formed IRI like `urn:paradicms:andrew-bolton`. An `SchemaCreativeWork` data row with a `creator` of Andrew Bolton can simply contain `ss-schema-person:andrew-bolton` in the corresponding cell. You can see this mechanism with the `SchemaPerson` for Susan Sontag referencing a `SchemaImageObject` (`ss-schema-image-object:susan-sontag`) in the `image` column:
 
 ![Screenshot of an @id reference](id-reference.png)
 
 #### Other columns
 
-The other columns of a data row correspond to the values of properties of a class instance.  For example, the second row of the `Person` sheet corresponds to the person Andrew Bolton. Andrew Bolton has a `familyName` `Bolton` and `givenName` `Andrew`, as in the screenshot below.
+The other columns of a data row correspond to the values of properties of a class instance.  For example, one of the data rows in the `SchemaPerson` sheet corresponds to the person Andrew Bolton. Andrew Bolton has a `familyName` `Andrew` and `givenName` `Bolton`, as in the screenshot below.
 
 ![Screenshot of a data row](data-row.png)
 
 #### Data validation
 
-The template Google Sheet contains data validation rules that constrain the contents of certain cells. You can see the rules for the `Work` sheet, below.
+The template Google Sheet contains data validation rules that constrain the contents of certain cells. You can see the rules for the `SchemaPerson` sheet, below.
 
 ![Screenshot of data validation rules](data-validation.png)
 
-The rules indicate that the `Work` sheet's `collection` column (column C in the screenshot) must contain values that exist in the `Collection` sheet's `@id` column. In other words, a `Work`'s `collection` property must refer to the identifier of a `Collection`. Google Sheets enforces this rule by showing a dropdown of possible values:
+The rules indicate that the `SchemaPerson` sheet's `image` column (column D in the screenshot) must contain values that exist in the `SchemaImageObject` sheet's `@id` column. In other words, a `SchemaPerson`'s `image` property must refer to the identifier of a `SchemaImageObject`. Google Sheets enforces this rule by showing a dropdown of possible values:
 
-![Screenshot of Work collection dropdown](work-collection-dropdown.png)
+![Screenshot of SchemaPerson image dropdown](id-dropdown.png)
 
-Other rules indicate that cells must have values in a certain format. For example, the `pages` and `relation` columns in the `Work` must be valid URLs.
+Other rules indicate that cells must have values in a certain format. For example, the `sameAs` column in `SchemaPerson` must be a valid URL.
 
 
 ### Conversion to Linked Data
@@ -94,47 +98,42 @@ The spreadsheet to JSON conversion process works as follows:
 
 A cell can contain arbitrary JSON values, including objects (`{}`) and arrays (`[]`). The conversion process attempts to parse any string cell value as JSON. Strings that can't be parsed as JSON are passed through as-is.
 
-Both Google Sheets and Excel support inserting image data (e.g., a copy of a `.jpg` or `.png`) directly into cells. These are not converted to JSON, but handled specially in conversion process for the `Image` sheet. See the [ontology reference](/docs/reference/ontology) for more information.
+Both Google Sheets and Excel support inserting image data (e.g., a copy of a `.jpg` or `.png`) directly into cells. These are not converted to JSON, but handled specially in the conversion process for `Image` classes. See the [logical data models reference](/docs/reference/logical-data-models) for more information.
 
 Converting the Andrew Bolton spreadsheet row shown above would produce the following JSON:
 ```json
 {
-  "@id": "ss-person:andrew-bolton",
+  "@id": "ss-schema-person:andrew-bolton",
   "familyName": "Bolton",
   "givenName": "Andrew",
   "name": "Andrew Bolton",
-  "relation": [
-    "http://www.wikidata.org/entity/Q20829853",
-    "https://en.wikipedia.org/wiki/Andrew_Bolton_(curator)"
-  ]
+  "sameAs": "http://www.wikidata.org/entity/Q20829853"
 }
 ```
 
 #### Interpreting the JSON as JSON-LD
 
-Each ontology class -- and thus each sheet in the spreadsheet -- has an associated [JSON-LD context](https://www.w3.org/TR/json-ld11/#the-context). Paradicms adds this context to the converted JSON (as a `@context` key) before interpreting the latter as JSON-LD. The JSON-LD context maps keys in the JSON object, such as `familyName`, to RDF predicate IRIs, in this case `http://xmlns.com/foaf/0.1/name`. 
+Each logical data model class -- and thus each sheet in the spreadsheet -- has an associated [JSON-LD context](https://www.w3.org/TR/json-ld11/#the-context). Paradicms adds this context to the converted JSON (as a `@context` key) before interpreting the latter as JSON-LD. The JSON-LD context maps keys in the JSON object, such as `familyName`, to RDF predicate IRIs, in this case `https://schema.org/familyName`.
 
 The result of this interpretation is a small RDF graph per data row:
 
 ```turtle
-<urn:spreadsheet:exhibitions:person:andrew-bolton> a cms:Agent,
-        cms:Person ;
-    dcterms:relation <http://www.wikidata.org/entity/Q20829853>,
-        <https://en.wikipedia.org/wiki/Andrew_Bolton_(curator)> ;
-    foaf:familyName "Bolton" ;
-    foaf:givenName "Andrew" ;
-    foaf:name "Andrew Bolton" .
+<urn:spreadsheet:exhibitions:schema-person:andrew-bolton> a schema:Person ;
+    owl:sameAs <http://www.wikidata.org/entity/Q20829853> ;
+    schema:familyName "Bolton" ;
+    schema:givenName "Andrew" ;
+    schema:name "Andrew Bolton" .
 ```
 
-Note that the class (`Person`) is also incorporated into the RDF as an `rdf:type`.
+Note that the class (`SchemaPerson`) is also incorporated into the RDF as an `rdf:type` of `schema:Person`.
 
 #### Putting it all together
 
-Converting each data row with this process (row -> JSON, JSON -> RDF) produces a set of RDF graphs, which are merged to form a single large graph representing all of the data in the spreadsheet.
+Converting each data row with this process (row -> JSON, JSON -> RDF) produces a set of RDF graphs, which are merged to form a single large graph representing all the data in the spreadsheet.
 
-Cross-references to `@id` columns between sheets creates links between graphs. The `Work` `collection` reference shown above produces RDF like the following (abridged for clarity):
+Cross-references to `@id` columns between sheets creates links between graphs. The `SchemaPerson` `image` reference shown above produces RDF like the following (abridged for clarity):
 
 ```turtle
-<urn:spreadsheet:exhibitions:work:exhibition/the-metropolitan-museum-of-art/costume-institute/camp-notes-on-fashion> a cms:Work ;
-    cms:collection <urn:spreadsheet:exhibitions:collection:the-metropolitan-museum-of-art/costume-institute> .
+<urn:spreadsheet:exhibitions:schema-person:susan-sontag> a schema:Person ;
+    schema:image <urn:spreadsheet:exhibitions:schema-image-object:person:susan-sontag> .
 ```
