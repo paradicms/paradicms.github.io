@@ -5,7 +5,7 @@ export const schemaCreativeWorkProperties = (kwds: {
   className: string;
   nameRequired: boolean;
 }): readonly PropertiesTableProperty[] => [
-  ...schemaThingProperties({className: kwds.className}),
+  ...schemaThingProperties(kwds),
   {
     term: "contributor",
     iri: "schema:contributor",

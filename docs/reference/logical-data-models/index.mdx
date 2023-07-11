@@ -20,6 +20,7 @@ import schemaTextObjectProperties from "./properties/schemaTextObjectProperties"
 import {schemaCreativeWorkProperties} from "./properties/schemaCreativeWorkProperties";
 import {schemaDefinedTermProperties} from "./properties/schemaDefinedTermProperties";
 import {schemaCollectionProperties} from "./properties/schemaCollectionProperties";
+import {schemaEventProperties} from "./properties/schemaEventProperties";
 
 # Reference: logical data models
 
@@ -142,6 +143,21 @@ A `DateTimeDescription` is used for partial date-times, where one or more of the
 
 <PropertiesTable properties={owlTimeDateTimeDescriptionProperties} />
 
+### `Event`
+
+An `Event` is an event happening at a certain time and location.
+
+#### `SchemaEvent`
+
+**`rdf:type`**: [`schema:Event`](https://schema.org/Event)
+
+<PropertiesTable properties={schemaEventProperties({className: "SchemaEvent"})}/>
+
+#### `SchemaExhibitionEvent`
+
+**`rdf:type`**: [`schema:ExhibitionEvent`](https://schema.org/ExhibitionEvent)
+
+<PropertiesTable properties={schemaEventProperties({className: "SchemaExhibitionEvent"})}/>
 
 ### `Image`
 
