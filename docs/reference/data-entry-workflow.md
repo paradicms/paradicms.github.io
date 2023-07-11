@@ -27,7 +27,7 @@ These are classes that do not depend on any other classes. They can be entered i
 
 ### Enter `Image`
 
-An `Image` should be linked to `License` and `RightsStatement`.
+`Image` should be linked to `License` and `RightsStatement`.
 
 ### Enter `Concept` and `Property`
 
@@ -40,6 +40,10 @@ These classes can both link to `Image`.
 ### Enter `Organization` and `Person`
 
 Both can link to `Image` as well as `Location`.
+
+### Enter `Event`
+
+`Event` can link to `Image` and `Location`.
 
 ### Enter `Work`
 
