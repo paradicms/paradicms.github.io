@@ -18,4 +18,4 @@ The following questions will help you decide how to get started with Paradicms.
 
 #### If no, or you don't wish to use your existing data right now
 
-Start with the [tutorial on using collection data in Google Sheets to generate a faceted search interface](/docs/tutorials/spreadsheet-ssg).
+Start with the [tutorial on using collection data in files in a GitHub repository to generate a faceted search interface](/docs/tutorials/directory-ssg).
