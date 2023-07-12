@@ -43,7 +43,11 @@ Both can link to `Image` as well as `Location`.
 
 ### Enter `Event`
 
-`Event` can link to `Image` and `Location`.
+`Event` can link to:
+* `Image`
+* `Location`
+* `Organization`
+* `Person`
 
 ### Enter `Work`
 
