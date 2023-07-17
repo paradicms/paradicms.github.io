@@ -11,13 +11,19 @@ After extracting and transforming collection data from sources such as Airtable 
 
 ### Creative Commons `License`s
 
-Many collections reference [Creative Commons](https://creativecommons.org/) [licenses](https://creativecommons.org/ns), [RightsStatements.org](https://rightsstatements.org/en/) [rights statements](https://github.com/rightsstatements/data-model), and other widely-used Linked Data datasets. Although Paradicms provides mechanisms for explicitly adding licenses and rights statements to collection datasets, it is convenient to automatically resolve references to commonly-used IRIs and include the corresponding Linked Data in the collection dataset.
+Many collections reference [Creative Commons](https://creativecommons.org/) [licenses](https://creativecommons.org/ns), [RightsStatements.org](https://rightsstatements.org/en/) [rights statements](https://github.com/rightsstatements/data-model), and other widely-used Linked Data datasets. Although Paradicms provides mechanisms for explicitly adding licenses and rights statements to collection datasets, it is convenient to automatically resolve references to commonly-used IRIs and include the corresponding RDF in the collection dataset.
 
-Paradicms will automatically add RDF for a Creative Commons `License` to a collection dataset for any Creative Commons license IRI referenced in a `dcterms:license` statement.
+Paradicms will automatically add RDF for a Creative Commons `License` to a collection dataset for any Creative Commons license IRI referenced in a `license` statement.
 
-For example, an `Image` with a `license` property of `http://creativecommons.org/licenses/by-nc/4.0/` will cause Paradicms to automatically include the associated Creative Commons license in the collection dataset:
+For example, an `Image` with a `license` property of `http://creativecommons.org/licenses/by-nc/4.0/` will induce Paradicms to automatically include the associated Creative Commons license RDF in the collection dataset:
 
-```turtle
+```turtle title="Example license reference"
+<http://example.com/image> a dcmitype:Image ;
+    dcterms:license <http://creativecommons.org/licenses/by-nc/4.0/>
+    .
+```
+
+```turtle title="Automatically-included Creative Commons RDF"
 <http://creativecommons.org/licenses/by-nc/4.0/> a creativecommons:License ;
     creativecommons:legalcode <http://creativecommons.org/licenses/by-nc/4.0/legalcode> ;
     creativecommons:licenseClass <http://creativecommons.org/license/> ;
@@ -39,22 +45,107 @@ The table below documents the available Creative Commons licenses and their IRIs
 
 <CreativeCommonsLicensesTable/>
 
+### Getty `Work`s
+
+Paradicms will automatically add [Linked Art](https://linked.art/) RDF to a collection dataset for any Getty object referenced in a `sameAs` statement. The Getty enricher will also [IIIF Presentation API](https://iiif.io/api/presentation/) image metadata for images associated with the referenced object.
+
+For example, a `Work` with a `sameAs` property of [`https://data.getty.edu/museum/collection/object/4d302ecd-f3a5-4e52-9e97-ca3ca8d5c9e6`](https://data.getty.edu/museum/collection/object/4d302ecd-f3a5-4e52-9e97-ca3ca8d5c9e6) (corresponding to [this Getty collection object](https://www.getty.edu/art/collection/object/103RRE)) will induce Paradicms to include the RDF at that URL in the graph as well as the associated IIIF Presentation API manifest. [Paradicms apps](/docs/reference/apps) will merge properties from the `Work` and the Getty collection object linked by `sameAs`, including Getty `Image`s referenced by the Getty collection object.
+
+```turtle title="Example sameAs reference to a Getty collection object"
+<http://example.com/work> owl:sameAs <https://data.getty.edu/museum/collection/object/4d302ecd-f3a5-4e52-9e97-ca3ca8d5c9e6> .
+```
+
+```turtle title="Automatically-included, abridged Getty Linked Art RDF"
+<https://data.getty.edu/museum/collection/object/4d302ecd-f3a5-4e52-9e97-ca3ca8d5c9e6> a crm:E22_Human-Made_Object ;
+    rdfs:label "Minerva" ;
+    crm:P108i_was_produced_by <https://data.getty.edu/museum/collection/object/4d302ecd-f3a5-4e52-9e97-ca3ca8d5c9e6/production> ;
+    crm:P128_carries <https://data.getty.edu/museum/collection/object/4d302ecd-f3a5-4e52-9e97-ca3ca8d5c9e6/signature/dad3bb7b-490b-4ac5-995f-35e40ce81f53> ;
+    crm:P129i_is_subject_of <https://media.getty.edu/iiif/manifest/9ab53ead-ad00-460c-ab86-559cfd4d839c>,
+        <https://www.getty.edu/art/collection/object/103RRE> ;
+    crm:P138i_has_representation <https://media.getty.edu/iiif/image/fcbc34dd-cd8a-4a5b-8fd6-cd769588b9a8/full/full/0/default.jpg>
+    .
+```
+
+### North Carolina State University Library `Work`s
+
+Paradicms will automatically add [Schema.org](https://schema.org) RDF to a collection dataset for any North Carolina State University (NCSU) Libraries collections catalog item referenced in a `sameAs` statement.
+
+```turtle title="Example sameAs reference to a Getty collection object"
+<http://example.com/work> owl:sameAs <https://d.lib.ncsu.edu/collections/catalog/0002030> .
+```
+
+```turtle title="Automatically-included, abridged Schema.org from the NCSU Libraries collections catalog"
+<https://d.lib.ncsu.edu/collections/catalog/0002030> a schema:CreativeWork ;
+    schema:dateCreated "None"^^schema:Date ;
+    schema:description "Back of photograph:  \"News Services January 1991 / Centennial Campus Model / Dr. Jerry L. Whitten / Claude E. McKinney / Dr. Ralph K. Calvin III / Chancellor Larry K. Monteith\"  Centennial Campus, named in honor of the school's centennial in 1987, was originally composed of 355 acres south across Western Boulevard that Governor James B. Hunt offered to the University in 1984.  The campus has continued to expand to its present 1,000 acres and 25 buildings over the past two decades.  According to its website (http://centennial.ncsu.edu/overview/index.html), \"Centennial Campus is North Carolina State University's vision of the future. This \"technopolis\" consists of multi-disciplinary R&D neighborhoods, with university, corporate, and government facilities intertwined. A middle school, residential housing, executive conference center and hotel, golf course, town center and recreational amenities will weave the campus into a true interactive community.\"" ;
+    schema:genre "Architectural photographs" ;
+    schema:image <https://iiif.lib.ncsu.edu/iiif/0002030/full/350,/0/default.jpg> ;
+    schema:inLanguage "eng" ;
+    schema:isPartOf <https://d.lib.ncsu.edu/collections/catalog?f%5Bispartof_facet%5D%5B%5D=University+Archives+Photographs&to=catalog%23show_metadata> ;
+    schema:keywords "Campus and Town",
+        "People" ;
+    schema:name "Administrators with Centennial Campus model" ;
+    schema:thumbnailUrl <https://iiif.lib.ncsu.edu/iiif/0002030/full/350,/0/default.jpg> ;
+    schema:url ns394:0002030 .
+```
+
 ### RightsStatements.org `RightsStatement`s
 
-Paradicms will automatically add RDF for a RightsStatements.org rights statement to a collection dataset for any RightsStatements.org rights statement IRI referenced in a `dcterms:rights` statement.
+Paradicms will automatically add RDF for a [RightsStatements.org](https://rightsstatements.org/) rights statement to a collection dataset for any RightsStatements.org rights statement IRI referenced in a `rights` statement:
+
+```turtle title="Example rights statement reference"
+<http://example.com/image> dcterms:rights <http://creativecommons.org/licenses/by-nc/4.0/> .
+```
+
+```turtle title="Automatically-included RightsStatements.org RDF"
+<http://rightsstatements.org/vocab/InC-EDU/1.0/> a dcterms:RightsStatement ;
+    dcterms:description "This Rights Statement indicates that the Item labeled with this Rights Statement is in copyright but that educational use is allowed without the need to obtain additional permission."@en ;
+    dcterms:identifier "InC-EDU" ;
+    skos:definition """This Item is protected by copyright and/or related rights.
+
+You are free to use this Item in any way that is permitted by the copyright and related rights legislation that applies to your use. In addition, no permission is required from the rights-holder(s) for educational uses.
+
+For other uses, you need to obtain permission from the rights-holder(s)."""@en ;
+    skos:note "Unless expressly stated otherwise, the organization that has made this Item available makes no warranties about the Item and cannot guarantee the accuracy of this Rights Statement. You are responsible for your own use."@en,
+        "You may find additional information about the copyright status of the Item on the website of the organization that has made the Item available."@en,
+        "You may need to obtain other permissions for your intended use. For example, other rights such as publicity, privacy or moral rights may limit how you may use the material."@en ;
+    skos:prefLabel "In Copyright - Educational Use Permitted"@en ;
+    skos:scopeNote "This Rights Statement can be used only for copyrighted Items for which the organization making the Item available is the rights-holder or has been explicitly authorized by the rights-holder(s) to allow third parties to use their Work(s) for educational purposes without first obtaining permission."@en .
+```
+
 
 The table below documents the available RightsStatements.org rights statements and their IRIs.
 
 <RightsStatementDotOrgRightsStatementsTable/>
 
-### Wikidata
+### Wikidata `Person`s and `Work`s
 
-Paradicms will automatically add (untransformed) Wikidata RDF corresponding to any concept referenced in a `dcterms:relation` or `owl:sameAs` statement.
+Paradicms will automatically add Wikidata RDF corresponding to any concept referenced in a `sameAs` statement. For example, a `Work` with a `sameAs` property of [`http://www.wikidata.org/entity/Q7251`](http://www.wikidata.org/entity/Q7251) will induce Paradicms to include the contents of [`http://www.wikidata.org/entity/Q7251.ttl`](http://www.wikidata.org/entity/Q7251.ttl) in the graph as a separate class instance. [Paradicms apps](/docs/reference/apps) will merge properties from the `Work` and the Wikidata concept linked by `sameAs`.
 
-For example, a `Work` with a `sameAs` property of [`http://www.wikidata.org/entity/Q7251`](http://www.wikidata.org/entity/Q7251) will cause Paradicms to include the contents of [`http://www.wikidata.org/entity/Q7251.ttl`](http://www.wikidata.org/entity/Q7251.ttl) in the graph as a separate class instance. [Paradicms apps](/docs/reference/apps) will merge properties from the `Work` and the Wikidata concept linked by `owl:sameAs`.
+```turtle title="Example sameAs reference to a Wikidata concept"
+<http://example.com/work> owl:sameAs <http://www.wikidata.org/entity/Q7251> .
+```
 
-### Wikimedia Commons
+```turtle title="Automatically-included, abridged Wikidata RDF"
+<http://www.wikidata.org/entity/Q7251> a wikibase:Item ;
+    rdfs:label "Alan Turing"@en ;
+    sdohttp:description "English mathematician and computer scientist (1912–1954)"@en
+.
+```
 
-Paradicms will automatically attempt to add image licenses (`dcterms:license`) for `Image`s with a `dcterm:source` of Wikimedia Commons file. For example, an `Image` with `dcterms:source` of `http://commons.wikimedia.org/wiki/File:Babbage_Difference_Engine.jpg` will add a `dcterms:license` of `http://creativecommons.org/licenses/by-sa/4.0/`.
+### Wikimedia Commons `Image`s
 
-The process works by scraping the HTML of the Wikimedia Commons file page ([http://commons.wikimedia.org/wiki/File:Babbage_Difference_Engine.jpg](http://commons.wikimedia.org/wiki/File:Babbage_Difference_Engine.jpg)). Wikimedia Commons does not export its metadata in machine-readable form.
+Paradicms will automatically attempt to add image licenses for `Image`s with a `source` of a [Wikimedia Commons](https://commons.wikimedia.org/) file. For example, an `Image` with `source` of `http://commons.wikimedia.org/wiki/File:Babbage_Difference_Engine.jpg` will add a `license` of `http://creativecommons.org/licenses/by-sa/4.0/`.
+
+```turtle title="Example source reference to a Wikimedia Commons image"
+<http://example.com/image> a dcmitype:Image ;
+  dcterms:source <http://commons.wikimedia.org/wiki/File:Babbage_Difference_Engine.jpg>
+  .
+```
+
+```turtle title="Automatically added license metadata"
+<http://example.com/image> a dcmitype:Image ;
+      dcterms:source <http://commons.wikimedia.org/wiki/File:Babbage_Difference_Engine.jpg>
+      dcterms:license <http://creativecommons.org/licenses/by-sa/4.0/>
+  .
+```
