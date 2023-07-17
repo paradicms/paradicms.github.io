@@ -46,7 +46,7 @@ Another HTTP GET request for the IIIF Presentation API manifest URL returns JSON
 
 Linked Art clients such as [linkedart.js](https://linkedartjs.org/) usually manipulate Linked Art JSON-LD as JSON. JR Ladd's excellent series of blog posts on ["Understanding Linked Art With the Getty Collection API"](https://observablehq.com/@jrladd/linked-art-1) demonstrates how to use the linkedart.js client to navigate Getty collection data as JSON.
 
-Paradicms takes a different approach, converting data to RDF as close to the source as possible and using RDF in user-facing applications -- [end-to-end](/blog/2023-07-12-ld4-2023).
+Paradicms takes a different approach, converting data to RDF as close to the source as possible and using RDF in user-facing applications -- [end-to-end](/blog/2023/07/12/ld4-2023).
 
 [Expanding](https://www.w3.org/TR/json-ld11-api/#expansion) the Getty entity record JSON-LD from the listing above produces the following semantically equivalent RDF in Turtle syntax:
 
@@ -96,7 +96,7 @@ An enrichment process for Getty collection data and images should:
 2. download collection and image metadata for connected Getty entities using Getty's REST endpoints and IIIF Presentation API
 3. incorporate the metadata into [Paradicms apps](/docs/reference/apps) by treating Linked Art as an additional [logical data model](/docs/reference/logical-data-models/)
 
-Steps 1 and 2 are implemented in a Python-based enrichment process, while step 3 is implemented in TypeScript as a set of [RDF-backed models](/blog/2023-06-07-rdf-backed-models-in-typescript).
+Steps 1 and 2 are implemented in a Python-based enrichment process, while step 3 is implemented in TypeScript as a set of [RDF-backed models](/blog/2023/06/07/rdf-backed-models-in-typescript).
 
 #### Enrichment in Python
 
@@ -127,6 +127,6 @@ Not all Linked Art logical data model classes are represented in the Paradicms c
 
 ### Conclusion
 
-The enrichment process recognizes `sameAs` connections to Getty collection IRIs, extracts Linked Art and IIIF Presentation API RDF from the Getty APIs, and passes the RDF as-is to Paradicms apps. The abstraction of the conceptual data model and the use of [RDF-backed logical models in TypeScript]((/blog/2023-06-07-rdf-backed-models-in-typescript)) allows apps to be agnostic of the underlying details of the RDF while seamlessly incorporating Getty collection metadata and images into a user interface:
+The enrichment process recognizes `sameAs` connections to Getty collection IRIs, extracts Linked Art and IIIF Presentation API RDF from the Getty APIs, and passes the RDF as-is to Paradicms apps. The abstraction of the conceptual data model and the use of [RDF-backed logical models in TypeScript](/blog/2023/06/07/rdf-backed-models-in-typescript) allows apps to be agnostic of the underlying details of the RDF while seamlessly incorporating Getty collection metadata and images into a user interface:
 
 ![Screenshot of the Paradicms work-search app with Getty collection data](./result.png)
