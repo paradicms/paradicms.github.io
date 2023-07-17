@@ -26,30 +26,30 @@ import {schemaEventProperties} from "./properties/schemaEventProperties";
 
 `Work`s, `Collection`s, and other entities in the [Paradicms conceptual data model](/docs/introduction/conceptual-data-model) can be represented in different logical data models, such as [Schema.org](https://schema.org) or [FOAF](http://xmlns.com/foaf/0.1/). The abstraction layer of the conceptual data model allows [Paradicms apps](/docs/reference/apps) to use data represented in a variety of logical models with little or no translation.
 
-## Structure of this document
+### Structure of this document
 
 This page documents the entities in the conceptual data model as well as the different ways of representing them. Each top-level section of the page documents an entity in the conceptual data model, with sub-sections for supported representation.
 
-### RDF classes
+#### RDF classes
 
 For RDF-based logical representations, each sub-section includes
 
 * a short file name-safe identifier for the model, such as `DcCollection`, which is used in various input formats (e.g., as a sheet name in the [spreadsheet format](/docs/reference/spreadsheet-format))
 * a table of RDF properties with the following columns:
 
-#### Term
+##### Term
 
 Per [the JSON-LD definition](https://www.w3.org/TR/json-ld11/#dfn-term), a **term** is short word defined in a [JSON-LD context](https://www.w3.org/TR/json-ld11/#the-context) that may be expanded to an [IRI](https://en.wikipedia.org/wiki/Internationalized_Resource_Identifier). Paradicms uses JSON-LD contexts to map terms such as `description` to IRIs (`http://purl.org/dc/terms/description`). For example, each [column header in a spreadsheet](/docs/reference/spreadsheet-format) or top-level YAML object key in the [directory format](/docs/reference/directory-format) is a term corresponding to a predicate IRI in an RDF statement.
 
 The per-class property tables in this document are essentially human-readable versions of the JSON-LD contexts for the classes.
 
-#### IRI
+##### IRI
 
 A property's term expands to this predicate IRI. For space reasons the IRIs are abbreviated with commonly-used namespaces:
 
 <NamespacesTable/>
 
-#### Description
+##### Description
 
 Most of the properties used by Paradicms have well-described semantics, and are backed up by formal specifications in [RDF Schema](https://www.w3.org/TR/rdf-schema/), [Shapes Constraint Language (SHACL)](https://www.w3.org/TR/shacl/), and [the Web Ontology Language (OWL)](https://www.w3.org/OWL/). This column briefly summarizes the expected semantics of a property. For extended descriptions, refer to the original vocabulary for a property, such as [DCMI Metadata Terms](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/) for `dcterms:`-prefixed properties like `dcterms:creator`.
 
@@ -62,7 +62,7 @@ This column indicates the cardinality of the class property. It can contain the 
 * **1**: The class must have only one value for the property
 * **1..n**: The class must have at least one value for the property
 
-#### Value type
+##### Value type
 
 A property IRI becomes the predicate of a `(subject, predicate, object)` RDF statement. The `subject` is usually implicit in the data source -- a synthesized IRI of a spreadsheet row, for example.
 
@@ -94,7 +94,7 @@ After expanding the namespaces, the sheet translates to the following `(subject,
 <urn:spreadsheet:example:work:ExampleWork> <http://purl.org/dc/terms/creator> <urn:spreadsheet:example:work:person:ExamplePerson> .
 ```
 
-#### Example values
+##### Example values
 
 For each property, the table lists one or more example values. As in the spreadsheet example above, a value may have a different syntax depending on the data source.
 
@@ -143,6 +143,7 @@ A `DateTimeDescription` is used for partial date-times, where one or more of the
 
 <PropertiesTable properties={owlTimeDateTimeDescriptionProperties} />
 
+
 ### `Event`
 
 An `Event` is an event happening at a certain time and location.
@@ -159,6 +160,7 @@ An `Event` is an event happening at a certain time and location.
 
 <PropertiesTable properties={schemaEventProperties({className: "SchemaExhibitionEvent"})}/>
 
+
 ### `Image`
 
 An `Image` is a visual surrogate for a `Work`, `Collection`, `Person`, or other instance of a Paradicms entity.
@@ -174,6 +176,10 @@ An `Image` is a visual surrogate for a `Work`, `Collection`, `Person`, or other 
 **`rdf:type`**: [`schema:ImageObject`](https://schema.org/ImageObject)
 
 <PropertiesTable properties={schemaImageObjectProperties} />
+
+#### `StubImage`
+
+See [stub models](#stub-models).
 
 
 ### `License`
@@ -196,6 +202,10 @@ A `Location` is an entity with a fixed (latitude/longitude) spatial presence.
 **`rdf:type`**: [`schema:Place`](https://schema.org/Place)
 
 <PropertiesTable properties={schemaPlaceProperties} />
+
+#### `StubLocation`
+
+See [stub models](#stub-models).
 
 
 ### `Organization`
@@ -230,6 +240,11 @@ An `Person` is a human such as Alan Turing.
 **`rdf:type`**: [`schema:Person`](https://schema.org/Person)
 
 <PropertiesTable properties={schemaPersonProperties} />
+
+#### `StubPerson`
+
+See [stub models](#stub-models).
+
 
 
 ### `Property`
@@ -303,3 +318,29 @@ A `Work` is a built or created object such as a manuscript or garment.
 **`rdf:type`**: [`schema:CreativeWork`](https://schema.org/CreativeWork)
 
 <PropertiesTable properties={schemaCreativeWorkProperties({className: 'SchemaCreativeWork'})} />
+
+#### `StubWork`
+
+See [stub models](#stub-models).
+
+
+
+### Stub models
+
+[Enrichment in Paradicms](/docs/reference/enrichment) works by looking for connections between models declared in Paradicms and external IRIs, such as a Paradicms `SchemaCreativeWork` declaring itself `schema:sameAs` the Getty collection object `https://data.getty.edu/museum/collection/object/4d302ecd-f3a5-4e52-9e97-ca3ca8d5c9e6`:
+
+```turtle title="Example sameAs reference to a Getty collection object"
+<http://example.com/work> a schema:CreativeWork ;
+  schema:sameAs <https://data.getty.edu/museum/collection/object/4d302ecd-f3a5-4e52-9e97-ca3ca8d5c9e6>
+  .
+```
+
+In these situations it's often the case that the Paradicms work (`http://example.com/work` in the snippet above) does not assert any statements of its own except the `sameAs` link to the external IRI. In these situations you can elide the `schema:CreativeWork` entirely by utilizing a _stub model_.
+
+A stub model only specifies an external IRI like `https://data.getty.edu/museum/collection/object/4d302ecd-f3a5-4e52-9e97-ca3ca8d5c9e6`. It makes no statements of its own. A stub `Work` can be declared in a [Paradicms-formatted spreadsheet](/docs/reference/spreadsheet-format) by creating a sheet named `StubWork` with a single column, `@id`. The `@id` column will contain external IRIs, such as Wikidata and Getty IRIs in the screenshot below.
+
+![Screenshot of stub models in a spreadsheet](./stub-models-spreadsheet.png)
+
+During the enrichment process, the `StubWork` instance will be replaced by a corresponding `Work` instance from the external data source, such as a `WikibaseItem` (for Wikidata `@id`s) or a `LinkedArtWork` (for Getty `@id`s). The `StubWork` instance will not be included in the RDF consumed by [Paradicms apps](/docs/reference/apps), since it makes no statements of its own.
+
+See the sections above for the available stub model types.
