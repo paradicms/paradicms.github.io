@@ -149,3 +149,25 @@ Paradicms will automatically attempt to add image licenses for `Image`s with a `
       dcterms:license <http://creativecommons.org/licenses/by-sa/4.0/>
   .
 ```
+
+### Yale `Work`s
+
+Paradicms will automatically add [Linked Art](https://linked.art/) RDF to a collection dataset for any [LUX: Yale Collections Discovery](https://lux.collections.yale.edu/) object referenced in a `sameAs` statement. The Yale enricher will also [IIIF Presentation API](https://iiif.io/api/presentation/) image metadata for images associated with the referenced object.
+
+For example, a `Work` with a `sameAs` property of [`https://lux.collections.yale.edu/data/object/25a33e3e-5ac3-4154-9d01-2cbbf87713ed`](https://lux.collections.yale.edu/data/object/25a33e3e-5ac3-4154-9d01-2cbbf87713ed) (corresponding to [this page](https://lux.collections.yale.edu/view/object/25a33e3e-5ac3-4154-9d01-2cbbf87713ed)) will induce Paradicms to include the RDF at that URL in the graph as well as the associated IIIF Presentation API manifest. [Paradicms apps](/docs/reference/apps) will merge properties from the `Work` and the Yale collection object linked by `sameAs`, including Yale `Image`s referenced by the Yale collection object.
+
+```turtle title="Example sameAs reference to a Yale collection object"
+<http://example.com/work> owl:sameAs <https://lux.collections.yale.edu/data/object/25a33e3e-5ac3-4154-9d01-2cbbf87713ed> .
+```
+
+```turtle title="Automatically-included, abridged Yale Linked Art RDF"
+<https://lux.collections.yale.edu/data/object/25a33e3e-5ac3-4154-9d01-2cbbf87713ed> a crm:E22_Human-Made_Object ;
+    rdfs:label "The Judgement Of Paris" ;
+    crm:P108i_was_produced_by <http://paradicms.org/bnode/N6f2f65e847fd4106a61ca4f0a53c4618> ;
+    crm:P129i_is_subject_of <http://paradicms.org/bnode/N32ce9ecc5df74ba094eb1949fae8a3e1>,
+        <http://paradicms.org/bnode/N338483458e4f4e1b95a80b36a2dd07ba>,
+        <http://paradicms.org/bnode/Nd098a034860f425281ab8e829df2432a> ;
+    crm:P138i_has_representation <http://paradicms.org/bnode/N5cfe0d968d36462d81368fa43710f18b>,
+        <http://paradicms.org/bnode/N972a3e9944744938a21f95d3ae209aaa> ;
+    .
+ ```
