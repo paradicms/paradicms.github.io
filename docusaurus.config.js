@@ -8,7 +8,7 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
 const config = {
   title: "Paradicms",
   tagline:
-    "Linked Data-powered Collections Management System for archives, libraries, museums, and individuals",
+    "Linked Data-powered Collections Management System for small archives, libraries, and museums",
   favicon: "img/favicon.ico",
 
   // Set the production url of your site here
