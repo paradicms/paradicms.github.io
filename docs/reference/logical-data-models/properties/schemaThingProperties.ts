@@ -37,14 +37,6 @@ export const schemaThingProperties = (kwds: {
     valueType: "string",
   },
   {
-    term: "sameAs",
-    iri: "schema:sameAs",
-    description: `IRI of a ${kwds.className} this ${kwds.className} is the same as`,
-    cardinality: "0..n",
-    valueType: "IRI",
-    exampleValues: "http://www.wikidata.org/entity/Q7251",
-  },
-  {
     term: "url",
     iri: "schema:url",
     description: `URL of a webpage about this ${kwds.className}, such as a Wikipedia page`,

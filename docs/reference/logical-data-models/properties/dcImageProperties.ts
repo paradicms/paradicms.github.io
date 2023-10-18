@@ -1,8 +1,7 @@
 import PropertiesTableProperty from "@site/src/components/PropertiesTableProperty";
 import dcRightsProperties from "./dcRightsProperties";
-import {owlSameAsProperty} from "./owlSameAsProperty";
-import {dctermsTitleProperty} from "./dctermsTitleProperty";
 import {dctermsModifiedProperty} from "./dctermsModifiedProperty";
+import {dctermsTitleProperty} from "./dctermsTitleProperty";
 
 const className = "DcImage";
 
@@ -10,7 +9,6 @@ const dcImageProperties: readonly PropertiesTableProperty[] = [
   ...dcRightsProperties({className}),
   dctermsModifiedProperty({className}),
   dctermsTitleProperty({cardinality: "0..1", className}),
-  owlSameAsProperty({className}),
   {
     term: "copyable",
     iri: "cms:imageCopyable",
