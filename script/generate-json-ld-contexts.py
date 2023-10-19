@@ -2,7 +2,9 @@ import json
 from pathlib import Path
 from shutil import rmtree
 
-from paradicms_ssg.models.root_model_classes_by_name import ROOT_MODEL_CLASSES_BY_NAME  # type: ignore
+from paradicms_etl.models.root_model_classes_by_name import (
+    ROOT_MODEL_CLASSES_BY_NAME,  # type: ignore
+)
 from stringcase import spinalcase
 
 ROOT_DIR_PATH = Path(__file__).parent.parent.absolute()
