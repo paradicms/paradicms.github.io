@@ -1,6 +1,6 @@
 | Namespace prefix | Namespace IRI                                 | Vocabulary                                                                                |
 |------------------|-----------------------------------------------|-------------------------------------------------------------------------------------------|
-| `cms:`           | `http://www.paradicms.org/ns/cms#`            | Paradicms custom properties                                                               |
+| `cms:`           | `http://paradicms.github.io/ns/cms#`            | Paradicms custom properties                                                               |
 | `dcmitype:`      | `http://purl.org/dc/dcmitype/`                | [DCMI Type vocabulary](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/) |
 | `dcterms:`       | `http://purl.org/dc/terms/`                   | [DCMI Metadata terms](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/)  |
 | `exif:`          | `http://www.w3.org/2003/12/exif/ns#`          | [Exif vocabulary](https://www.w3.org/2003/12/exif/)                                       |
